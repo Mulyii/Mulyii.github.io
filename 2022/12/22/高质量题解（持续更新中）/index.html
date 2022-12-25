@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>高质量题解（持续更新中） - Muly&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="A blog records study of Algorithm, Math and Physics,TLife is a Gam题目大意: 给定一张$n$个点$m$条边的无向连通图, 每个点拥有点权$a$, 每条边拥有边权$w$. 有$q$次询问, 每次询问给定初始点$x$和初始能力值$k$, 从,"> 
+    <meta name="author" content="Muly"> 
+    <link rel="alternative" href="atom.xml" title="Muly&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="高质量题解（持续更新中） - Muly&#39;s blog"/>
+    <meta name="twitter:description" content="A blog records study of Algorithm, Math and Physics,TLife is a Gam题目大意: 给定一张$n$个点$m$条边的无向连通图, 每个点拥有点权$a$, 每条边拥有边权$w$. 有$q$次询问, 每次询问给定初始点$x$和初始能力值$k$, 从,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Muly&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="高质量题解（持续更新中） - Muly&#39;s blog"/>
+    <meta property="og:description" content="A blog records study of Algorithm, Math and Physics,TLife is a Gam题目大意: 给定一张$n$个点$m$条边的无向连通图, 每个点拥有点权$a$, 每条边拥有边权$w$. 有$q$次询问, 每次询问给定初始点$x$和初始能力值$k$, 从,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Muly&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://mulyq.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">高质量题解（持续更新中）</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">高质量题解（持续更新中）</h1>
+        <div class="stuff">
+            <span>十二月 22, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103446/problem/H">TLife is a Gam</a><br>题目大意: 给定一张$n$个点$m$条边的无向连通图, 每个点拥有点权$a$, 每条边拥有边权$w$. 有$q$次询问, 每次询问给定初始点$x$和初始能力值$k$, 从$x$点出发, 可以通过小于等于当前能力值的边到达另一个点, 每次到达一个未经过的点便获得这个点的点权, 求最大的能力值.</p>
+<p>对于任意一张图, 所走过的边一定属于该图的最小生成树, 这一点用Kruskal很容易证明, 对于一条$u, v$的边, 如果点$u$和点$v$已经连通, 这条边的边权一定大于等于$u, v$路径上的所有边的边权.<br>那么这题的一个朴素想法便是构建该图的最小生成树, 对于每次询问, 从$x$出发, 跑一个优先队列维护的bfs即可, 然而时限显然不够.<br>对于这类多次询问的问题的优化, 有两种基本的思路: 其一是对数据进行预处理, 从而降低每次查询的复杂度; 其二是离线查询.<br>对于最小生成树的预处理有 Kruskal 重构树. 我们让重构树的每个点维护其子树的能力增加量和所需的能力值, 从点$x$开始, 一直向上搜索它的父节点, 直到无法向上搜素或者搜索到根节点为止. 但是重构树的高度最坏为$n$, 这意味着每次查询的最坏复杂度为$O(n)$, 还是差点的时限!<br>我们需要再多一点的预处理, 树上的预处理似乎可以用树上倍增来处理. 尝试写一个长度为$2$的转移: $bz[i][1] = max(bz[i][0], bz[fa[i][0]][0])$, 似乎不难理解并且可行, 那么至此此题的最终复杂度$O(qlog\ n)$.<br>参考代码<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">EDGE</span> &#123;</span><br><span class="line">    <span class="type">int</span> u, v, w;</span><br><span class="line">    <span class="type">bool</span> <span class="keyword">operator</span>&lt; (<span class="type">const</span> EDGE &amp;a) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> w &lt; a.w;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">DSU</span> &#123;</span><br><span class="line">    <span class="type">int</span> N;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; p;</span><br><span class="line">    <span class="built_in">DSU</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        N = n;</span><br><span class="line">        p.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            p[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">root</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> p[x] == x ? x : p[x] = <span class="built_in">root</span>(p[x]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> X = <span class="built_in">root</span>(x), Y = <span class="built_in">root</span>(y);</span><br><span class="line">        <span class="keyword">if</span>(X == Y) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        p[X] = Y;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">NODE</span> &#123;</span><br><span class="line">    <span class="type">int</span> f = <span class="number">-1</span>, w = <span class="number">0</span>;</span><br><span class="line">    ll add = <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line">NODE node[MAXN &lt;&lt; <span class="number">1</span>];</span><br><span class="line">vector&lt;EDGE&gt; e;</span><br><span class="line">ll bz[MAXN &lt;&lt; <span class="number">1</span>][<span class="number">17</span>];</span><br><span class="line"><span class="type">int</span> fa[MAXN &lt;&lt; <span class="number">1</span>][<span class="number">17</span>];</span><br><span class="line"><span class="type">int</span> n, m, q;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;</span><br><span class="line">    e.<span class="built_in">resize</span>(m);</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        node[i].add = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[u, v, w] : e) &#123;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v &gt;&gt; w;</span><br><span class="line">        u --, v --;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(e.<span class="built_in">begin</span>(), e.<span class="built_in">end</span>());</span><br><span class="line">    <span class="function">DSU <span class="title">dsu</span><span class="params">(<span class="number">2</span> * n + <span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[u, v, w] : e) &#123;</span><br><span class="line">        <span class="type">int</span> U = dsu.<span class="built_in">root</span>(u), V = dsu.<span class="built_in">root</span>(v);</span><br><span class="line">        <span class="keyword">if</span>(U != V) &#123;</span><br><span class="line">            dsu.<span class="built_in">merge</span>(U, n), dsu.<span class="built_in">merge</span>(V, n);</span><br><span class="line">            node[U].f = node[V].f = n;</span><br><span class="line">            node[n].add = node[U].add + node[V].add;</span><br><span class="line">            node[n].w = w;</span><br><span class="line">            n ++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        fa[i][<span class="number">0</span>] = node[i].f;</span><br><span class="line">        bz[i][<span class="number">0</span>] = node[node[i].f].w - node[i].add;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">17</span>; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fa[j][i - <span class="number">1</span>] == - <span class="number">1</span>) &#123;</span><br><span class="line">                fa[j][i] = <span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fa[j][i] = fa[fa[j][i - <span class="number">1</span>]][i - <span class="number">1</span>];</span><br><span class="line">            bz[j][i] = <span class="built_in">max</span>(bz[j][i - <span class="number">1</span>], bz[fa[j][i - <span class="number">1</span>]][i - <span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(q --) &#123;</span><br><span class="line">        <span class="type">int</span> x, k;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; k;</span><br><span class="line">        x --;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">16</span>; i &gt;= <span class="number">0</span>; i --) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fa[x][i] != <span class="number">-1</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span>(bz[x][i] &lt;= k) &#123;</span><br><span class="line">                    x = fa[x][i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ll res = k + node[x].add;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103446/problem/M">Harmony in Harmony</a><br>题目大意: $n$个人将大小为$1$的地均分两次, 第一次每人分得$1/n$, 第二次同样分为大小相同的$n$份, $n$人自行分配, 要求使得第一次和第二次区域的交集最小的人的值最大, 第二次均分地时有一种分法, 使得这个值最小, 求出这个值.</p>
+<p>参考代码:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="type">double</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        res = <span class="built_in">min</span>(res, (<span class="type">double</span>)<span class="number">1</span> / (n * (n + <span class="number">1</span> - i) * i));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.9f&quot;</span>, res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103470/problem/D">Paimon Sorting</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/104114/problem/E">Exercise</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/104114/problem/F">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1772/problem/G">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1754/problem/F">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/822/problem/C">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/229/problem/D">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1288/problem/D">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/104114/problem/G">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103446/problem/J">T</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103470/problem/I">T</a></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+
+</html>
