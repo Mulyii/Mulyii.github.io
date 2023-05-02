@@ -189,7 +189,30 @@
 <li>问题描述：平面上$n$个点, 要求找到一个半径最小的圆, 能覆盖所有的点.</li>
 </ul>
 <p>算法思想: 随机增量法 (理论实践复杂度O(n) ? 但是最坏貌似还是$n^3$) 每次进入下一曾 for的概率都小于$\frac{3}{n}$. 因此每次随机化点可以尽可能地避免最坏情况的发生.</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function">Points <span class="title">ps</span><span class="params">(n)</span></span>;</span><br><span class="line"><span class="built_in">random_shuffle</span>(ps.<span class="built_in">begin</span>(), ps.<span class="built_in">end</span>()); <span class="comment">// 随机化</span></span><br><span class="line"><span class="function">Circle <span class="title">res</span><span class="params">(Point(<span class="number">0</span>, <span class="number">0</span>), <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">    <span class="comment">// 圆是否包含点 i</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">CCP</span>(res, ps[i]) == out) &#123;</span><br><span class="line">        res = <span class="built_in">Circle</span>(ps[i], <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; i; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">CCP</span>(res, ps[j]) == out) &#123;</span><br><span class="line">                <span class="comment">// 两点确定一个圆</span></span><br><span class="line">                res = <span class="built_in">Circle</span>((ps[i] + ps[j]) / <span class="number">2</span>, <span class="built_in">dis</span>(ps[i], ps[j]) / <span class="number">2</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">0</span>; k &lt; j; k ++) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">CCP</span>(res, ps[k]) == out) &#123;</span><br><span class="line">                        <span class="comment">// 三点确定一个圆</span></span><br><span class="line">                        res = <span class="built_in">circumcircle</span>(ps[i], ps[j], ps[k]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="lang-cpp">int n;
+Points ps(n);
+random_shuffle(ps.begin(), ps.end()); // 随机化
+Circle res(Point(0, 0), 0);
+for(int i = 0; i &lt; n; i ++) &#123;
+    // 圆是否包含点 i
+    if(CCP(res, ps[i]) == out) &#123;
+        res = Circle(ps[i], 0);
+        for(int j = 0; j &lt; i; j ++) &#123;
+            if(CCP(res, ps[j]) == out) &#123;
+                // 两点确定一个圆
+                res = Circle((ps[i] + ps[j]) / 2, dis(ps[i], ps[j]) / 2);
+                for(int k = 0; k &lt; j; k ++) &#123;
+                    if(CCP(res, ps[k]) == out) &#123;
+                        // 三点确定一个圆
+                        res = circumcircle(ps[i], ps[j], ps[k]);
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+
     </div>
     
     

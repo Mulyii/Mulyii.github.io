@@ -177,7 +177,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/rust/" style="color: #00a596">rust</a>
+                <a href="/tags/rust/" style="color: #00bcd4">rust</a>
             </span>
             
         </span>
@@ -186,19 +186,33 @@
     
     <div class="content" v-pre>
         <h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>Linux<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">curl --proto <span class="string">&#x27;=https&#x27;</span> --tlsv1.3 https://sh.rustup.rs -sSf | sh</span></span><br></pre></td></tr></table></figure></li>
+<li>Linux<pre><code class="lang-shell">$ curl --proto &#39;=https&#39; --tlsv1.3 https://sh.rustup.rs -sSf | sh
+</code></pre>
+</li>
 <li>windows<br>前往 <a target="_blank" rel="noopener" href="https://www.rust-lang.org/install.html">https://www.rust-lang.org/install.html</a> 并按照说明安装 Rust</li>
 </ul>
-<h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rustc --version</span></span><br></pre></td></tr></table></figure>
-<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rustup update</span></span><br></pre></td></tr></table></figure>
-<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rustup self uninstall</span></span><br></pre></td></tr></table></figure>
-<h3 id="本地文档"><a href="#本地文档" class="headerlink" title="本地文档"></a>本地文档</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustup doc</span><br></pre></td></tr></table></figure>
-<h2 id="编译命令与Cargo"><a href="#编译命令与Cargo" class="headerlink" title="编译命令与Cargo"></a>编译命令与Cargo</h2><h3 id="rustc"><a href="#rustc" class="headerlink" title="rustc"></a>rustc</h3><p>和gcc差不多的用法<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">rust [-g] &#123;filename.rs&#125; [-o]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><pre><code class="lang-shell">$ rustc --version
+</code></pre>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><pre><code class="lang-shell">$ rustup update
+</code></pre>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><pre><code class="lang-shell">$ rustup self uninstall
+</code></pre>
+<h3 id="本地文档"><a href="#本地文档" class="headerlink" title="本地文档"></a>本地文档</h3><pre><code class="lang-shell">rustup doc
+</code></pre>
+<h2 id="编译命令与Cargo"><a href="#编译命令与Cargo" class="headerlink" title="编译命令与Cargo"></a>编译命令与Cargo</h2><h3 id="rustc"><a href="#rustc" class="headerlink" title="rustc"></a>rustc</h3><p>和gcc差不多的用法</p>
+<pre><code class="lang-shell">$ rust [-g] &#123;filename.rs&#125; [-o]
+</code></pre>
 <h3 id="Cargo"><a href="#Cargo" class="headerlink" title="Cargo"></a>Cargo</h3><ul>
-<li>创建一个项目<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">cargo new &#123;<span class="built_in">dirname</span>&#125;</span> </span><br></pre></td></tr></table></figure></li>
-<li>构建<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">cargo build [--release]</span></span><br></pre></td></tr></table></figure>
-只确保通过编译<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cargo check</span><br></pre></td></tr></table></figure></li>
-<li>运行<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">cargo run</span></span><br></pre></td></tr></table></figure>
+<li>创建一个项目<pre><code class="lang-shell">$ cargo new &#123;dirname&#125;
+</code></pre>
+</li>
+<li>构建<pre><code class="lang-shell">$ cargo build [--release]
+</code></pre>
+只确保通过编译<pre><code class="lang-shell">cargo check
+</code></pre>
+</li>
+<li>运行<pre><code class="lang-shell">$ cargo run
+</code></pre>
 </li>
 </ul>
 <h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>rust中变量默认设置为不可变, 只能被覆盖, 需要加<code>mut</code>前缀设置为可变.<br><code>const</code>修饰常量, 常量可以是个算式</p>
@@ -251,33 +265,172 @@
 <h3 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h3><p>UTF-8编码(2-bit)<br><code>char</code></p>
 <h3 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h3><p><code>(i32, i32, i32)</code><br><code>.</code>访问</p>
 <h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p><code>[i32; 10]</code> $10$个<code>i32</code>变量</p>
-<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">IpAddr</span>&#123;</span><br><span class="line">    V4: (<span class="type">u8</span>, <span class="type">u8</span>, <span class="type">u8</span>, <span class="type">u8</span>),</span><br><span class="line">    V6: <span class="type">String</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>枚举类型中的值是可选项，用<code>::</code>来构造一个实例<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">home</span> = IpAddr::<span class="title function_ invoke__">V4</span>(<span class="number">192</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h3><pre><code class="lang-rust">enum IpAddr&#123;
+    V4: (u8, u8, u8, u8),
+    V6: String,
+&#125;
+</code></pre>
+<p>枚举类型中的值是可选项，用<code>::</code>来构造一个实例</p>
+<pre><code class="lang-rust">let home = IpAddr::V4(192, 0, 0, 10);
+</code></pre>
 <ul>
-<li>特殊的枚举类型<code>Option</code><br>这是一个定义在标准库内的类型<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Option</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="literal">None</span>,</span><br><span class="line">    <span class="title function_ invoke__">Some</span>(T),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>特殊的枚举类型<code>Option</code><br>这是一个定义在标准库内的类型<pre><code class="lang-rust">enum Option&lt;T&gt; &#123;
+  None,
+  Some(T),
+&#125;
+</code></pre>
 </li>
 </ul>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>无返回值 (void) 的函数<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">function</span>() &#123;</span><br><span class="line">    <span class="comment">// -- skip -- </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>带返回值的函数<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span> <span class="title function_">function</span>() <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">    <span class="comment">// 两中返回值的方式都是可以的</span></span><br><span class="line">    <span class="number">5</span></span><br><span class="line">    <span class="comment">//return 5;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>兼容 C 风格, 可以带<code>()</code><br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x &lt; <span class="number">5</span> &#123;</span><br><span class="line">    x += <span class="number">1</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> x &lt; <span class="number">10</span> &#123;</span><br><span class="line">    x += <span class="number">2</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    x += <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><p>无限循环体<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">loop</span> &#123;</span><br><span class="line">    x += <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> x &gt;= <span class="number">100</span> &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>兼容 C 风格, 可以带<code>()</code><br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> x &lt; <span class="number">5</span> &#123;</span><br><span class="line">    x += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>遍历集合<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">a</span> = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> a &#123;</span><br><span class="line">    <span class="built_in">print!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>逆序遍历索引<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> (<span class="number">0</span>..<span class="number">5</span>).<span class="title function_ invoke__">rev</span>() &#123;</span><br><span class="line">    <span class="comment">// --skip--</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><p>类似 C 语言中的switch<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">IpAddr</span> &#123;</span><br><span class="line">    <span class="title function_ invoke__">V4</span>(<span class="type">String</span>),</span><br><span class="line">    <span class="title function_ invoke__">V6</span>(<span class="type">String</span>),</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> <span class="variable">home</span> = IpAddr::<span class="title function_ invoke__">V4</span>(<span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;192, 0, 0, 1&quot;</span>));</span><br><span class="line"><span class="keyword">let</span> <span class="variable">ip</span> = <span class="keyword">match</span> home &#123;</span><br><span class="line">    IpAddr::<span class="title function_ invoke__">V4</span>(s) =&gt; &#123;</span><br><span class="line">        s</span><br><span class="line">    &#125;,</span><br><span class="line">    IpAddr::<span class="title function_ invoke__">V6</span>(s) =&gt; s</span><br><span class="line">    <span class="comment">// =&gt; 表示产生的效果</span></span><br><span class="line"></span><br><span class="line">    other =&gt; <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;0, 0, 0, 0&quot;</span>),</span><br><span class="line">    <span class="comment">//match 是穷尽的 </span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h3 id="if-let"><a href="#if-let" class="headerlink" title="if let"></a>if let</h3><p>弱化版的match<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> <span class="variable">IpAddr</span>::<span class="title function_ invoke__">V4</span>(s) = home&#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, s);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    cnt += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, cnt);</span><br></pre></td></tr></table></figure></p>
-<h2 id="结构体定义与实例"><a href="#结构体定义与实例" class="headerlink" title="结构体定义与实例"></a>结构体定义与实例</h2><p>贴个自己写的 BIT 基本就会用了<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fn</span>  <span class="title function_">main</span> () &#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">bit</span> = BIT::<span class="title function_ invoke__">new</span>(<span class="number">200</span>);</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> (<span class="number">1</span>..bit.N) &#123;</span><br><span class="line">        bit.<span class="title function_ invoke__">add</span>(i, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> <span class="variable">i</span> <span class="keyword">in</span> (<span class="number">1</span>..bit.N) &#123;</span><br><span class="line">        <span class="built_in">println!</span>(<span class="string">&quot;&#123;&#125;&quot;</span>, bit.<span class="title function_ invoke__">sum</span>(i));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BIT</span> &#123;</span><br><span class="line">    N: <span class="type">i32</span>,</span><br><span class="line">    s: [<span class="type">i32</span>; <span class="number">1000</span>],</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">impl</span> <span class="title class_">BIT</span> &#123;</span><br><span class="line">  <span class="comment">// 类似构造方法</span></span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">new</span>(n: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="keyword">Self</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="variable">bit</span>  =  <span class="keyword">Self</span> &#123;</span><br><span class="line">            N: n,</span><br><span class="line">            s: [<span class="number">0</span>; <span class="number">1000</span>],</span><br><span class="line">        &#125;;</span><br><span class="line">        bit</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">add</span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, x: <span class="type">i32</span>, y: <span class="type">i32</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i</span> = x;</span><br><span class="line">        <span class="keyword">while</span> i &lt; <span class="keyword">self</span>.N &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="variable">inx</span>: <span class="type">usize</span> = i.<span class="title function_ invoke__">try_into</span>().<span class="title function_ invoke__">unwrap</span>(); <span class="comment">// 索引要转化成 usize</span></span><br><span class="line">            <span class="keyword">self</span>.s[inx] += y;</span><br><span class="line">            i += i &amp; - i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">fn</span> <span class="title function_">sum</span>(&amp;<span class="keyword">self</span>, x: <span class="type">i32</span>) <span class="punctuation">-&gt;</span> <span class="type">i32</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">res</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">i</span> = x;</span><br><span class="line">        <span class="keyword">while</span> i &gt; <span class="number">0</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> <span class="variable">inx</span>: <span class="type">usize</span> = i.<span class="title function_ invoke__">try_into</span>().<span class="title function_ invoke__">unwrap</span>();</span><br><span class="line">            res += <span class="keyword">self</span>.s[inx];</span><br><span class="line">            i -= i &amp; - i;</span><br><span class="line">        &#125;</span><br><span class="line">        res</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="几种常见的封装集合"><a href="#几种常见的封装集合" class="headerlink" title="几种常见的封装集合"></a>几种常见的封装集合</h2><h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p>定义<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">v1</span> = <span class="built_in">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> <span class="variable">v2</span> = <span class="built_in">vec!</span>[<span class="number">0</span>; <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span>  <span class="keyword">mut </span><span class="variable">v3</span>: <span class="type">Vec</span>&lt;<span class="type">i32</span>&gt; = <span class="type">Vec</span>::<span class="title function_ invoke__">new</span>();</span><br></pre></td></tr></table></figure><br>几个常用的函数</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>无返回值 (void) 的函数</p>
+<pre><code class="lang-rust">fn function() &#123;
+    // -- skip -- 
+&#125;
+</code></pre>
+<p>带返回值的函数</p>
+<pre><code class="lang-rust">fn function() -&gt; i32 &#123;
+    // 两中返回值的方式都是可以的
+    5
+    //return 5;
+&#125;
+</code></pre>
+<h2 id="控制流"><a href="#控制流" class="headerlink" title="控制流"></a>控制流</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><p>兼容 C 风格, 可以带<code>()</code></p>
+<pre><code class="lang-rust">if x &lt; 5 &#123;
+    x += 1;
+&#125; else if x &lt; 10 &#123;
+    x += 2;
+&#125; else &#123;
+    x += 3;
+&#125;
+</code></pre>
+<h3 id="loop"><a href="#loop" class="headerlink" title="loop"></a>loop</h3><p>无限循环体</p>
+<pre><code class="lang-rust">loop &#123;
+    x += 1;
+    if x &gt;= 100 &#123;
+        break;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>兼容 C 风格, 可以带<code>()</code></p>
+<pre><code class="lang-rust">while x &lt; 5 &#123;
+    x += 1;
+&#125;
+</code></pre>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>遍历集合</p>
+<pre><code class="lang-rust">let a = [0, 1, 2, 3, 4, 5];
+for i in a &#123;
+    print!(&quot;&#123;&#125;&quot;, i);
+&#125;
+</code></pre>
+<p>逆序遍历索引</p>
+<pre><code class="lang-rust">for i in (0..5).rev() &#123;
+    // --skip--
+&#125;
+</code></pre>
+<h3 id="match"><a href="#match" class="headerlink" title="match"></a>match</h3><p>类似 C 语言中的switch</p>
+<pre><code class="lang-rust">enum IpAddr &#123;
+    V4(String),
+    V6(String),
+&#125;
+let home = IpAddr::V4(String::from(&quot;192, 0, 0, 1&quot;));
+let ip = match home &#123;
+    IpAddr::V4(s) =&gt; &#123;
+        s
+    &#125;,
+    IpAddr::V6(s) =&gt; s
+    // =&gt; 表示产生的效果
+
+    other =&gt; String::from(&quot;0, 0, 0, 0&quot;),
+    //match 是穷尽的 
+&#125;;
+</code></pre>
+<h3 id="if-let"><a href="#if-let" class="headerlink" title="if let"></a>if let</h3><p>弱化版的match</p>
+<pre><code class="lang-rust">if let IpAddr::V4(s) = home&#123;
+    println!(&quot;&#123;&#125;&quot;, s);
+&#125; else &#123;
+    cnt += 1;
+&#125;
+println!(&quot;&#123;&#125;&quot;, cnt);
+</code></pre>
+<h2 id="结构体定义与实例"><a href="#结构体定义与实例" class="headerlink" title="结构体定义与实例"></a>结构体定义与实例</h2><p>贴个自己写的 BIT 基本就会用了</p>
+<pre><code class="lang-rust">fn  main () &#123;
+    let mut bit = BIT::new(200);
+    for i in (1..bit.N) &#123;
+        bit.add(i, 1);
+    &#125;
+    for i in (1..bit.N) &#123;
+        println!(&quot;&#123;&#125;&quot;, bit.sum(i));
+    &#125;
+&#125;
+struct BIT &#123;
+    N: i32,
+    s: [i32; 1000],
+&#125;
+impl BIT &#123;
+  // 类似构造方法
+    fn new(n: i32) -&gt; Self &#123;
+        let bit  =  Self &#123;
+            N: n,
+            s: [0; 1000],
+        &#125;;
+        bit
+    &#125;
+    fn add(&amp;mut self, x: i32, y: i32) &#123;
+        let mut i = x;
+        while i &lt; self.N &#123;
+            let inx: usize = i.try_into().unwrap(); // 索引要转化成 usize
+            self.s[inx] += y;
+            i += i &amp; - i;
+        &#125;
+    &#125;
+    fn sum(&amp;self, x: i32) -&gt; i32 &#123;
+        let mut res = 0;
+        let mut i = x;
+        while i &gt; 0 &#123;
+            let inx: usize = i.try_into().unwrap();
+            res += self.s[inx];
+            i -= i &amp; - i;
+        &#125;
+        res
+    &#125;
+&#125;
+</code></pre>
+<h2 id="几种常见的封装集合"><a href="#几种常见的封装集合" class="headerlink" title="几种常见的封装集合"></a>几种常见的封装集合</h2><h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p>定义</p>
+<pre><code class="lang-rust">let v1 = vec![1, 2, 3, 4];
+let v2 = vec![0; 5];
+let  mut v3: Vec&lt;i32&gt; = Vec::new();
+</code></pre>
+<p>几个常用的函数</p>
 <ul>
 <li>push</li>
 <li>pop</li>
-<li>append<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 v2 中的元素移动到 v1</span></span><br><span class="line">v1.<span class="title function_ invoke__">append</span>(&amp;<span class="keyword">mut</span> v2);</span><br></pre></td></tr></table></figure></li>
-<li>sort | sort_by<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 逆序排序</span></span><br><span class="line">v1.<span class="title function_ invoke__">sort_by</span>(|a, b| b.<span class="title function_ invoke__">cmp</span>(a));</span><br></pre></td></tr></table></figure></li>
+<li>append<pre><code class="lang-rust">// 将 v2 中的元素移动到 v1
+v1.append(&amp;mut v2);
+</code></pre>
+</li>
+<li>sort | sort_by<pre><code class="lang-rust">// 逆序排序
+v1.sort_by(|a, b| b.cmp(a));
+</code></pre>
+</li>
 <li>is_empty</li>
 <li>len</li>
 <li>resize</li>
 </ul>
-<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>定义<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="variable">s1</span> = <span class="type">String</span>::<span class="title function_ invoke__">from</span>(<span class="string">&quot;hello, &quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s2</span> = <span class="string">&quot;world!&quot;</span>.<span class="title function_ invoke__">to_string</span>();</span><br><span class="line"><span class="keyword">let</span> <span class="variable">s3</span> = s1 + &amp;s2;</span><br></pre></td></tr></table></figure><br>采用 UTF-8 编码，利用索引引用的时候两个连续的索引表示一位<code>char</code>。</p>
-<h3 id="Hash-Map"><a href="#Hash-Map" class="headerlink" title="Hash Map"></a>Hash Map</h3><p>定义<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">mut </span><span class="variable">map</span> = HashMap::<span class="title function_ invoke__">new</span>();</span><br><span class="line">map.<span class="title function_ invoke__">insert</span>(<span class="string">&quot;red&quot;</span>.<span class="title function_ invoke__">to_string</span>(), <span class="number">1</span>);</span><br><span class="line">map.<span class="title function_ invoke__">insert</span>(<span class="string">&quot;blue&quot;</span>.<span class="title function_ invoke__">to_string</span>(), <span class="number">2</span>);</span><br><span class="line">map.<span class="title function_ invoke__">insert</span>(<span class="string">&quot;red&quot;</span>.<span class="title function_ invoke__">to_string</span>(), <span class="number">10</span>);  <span class="comment">// 覆盖</span></span><br><span class="line">map.<span class="title function_ invoke__">entry</span>(<span class="string">&quot;red&quot;</span>.<span class="title function_ invoke__">to_string</span>()).<span class="title function_ invoke__">or_insert</span>(<span class="number">10</span>); <span class="comment">// 不存在则插入一个值</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">conut</span> = map.<span class="title function_ invoke__">entry</span>(<span class="string">&quot;bule&quot;</span>.<span class="title function_ invoke__">to_string</span>()).<span class="title function_ invoke__">or_insert</span>(<span class="number">0</span>);</span><br><span class="line">*conut += <span class="number">1</span>; <span class="comment">// 更新map中的数据</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">x</span> = map.<span class="title function_ invoke__">get</span>(&amp;<span class="string">&quot;red&quot;</span>.<span class="title function_ invoke__">to_string</span>()).<span class="title function_ invoke__">copied</span>().<span class="title function_ invoke__">unwrap_or</span>(<span class="number">0</span>); <span class="comment">// 得到一个不可变的值</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>定义</p>
+<pre><code class="lang-rust">let s1 = String::from(&quot;hello, &quot;);
+let s2 = &quot;world!&quot;.to_string();
+let s3 = s1 + &amp;s2;
+</code></pre>
+<p>采用 UTF-8 编码，利用索引引用的时候两个连续的索引表示一位<code>char</code>。</p>
+<h3 id="Hash-Map"><a href="#Hash-Map" class="headerlink" title="Hash Map"></a>Hash Map</h3><p>定义</p>
+<pre><code class="lang-rust">let mut map = HashMap::new();
+map.insert(&quot;red&quot;.to_string(), 1);
+map.insert(&quot;blue&quot;.to_string(), 2);
+map.insert(&quot;red&quot;.to_string(), 10);  // 覆盖
+map.entry(&quot;red&quot;.to_string()).or_insert(10); // 不存在则插入一个值
+let conut = map.entry(&quot;bule&quot;.to_string()).or_insert(0);
+*conut += 1; // 更新map中的数据
+let x = map.get(&amp;&quot;red&quot;.to_string()).copied().unwrap_or(0); // 得到一个不可变的值
+</code></pre>
 <p>这个语言学了一半先咕咕了，暂时要搞点正事。</p>
 
     </div>
