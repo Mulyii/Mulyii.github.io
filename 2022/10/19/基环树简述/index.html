@@ -9,26 +9,25 @@
         <meta name="keywords" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <link rel="icon" href="/images/favicon.png" />
-        <script src="https://static-argvchs.netlify.app/libs/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="preconnect" href="https://static-argvchs.netlify.app" crossorigin />
-<link rel="stylesheet" href="https://static-argvchs.netlify.app/libs/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="https://static-argvchs.netlify.app/css/fonts.min.css" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
 <script> const mixins = {}; </script>
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
 
-<script src="https://static-argvchs.netlify.app/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
 <link
     rel="stylesheet"
-    href="https://static-argvchs.netlify.app/libs/highlight.js/11.7.0/styles/github.min.css"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
 />
 <script src="/js/lib/highlight.js"></script>
 
 
-<script src="https://static-argvchs.netlify.app/libs/KaTeX/0.16.4/katex.min.js"></script>
-<script src="https://static-argvchs.netlify.app/libs/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://static-argvchs.netlify.app/libs/KaTeX/0.16.4/katex.min.css" />
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
 <script src="/js/lib/math.js"></script>
 
 
@@ -40,23 +39,22 @@
 
 
 
-<script src="https://static-argvchs.netlify.app/libs/animejs/3.2.1/anime.min.js"></script>
 <link rel="stylesheet" href="/css/main.css" />
 
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body>
         <div id="layout">
             <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
                 </div>
-            </div>
             </transition>
             <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div class="desktop-menu">
+    <div id="desktop-menu">
         <a class="title" href="/">
             <span>MULY&#39;S BLOG</span>
         </a>
@@ -88,67 +86,69 @@
         
     </div>
     <div id="mobile-menu">
-        <div class="curtain" @click="shouMenuItems = !shouMenuItems" v-show="shouMenuItems"></div>
-        <div class="title" @click="shouMenuItems = !shouMenuItems">
+        <div class="title" @click="showMenuItems = !showMenuItems">
             <i class="fa-solid fa-bars fa-fw"></i>
             <span>&emsp;MULY&#39;S BLOG</span>
         </div>
         <transition name="slide">
-        <div class="items" v-show="shouMenuItems">
-            
-            <a href="/">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-house fa-fw"></i>
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                </div>
-            </a>
-            
-            <a href="/about">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                </div>
-            </a>
-            
-            <a href="/archives">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-id-card fa-fw"></i>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                </div>
-            </a>
-            
-            <a href="/categories">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-bookmark fa-fw"></i>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                </div>
-            </a>
-            
-            <a href="/tags">
-                <div class="item">
-                    <div style="min-width: 20px; max-width: 50px; width: 10%">
-                        <i class="fa-solid fa-tags fa-fw"></i>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
                     </div>
-                    <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                </div>
-            </a>
-            
-        </div>
+                </a>
+                
+            </div>
         </transition>
     </div>
 </nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
             <transition name="into">
-            <div id="main" v-show="!loading">
-                <div class="article">
+                <div id="main" v-show="!loading">
+                    <div class="article">
     <div>
         <h1>基环树简述</h1>
     </div>
@@ -177,7 +177,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" style="color: #00a596">基环树</a>
+                <a href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" style="color: #00bcd4">基环树</a>
             </span>
             
         </span>
@@ -315,7 +315,7 @@ int main() &#123;
     
 </div>
 
-                <footer id="footer">
+                    <footer id="footer">
     <div id="footer-wrap">
         <div>
             &copy;
@@ -333,18 +333,11 @@ int main() &#123;
     </div>
 </footer>
 
-            </div>
+                </div>
             </transition>
             
         </div>
         <script src="/js/main.js"></script>
-        <script>
-            console.info("Welcome to Argvchs' blog!");
-            if (!window.hasOwnProperty("ontouchstart")) {
-                let html = '<canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas><script src="https://static-argvchs.netlify.app/js/fireworks.min.js"><\/script>';
-                document.body.append(document.createRange().createContextualFragment(html));
-            }
-        </script>
         
         
 
