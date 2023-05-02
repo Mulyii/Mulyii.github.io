@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>dp题单</title>
+    <url>/2022/11/15/dp%E9%A2%98%E5%8D%95/</url>
+    <content><![CDATA[<p>这里多数问题只做简单解释，对部分题目给出链接细说。</p>
+<p><a href="https://codeforces.com/problemset/problem/1513/C">Add One</a><br><a href="https://codeforces.com/problemset/problem/1733/D2">Zero-One</a><br><a href="https://atcoder.jp/contests/abc271/tasks/abc271_e">Subsequence Path</a><br><a href="https://codeforces.com/contest/1740/problem/E">Hanging Hearts</a><br><a href="https://atcoder.jp/contests/abl/tasks/abl_d">Flat Subsequence</a><br><a href="https://atcoder.jp/contests/abc184/tasks/abc184_d">increment of coins</a></p>
+]]></content>
+      <categories>
+        <category>做题记录</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Splay</title>
     <url>/2022/11/28/Splay/</url>
     <content><![CDATA[<pre><code class="lang-cpp">int root, tot;
@@ -615,16 +628,25 @@ int main() &#123;
       </tags>
   </entry>
   <entry>
-    <title>dp题单</title>
-    <url>/2022/11/15/dp%E9%A2%98%E5%8D%95/</url>
-    <content><![CDATA[<p>这里多数问题只做简单解释，对部分题目给出链接细说。</p>
-<p><a href="https://codeforces.com/problemset/problem/1513/C">Add One</a><br><a href="https://codeforces.com/problemset/problem/1733/D2">Zero-One</a><br><a href="https://atcoder.jp/contests/abc271/tasks/abc271_e">Subsequence Path</a><br><a href="https://codeforces.com/contest/1740/problem/E">Hanging Hearts</a><br><a href="https://atcoder.jp/contests/abl/tasks/abl_d">Flat Subsequence</a><br><a href="https://atcoder.jp/contests/abc184/tasks/abc184_d">increment of coins</a></p>
+    <title>三角剖分</title>
+    <url>/2023/04/16/%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86/</url>
+    <content><![CDATA[<h1 id="三角剖分"><a href="#三角剖分" class="headerlink" title="三角剖分"></a>三角剖分</h1><blockquote>
+<ul>
+<li>单纯形：<br>几何学上，单纯形或者$n$-单纯形是和三角形类似的$n$维几何体。精确的讲，单纯形是某个$n$维以上的欧几里得空间中的（$n+1$）个仿射无关（也就是没有$m-1$维平面包含$m+1$个点；这样的点集被称为处于一般位置）的点的集合的凸包。</li>
+<li>仿射组合:<br>线性组合的子集, 要求在满足线性组合的条件下, 同时满足系数之和等于$1$. 例如: 一个元素的仿射组合为一个点, 两个元素的仿射组合为一条直线, 三个元素(仿射无关)的仿射组合为一个二维平面</li>
+<li>仿射变换:<br>简言之就是线性变换 + 平移<blockquote>
+<p>In Euclidean geometry, an affine transformation or affinity (from the Latin, affinis, “connected with”) is a geometric transformation that preserves lines and parallelism, but not necessarily Euclidean distances and angles.</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">wikipedia</a></p>
 ]]></content>
       <categories>
-        <category>做题记录</category>
+        <category>算法竞赛</category>
       </categories>
       <tags>
-        <tag>动态规划</tag>
+        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -883,159 +905,6 @@ let x = map.get(&amp;&quot;red&quot;.to_string()).copied().unwrap_or(0); // 得�
       </categories>
       <tags>
         <tag>rust</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>三角剖分</title>
-    <url>/2023/04/16/%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86/</url>
-    <content><![CDATA[<h1 id="三角剖分"><a href="#三角剖分" class="headerlink" title="三角剖分"></a>三角剖分</h1><blockquote>
-<ul>
-<li>单纯形：<br>几何学上，单纯形或者$n$-单纯形是和三角形类似的$n$维几何体。精确的讲，单纯形是某个$n$维以上的欧几里得空间中的（$n+1$）个仿射无关（也就是没有$m-1$维平面包含$m+1$个点；这样的点集被称为处于一般位置）的点的集合的凸包。</li>
-<li>仿射组合:<br>线性组合的子集, 要求在满足线性组合的条件下, 同时满足系数之和等于$1$. 例如: 一个元素的仿射组合为一个点, 两个元素的仿射组合为一条直线, 三个元素(仿射无关)的仿射组合为一个二维平面</li>
-<li>仿射变换:<br>简言之就是线性变换 + 平移<blockquote>
-<p>In Euclidean geometry, an affine transformation or affinity (from the Latin, affinis, “connected with”) is a geometric transformation that preserves lines and parallelism, but not necessarily Euclidean distances and angles.</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<p><a href="https://en.wikipedia.org/wiki/Delaunay_triangulation">wikipedia</a></p>
-]]></content>
-      <categories>
-        <category>算法竞赛</category>
-      </categories>
-      <tags>
-        <tag>计算几何</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基环树简述</title>
-    <url>/2022/10/19/%E5%9F%BA%E7%8E%AF%E6%A0%91%E7%AE%80%E8%BF%B0/</url>
-    <content><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.<br><img src="https://static01.imgkr.com/temp/daf52d93387f444ab74d26d08050ee10.png" alt="图1"></p>
-<h3 id="重要的事-找环"><a href="#重要的事-找环" class="headerlink" title="重要的事 找环"></a>重要的事 找环</h3><p>tarjan找环, 给一份容易实现的代码（不能找重边和自环）</p>
-<pre><code class="lang-cpp">int n, m;
-vector&lt;int&gt; G[MAXN];
-namespace Circle &#123;
-    vector&lt;int&gt; circle; // 环上的点
-    int tag[MAXN]; // 标记: -1未访问; 1访问过; 2在环上
-    void init() &#123;
-        for(int i = 0; i &lt; n; i ++) &#123;
-            tag[i] = -1;
-        &#125;
-    &#125;
-    int dfs(int u, int f) &#123;
-        if(tag[u] != -1) &#123;
-            return u;
-        &#125;
-        tag[u] = 1;
-        for(auto v : G[u]) if(v != f) &#123;
-            int t = dfs(v, u);
-            if(t &gt; -1) &#123;
-                circle.push_back(u);
-                tag[u] = 2;
-                return t == u ? -1 : t;
-            &#125;
-        &#125;
-        return -1;
-    &#125;
-&#125;
-</code></pre>
-<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a><a href="https://www.luogu.com.cn/problem/P5022">旅行</a></h4><ul>
-<li>题目大意: 给定一棵普通树或者基环树, 求访问全部节点最小的字典序(每个节点只记录第一次访问).</li>
-<li>对于一般树, 可以$1$节点开始跑; 对于基环树, 可以删一条边使其变成普通树, 时间复杂度$O(n^2)$</li>
-<li>参考代码<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 5e3 + 10, mod = 998244353;
-int n, m;
-vector&lt;int&gt; G[MAXN];
-vector&lt;int&gt; res, ste;
-namespace Circle &#123;
-  vector&lt;int&gt; circle;
-  int tag[MAXN];
-  void init() &#123;
-      for(int i = 0; i &lt; n; i ++) &#123;
-          tag[i] = -1;
-      &#125;
-  &#125;
-  int dfs(int u, int f) &#123;
-      if(tag[u] != -1) &#123;
-          return u;
-      &#125;
-      tag[u] = 1;
-      for(auto v : G[u]) if(v != f) &#123;
-          int t = dfs(v, u);
-          if(t &gt; -1) &#123;
-              circle.push_back(u);
-              tag[u] = 2;
-              return t == u ? -1 : t;
-          &#125;
-      &#125;
-      return -1;
-  &#125;
-&#125;
-bool cmp(vector&lt;int&gt; &amp;a, vector&lt;int&gt; &amp;b) &#123;
-  if(!a.size()) &#123;
-      return 1;
-  &#125; else &#123;
-      for(int i = 0; i &lt; n; i ++) &#123;
-          if(a[i] != b[i]) &#123;
-              return a[i] &gt; b[i];
-          &#125;
-      &#125;
-  &#125;
-  return 0;
-&#125;
-int du = -1, dv = -1; // 删的边
-void dfs(int u, int p) &#123;
-  ste.push_back(u);
-  for(int v : G[u]) if(v != p) &#123;
-      if((du == u &amp;&amp; dv == v) || du == v &amp;&amp; dv == u) continue;
-      dfs(v, u);
-  &#125;
-&#125;
-int main() &#123;
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  cin &gt;&gt; n &gt;&gt; m;
-  for(int i = 0; i &lt; m; i ++) &#123;
-      int u, v;
-      cin &gt;&gt; u &gt;&gt; v;
-      u --, v --;
-      G[u].push_back(v), G[v].push_back(u);
-  &#125;
-  for(int i = 0; i &lt; n; i ++) &#123;
-      sort(G[i].begin(), G[i].end());
-  &#125;
-  if(m == n - 1) &#123;
-      dfs(0, 0);
-      res = ste;
-  &#125; else &#123;
-      Circle::init();
-      Circle::dfs(0, 0);
-      for(int i = 0; i &lt; Circle::circle.size() - 1; i ++) &#123;
-          du = Circle::circle[i], dv = Circle::circle[i + 1];
-          ste.clear();
-          dfs(0, 0);
-          if(cmp(res, ste)) &#123;
-              res = ste;
-          &#125;
-      &#125;
-  &#125;
-  for(int i : res) &#123;
-      cout &lt;&lt; i + 1 &lt;&lt; &#39; &#39;;
-  &#125;
-&#125;
-</code></pre>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>算法笔记</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>基环树</tag>
       </tags>
   </entry>
   <entry>
@@ -1496,6 +1365,137 @@ int main() &#123;
       </tags>
   </entry>
   <entry>
+    <title>基环树简述</title>
+    <url>/2022/10/19/%E5%9F%BA%E7%8E%AF%E6%A0%91%E7%AE%80%E8%BF%B0/</url>
+    <content><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.<br><img src="https://static01.imgkr.com/temp/daf52d93387f444ab74d26d08050ee10.png" alt="图1"></p>
+<h3 id="重要的事-找环"><a href="#重要的事-找环" class="headerlink" title="重要的事 找环"></a>重要的事 找环</h3><p>tarjan找环, 给一份容易实现的代码（不能找重边和自环）</p>
+<pre><code class="lang-cpp">int n, m;
+vector&lt;int&gt; G[MAXN];
+namespace Circle &#123;
+    vector&lt;int&gt; circle; // 环上的点
+    int tag[MAXN]; // 标记: -1未访问; 1访问过; 2在环上
+    void init() &#123;
+        for(int i = 0; i &lt; n; i ++) &#123;
+            tag[i] = -1;
+        &#125;
+    &#125;
+    int dfs(int u, int f) &#123;
+        if(tag[u] != -1) &#123;
+            return u;
+        &#125;
+        tag[u] = 1;
+        for(auto v : G[u]) if(v != f) &#123;
+            int t = dfs(v, u);
+            if(t &gt; -1) &#123;
+                circle.push_back(u);
+                tag[u] = 2;
+                return t == u ? -1 : t;
+            &#125;
+        &#125;
+        return -1;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a><a href="https://www.luogu.com.cn/problem/P5022">旅行</a></h4><ul>
+<li>题目大意: 给定一棵普通树或者基环树, 求访问全部节点最小的字典序(每个节点只记录第一次访问).</li>
+<li>对于一般树, 可以$1$节点开始跑; 对于基环树, 可以删一条边使其变成普通树, 时间复杂度$O(n^2)$</li>
+<li>参考代码<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+typedef pair&lt;int, int&gt; PII;
+const int INF = 1e9 + 7, MAXN = 5e3 + 10, mod = 998244353;
+int n, m;
+vector&lt;int&gt; G[MAXN];
+vector&lt;int&gt; res, ste;
+namespace Circle &#123;
+  vector&lt;int&gt; circle;
+  int tag[MAXN];
+  void init() &#123;
+      for(int i = 0; i &lt; n; i ++) &#123;
+          tag[i] = -1;
+      &#125;
+  &#125;
+  int dfs(int u, int f) &#123;
+      if(tag[u] != -1) &#123;
+          return u;
+      &#125;
+      tag[u] = 1;
+      for(auto v : G[u]) if(v != f) &#123;
+          int t = dfs(v, u);
+          if(t &gt; -1) &#123;
+              circle.push_back(u);
+              tag[u] = 2;
+              return t == u ? -1 : t;
+          &#125;
+      &#125;
+      return -1;
+  &#125;
+&#125;
+bool cmp(vector&lt;int&gt; &amp;a, vector&lt;int&gt; &amp;b) &#123;
+  if(!a.size()) &#123;
+      return 1;
+  &#125; else &#123;
+      for(int i = 0; i &lt; n; i ++) &#123;
+          if(a[i] != b[i]) &#123;
+              return a[i] &gt; b[i];
+          &#125;
+      &#125;
+  &#125;
+  return 0;
+&#125;
+int du = -1, dv = -1; // 删的边
+void dfs(int u, int p) &#123;
+  ste.push_back(u);
+  for(int v : G[u]) if(v != p) &#123;
+      if((du == u &amp;&amp; dv == v) || du == v &amp;&amp; dv == u) continue;
+      dfs(v, u);
+  &#125;
+&#125;
+int main() &#123;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  cin &gt;&gt; n &gt;&gt; m;
+  for(int i = 0; i &lt; m; i ++) &#123;
+      int u, v;
+      cin &gt;&gt; u &gt;&gt; v;
+      u --, v --;
+      G[u].push_back(v), G[v].push_back(u);
+  &#125;
+  for(int i = 0; i &lt; n; i ++) &#123;
+      sort(G[i].begin(), G[i].end());
+  &#125;
+  if(m == n - 1) &#123;
+      dfs(0, 0);
+      res = ste;
+  &#125; else &#123;
+      Circle::init();
+      Circle::dfs(0, 0);
+      for(int i = 0; i &lt; Circle::circle.size() - 1; i ++) &#123;
+          du = Circle::circle[i], dv = Circle::circle[i + 1];
+          ste.clear();
+          dfs(0, 0);
+          if(cmp(res, ste)) &#123;
+              res = ste;
+          &#125;
+      &#125;
+  &#125;
+  for(int i : res) &#123;
+      cout &lt;&lt; i + 1 &lt;&lt; &#39; &#39;;
+  &#125;
+&#125;
+</code></pre>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>算法笔记</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>基环树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最小圆覆盖</title>
     <url>/2023/04/16/%E6%9C%80%E5%B0%8F%E5%9C%86%E8%A6%86%E7%9B%96/</url>
     <content><![CDATA[<h1 id="最小圆覆盖问题"><a href="#最小圆覆盖问题" class="headerlink" title="最小圆覆盖问题"></a>最小圆覆盖问题</h1><ul>
@@ -1688,6 +1688,177 @@ inline int mul(int a,int b)&#123; return 1ll * a * b % mod; &#125;
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>闵可夫斯基和</title>
+    <url>/2023/04/16/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="闵可夫斯基和"><a href="#闵可夫斯基和" class="headerlink" title="闵可夫斯基和"></a>闵可夫斯基和</h1><p>定义: 对于欧式空间上的两个点集 $A, B$, 存在点集 $C$ 满足 ${a + b \in C|a \in A,b\in B }$ （$a, b$均为向量的形式）, 则称 $C$ 为$A, B$的闵可夫斯基和, 即</p>
+<script type="math/tex; mode=display">
+    C = A + B</script><p>差 (different):<br>$C = A - B = {a - b | a \in A, b \in B} = A + (-B)$<br>表示对$\forall a \in A, \forall b \in B, \exist c \in C (c = a - b)$<br>或者可以这样理解$\forall c \in C, \exists b \in B, \exist a \in A (a =  c + b)$</p>
+<p>==warning==: 这里的加号和减号不是一对可以互逆的运算, $(A - B) + B \neq A$</p>
+<p><a href="https://en.wikipedia.org/wiki/Minkowski_addition">wikipedia</a></p>
+<ul>
+<li>例题(第一道过的洛谷黑题):</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/problem/P4557">战争</a></p>
+<p>题目大意: 有两个部落$A,B$, 两个部落分别有$n, m$个人, 如两个部落所围成的凸包没有重合的点, 则不会发生战争. 现在$B$部落的全部人打算向$(x, y)$向量迁移, 有$q$次询问, 问是否会发生战争.</p>
+<p>思路是找到一个点集$C$, 满足$\forall c \in C, \exists b \in B 满足 c + b \in A$, 这和前面差的定义是相同的, 故此题转化为了求$C = A - B$, 然后每次询问二分判断点是否在$C$内.</p>
+<p>参考代码 (包含了<strong>闵可夫斯基和</strong>以及<strong>判断一个点是否在凸包内</strong>):</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+using Real = long long;
+struct Point &#123;
+    Real x, y;
+    Point() &#123;&#125;
+    Point(Real x, Real y) : x(x), y(y) &#123;&#125;
+    friend istream&amp; operator &gt;&gt; (istream &amp;is, Point&amp; v) &#123;
+        return is &gt;&gt; v.x &gt;&gt; v.y;
+    &#125;
+    Point&amp; operator+= (const Point&amp; p) &#123;
+        x += p.x, y += p.y;
+        return *this;
+    &#125;
+    Point&amp; operator-= (const Point&amp; p) &#123;
+        x -= p.x, y -= p.y;
+        return *this;
+    &#125;
+    Point operator+ (const Point&amp; p) const &#123;
+        return Point(*this) += p;
+    &#125;
+    Point operator- (const Point&amp; p) const &#123;
+        return Point(*this) -= p;
+    &#125;
+    Point operator- () &#123;
+        return Point(-x, -y);
+    &#125;
+    friend Real crs(const Point&amp; a, const Point&amp; b) &#123;
+        return a.x * b.y - a.y * b.x;
+    &#125;
+    bool operator&lt; (const Point&amp; p) const &#123;
+        if(x != p.x) return x &lt; p.x;
+        return y &lt; p.y;
+    &#125;
+&#125;;
+using Points = vector&lt;Point&gt;;
+enum position &#123; CCW = 1, CW = -1, ON = 0 &#125;;
+int ccw(const Point&amp; a, Point b, Point c) &#123;
+    b -= a, c -= a;
+    if(crs(b, c) &gt; 0) return CCW;
+    if(crs(b, c) &lt; 0) return CW;
+    return ON;
+&#125;
+int ccw(Point a, Point b) &#123;
+    return ccw(Point(0, 0), a, b);
+&#125;
+Points Convexhell(Points&amp; ps) &#123;
+    int n = ps.size(), k = 0;
+    Points res(2 * n);
+    sort(ps.begin(), ps.end());
+    for(int i = 0; i &lt; n; res[k ++] = ps[i ++]) &#123;
+        while(k &gt;= 2 &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
+            k --;
+        &#125;
+    &#125;
+    for(int i = n - 2, t = k + 1; i &gt;= 0; res[k ++] = ps[i --]) &#123;
+        while(k &gt;= t &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
+            k --;
+        &#125;
+    &#125;
+    res.resize(k - 1);
+    return res;
+&#125;
+Points Minkowski(Points&amp; A, Points&amp; B) &#123;
+    int n = A.size(), m = B.size();
+    Points res (n + m + 1);
+    res[0] = A[0] + B[0];
+    int k = 1, i = 0, j = 0;
+    int cA = 0, cB = 0;
+    while(cA &lt; n &amp;&amp; cB &lt; m) &#123;
+        int nxi = (i + 1) % n, nxj = (j + 1) % m;
+        Point x = A[nxi] - A[i];
+        Point y = B[nxj] - B[j];
+        if(ccw(x, y) == CCW) &#123;
+            res[k ++] = res[k - 1] + x;
+            i = nxi, cA ++;
+        &#125; else if(ccw(x, y) == CW) &#123;
+            res[k ++] = res[k - 1] + y;
+            j = nxj, cB ++;
+        &#125; else &#123;
+            res[k ++] = res[k - 1] + x + y;
+            j = nxj, i = nxi;
+            cA ++, cB ++;
+        &#125;
+    &#125;
+    while(cA &lt; n) &#123;
+        int nxi = (i + 1) % n;
+        res[k ++] = res[k - 1] + A[nxi] - A[i];
+        cA ++, i = nxi;
+    &#125;
+    while(cB &lt; m) &#123;
+        int nxj = (j + 1) % m;
+        res[k ++] = res[k - 1] + B[nxj] - B[j];
+        cB ++, j = nxj;
+    &#125;
+    res.resize(k - 1);
+    return res;
+&#125;
+bool check_in(Point&amp; p, Points&amp; ps) &#123;
+    int n = ps.size();
+    int O = 0, l = 1, r = n - 1;
+    if(ccw(ps[O], ps[r], p) == CCW || ccw(ps[O], ps[l], p) == CW) &#123;
+        return false;
+    &#125;
+    while(l + 1 &lt; r) &#123;
+        int m = l + r &gt;&gt; 1;
+        if(ccw(ps[O], ps[m], p) == CCW) &#123;
+            l = m;
+        &#125; else &#123;
+            r = m;
+        &#125;
+    &#125;
+    if(ccw(ps[l], ps[r], p) == CW) &#123;
+        return false;
+    &#125; else &#123;
+        return true;
+    &#125;
+&#125;
+void solve() &#123;
+    int n, m, q;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+    Points A(n), B(m);
+    for(int i = 0; i &lt; n; i ++) &#123;
+        cin &gt;&gt; A[i];
+    &#125;
+    for(int i = 0; i &lt; m; i ++) &#123;
+        cin &gt;&gt; B[i];
+        B[i] = -B[i];
+    &#125;
+    A = Convexhell(A); n = A.size();
+    B = Convexhell(B); m = B.size();
+    Points C = Minkowski(A, B);
+    while(q --) &#123;
+        Point query;
+        cin &gt;&gt; query;
+        if(check_in(query, C)) &#123;
+            cout &lt;&lt; &quot;1\n&quot;;
+        &#125; else &#123;
+            cout &lt;&lt; &quot;0\n&quot;;
+        &#125;
+    &#125;
+&#125;
+int main() &#123;
+    ios::sync_with_stdio(false), cin.tie(0);
+    int _ = 1;
+    while(_ --) solve();
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>算法竞赛</category>
+      </categories>
+      <tags>
+        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -2047,177 +2218,6 @@ for(int i = 1; i &lt; s.size(); i ++) &#123;
       </categories>
       <tags>
         <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>闵可夫斯基和</title>
-    <url>/2023/04/16/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="闵可夫斯基和"><a href="#闵可夫斯基和" class="headerlink" title="闵可夫斯基和"></a>闵可夫斯基和</h1><p>定义: 对于欧式空间上的两个点集 $A, B$, 存在点集 $C$ 满足 ${a + b \in C|a \in A,b\in B }$ （$a, b$均为向量的形式）, 则称 $C$ 为$A, B$的闵可夫斯基和, 即</p>
-<script type="math/tex; mode=display">
-    C = A + B</script><p>差 (different):<br>$C = A - B = {a - b | a \in A, b \in B} = A + (-B)$<br>表示对$\forall a \in A, \forall b \in B, \exist c \in C (c = a - b)$<br>或者可以这样理解$\forall c \in C, \exists b \in B, \exist a \in A (a =  c + b)$</p>
-<p>==warning==: 这里的加号和减号不是一对可以互逆的运算, $(A - B) + B \neq A$</p>
-<p><a href="https://en.wikipedia.org/wiki/Minkowski_addition">wikipedia</a></p>
-<ul>
-<li>例题(第一道过的洛谷黑题):</li>
-</ul>
-<p><a href="https://www.luogu.com.cn/problem/P4557">战争</a></p>
-<p>题目大意: 有两个部落$A,B$, 两个部落分别有$n, m$个人, 如两个部落所围成的凸包没有重合的点, 则不会发生战争. 现在$B$部落的全部人打算向$(x, y)$向量迁移, 有$q$次询问, 问是否会发生战争.</p>
-<p>思路是找到一个点集$C$, 满足$\forall c \in C, \exists b \in B 满足 c + b \in A$, 这和前面差的定义是相同的, 故此题转化为了求$C = A - B$, 然后每次询问二分判断点是否在$C$内.</p>
-<p>参考代码 (包含了<strong>闵可夫斯基和</strong>以及<strong>判断一个点是否在凸包内</strong>):</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-using Real = long long;
-struct Point &#123;
-    Real x, y;
-    Point() &#123;&#125;
-    Point(Real x, Real y) : x(x), y(y) &#123;&#125;
-    friend istream&amp; operator &gt;&gt; (istream &amp;is, Point&amp; v) &#123;
-        return is &gt;&gt; v.x &gt;&gt; v.y;
-    &#125;
-    Point&amp; operator+= (const Point&amp; p) &#123;
-        x += p.x, y += p.y;
-        return *this;
-    &#125;
-    Point&amp; operator-= (const Point&amp; p) &#123;
-        x -= p.x, y -= p.y;
-        return *this;
-    &#125;
-    Point operator+ (const Point&amp; p) const &#123;
-        return Point(*this) += p;
-    &#125;
-    Point operator- (const Point&amp; p) const &#123;
-        return Point(*this) -= p;
-    &#125;
-    Point operator- () &#123;
-        return Point(-x, -y);
-    &#125;
-    friend Real crs(const Point&amp; a, const Point&amp; b) &#123;
-        return a.x * b.y - a.y * b.x;
-    &#125;
-    bool operator&lt; (const Point&amp; p) const &#123;
-        if(x != p.x) return x &lt; p.x;
-        return y &lt; p.y;
-    &#125;
-&#125;;
-using Points = vector&lt;Point&gt;;
-enum position &#123; CCW = 1, CW = -1, ON = 0 &#125;;
-int ccw(const Point&amp; a, Point b, Point c) &#123;
-    b -= a, c -= a;
-    if(crs(b, c) &gt; 0) return CCW;
-    if(crs(b, c) &lt; 0) return CW;
-    return ON;
-&#125;
-int ccw(Point a, Point b) &#123;
-    return ccw(Point(0, 0), a, b);
-&#125;
-Points Convexhell(Points&amp; ps) &#123;
-    int n = ps.size(), k = 0;
-    Points res(2 * n);
-    sort(ps.begin(), ps.end());
-    for(int i = 0; i &lt; n; res[k ++] = ps[i ++]) &#123;
-        while(k &gt;= 2 &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
-            k --;
-        &#125;
-    &#125;
-    for(int i = n - 2, t = k + 1; i &gt;= 0; res[k ++] = ps[i --]) &#123;
-        while(k &gt;= t &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
-            k --;
-        &#125;
-    &#125;
-    res.resize(k - 1);
-    return res;
-&#125;
-Points Minkowski(Points&amp; A, Points&amp; B) &#123;
-    int n = A.size(), m = B.size();
-    Points res (n + m + 1);
-    res[0] = A[0] + B[0];
-    int k = 1, i = 0, j = 0;
-    int cA = 0, cB = 0;
-    while(cA &lt; n &amp;&amp; cB &lt; m) &#123;
-        int nxi = (i + 1) % n, nxj = (j + 1) % m;
-        Point x = A[nxi] - A[i];
-        Point y = B[nxj] - B[j];
-        if(ccw(x, y) == CCW) &#123;
-            res[k ++] = res[k - 1] + x;
-            i = nxi, cA ++;
-        &#125; else if(ccw(x, y) == CW) &#123;
-            res[k ++] = res[k - 1] + y;
-            j = nxj, cB ++;
-        &#125; else &#123;
-            res[k ++] = res[k - 1] + x + y;
-            j = nxj, i = nxi;
-            cA ++, cB ++;
-        &#125;
-    &#125;
-    while(cA &lt; n) &#123;
-        int nxi = (i + 1) % n;
-        res[k ++] = res[k - 1] + A[nxi] - A[i];
-        cA ++, i = nxi;
-    &#125;
-    while(cB &lt; m) &#123;
-        int nxj = (j + 1) % m;
-        res[k ++] = res[k - 1] + B[nxj] - B[j];
-        cB ++, j = nxj;
-    &#125;
-    res.resize(k - 1);
-    return res;
-&#125;
-bool check_in(Point&amp; p, Points&amp; ps) &#123;
-    int n = ps.size();
-    int O = 0, l = 1, r = n - 1;
-    if(ccw(ps[O], ps[r], p) == CCW || ccw(ps[O], ps[l], p) == CW) &#123;
-        return false;
-    &#125;
-    while(l + 1 &lt; r) &#123;
-        int m = l + r &gt;&gt; 1;
-        if(ccw(ps[O], ps[m], p) == CCW) &#123;
-            l = m;
-        &#125; else &#123;
-            r = m;
-        &#125;
-    &#125;
-    if(ccw(ps[l], ps[r], p) == CW) &#123;
-        return false;
-    &#125; else &#123;
-        return true;
-    &#125;
-&#125;
-void solve() &#123;
-    int n, m, q;
-    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
-    Points A(n), B(m);
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; A[i];
-    &#125;
-    for(int i = 0; i &lt; m; i ++) &#123;
-        cin &gt;&gt; B[i];
-        B[i] = -B[i];
-    &#125;
-    A = Convexhell(A); n = A.size();
-    B = Convexhell(B); m = B.size();
-    Points C = Minkowski(A, B);
-    while(q --) &#123;
-        Point query;
-        cin &gt;&gt; query;
-        if(check_in(query, C)) &#123;
-            cout &lt;&lt; &quot;1\n&quot;;
-        &#125; else &#123;
-            cout &lt;&lt; &quot;0\n&quot;;
-        &#125;
-    &#125;
-&#125;
-int main() &#123;
-    ios::sync_with_stdio(false), cin.tie(0);
-    int _ = 1;
-    while(_ --) solve();
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>算法竞赛</category>
-      </categories>
-      <tags>
-        <tag>计算几何</tag>
       </tags>
   </entry>
 </search>
