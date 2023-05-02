@@ -177,7 +177,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="color: #ff7d73">数据结构</a>
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="color: #00bcd4">数据结构</a>
             </span>
             
         </span>
@@ -192,70 +192,7 @@
 <li><p>例题:<br><a target="_blank" rel="noopener" href="https://codeforces.com/contest/86/problem/D">Powerful array</a><br>题目大意:<br>对于给定数列$a$, 每次询问一个区间$[l, r]$, 区间的值是每个数字出现的次数的平方乘这个数本身的和,即$\sum k_s^2 \times s$</p>
 </li>
 </ul>
-<pre><code class="lang-cpp">signed main () &#123;
-    ios::sync_with_stdio(0), cin.tie(0);
-    int n, t;
-    cin &gt;&gt; n &gt;&gt; t;
-    vector&lt;int&gt; a(n);
-    int bs = sqrt(n);
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; a[i];
-    &#125;
-    struct query &#123;
-        int l, r, id;
-    &#125;;
-    vector&lt;query&gt; q(t);
-    for(int i = 0; i &lt; t; i ++) &#123;
-        auto &amp;[l, r, id] = q[i];
-        cin &gt;&gt; l &gt;&gt; r;
-        l --, r --;
-        id = i;
-    &#125;
-    sort(q.begin(), q.end(), [&amp;] (query a, query b) &#123;
-        if(a.l / bs != b.l / bs) return a.l &lt; b.l;
-        return (a.l / bs) &amp; 1 ? a.r &lt; b.r : a.r &gt; b.r;
-    &#125;);
-    i64 res = 0;
-    vector&lt;i64&gt; ans(t);
-    vector&lt;int&gt; cnt(MAXN);
-    for(int i = 0, ll = 0, rr = -1; i &lt; t; i ++) &#123;
-        auto &amp;[l, r, id] = q[i];
-        while (rr &lt; r) &#123;
-            int x = a[++ rr];
-            i64 fi = 1ll * cnt[x] * cnt[x] * x;
-            cnt[x] ++;
-            i64 se = 1ll * cnt[x] * cnt[x] * x;
-            res = res - fi + se;
-        &#125;
-        while(rr &gt; r) &#123;
-            int x = a[rr --];
-            i64 fi = 1ll * cnt[x] * cnt[x] * x;
-            cnt[x] --;
-            i64 se = 1ll * cnt[x] * cnt[x] * x;
-            res = res - fi + se;
-        &#125;
-        while(ll &lt; l) &#123;
-            int x = a[ll ++];
-            i64 fi = 1ll * cnt[x] * cnt[x] * x;
-            cnt[x] --;
-            i64 se = 1ll * cnt[x] * cnt[x] * x;
-            res = res - fi + se;
-        &#125;
-        while(ll &gt; l) &#123;
-            int x = a[-- ll];
-            i64 fi = 1ll * cnt[x] * cnt[x] * x;
-            cnt[x] ++;
-            i64 se = 1ll * cnt[x] * cnt[x] * x;
-            res = res - fi + se;
-        &#125;
-        ans[id] = res;
-    &#125;
-    for(i64 i : ans) &#123;
-        cout &lt;&lt; i &lt;&lt; &#39;\n&#39;;
-    &#125;
-&#125;
-</code></pre>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n, t;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; t;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">a</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="type">int</span> bs = <span class="built_in">sqrt</span>(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">query</span> &#123;</span><br><span class="line">        <span class="type">int</span> l, r, id;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">vector&lt;query&gt; <span class="title">q</span><span class="params">(t)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; i ++) &#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;[l, r, id] = q[i];</span><br><span class="line">        cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        l --, r --;</span><br><span class="line">        id = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(q.<span class="built_in">begin</span>(), q.<span class="built_in">end</span>(), [&amp;] (query a, query b) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a.l / bs != b.l / bs) <span class="keyword">return</span> a.l &lt; b.l;</span><br><span class="line">        <span class="built_in">return</span> (a.l / bs) &amp; <span class="number">1</span> ? a.r &lt; b.r : a.r &gt; b.r;</span><br><span class="line">    &#125;);</span><br><span class="line">    i64 res = <span class="number">0</span>;</span><br><span class="line">    <span class="function">vector&lt;i64&gt; <span class="title">ans</span><span class="params">(t)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cnt</span><span class="params">(MAXN)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, ll = <span class="number">0</span>, rr = <span class="number">-1</span>; i &lt; t; i ++) &#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;[l, r, id] = q[i];</span><br><span class="line">        <span class="keyword">while</span> (rr &lt; r) &#123;</span><br><span class="line">            <span class="type">int</span> x = a[++ rr];</span><br><span class="line">            i64 fi = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            cnt[x] ++;</span><br><span class="line">            i64 se = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            res = res - fi + se;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(rr &gt; r) &#123;</span><br><span class="line">            <span class="type">int</span> x = a[rr --];</span><br><span class="line">            i64 fi = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            cnt[x] --;</span><br><span class="line">            i64 se = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            res = res - fi + se;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(ll &lt; l) &#123;</span><br><span class="line">            <span class="type">int</span> x = a[ll ++];</span><br><span class="line">            i64 fi = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            cnt[x] --;</span><br><span class="line">            i64 se = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            res = res - fi + se;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(ll &gt; l) &#123;</span><br><span class="line">            <span class="type">int</span> x = a[-- ll];</span><br><span class="line">            i64 fi = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            cnt[x] ++;</span><br><span class="line">            i64 se = <span class="number">1ll</span> * cnt[x] * cnt[x] * x;</span><br><span class="line">            res = res - fi + se;</span><br><span class="line">        &#125;</span><br><span class="line">        ans[id] = res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i64 i : ans) &#123;</span><br><span class="line">        cout &lt;&lt; i &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
     
