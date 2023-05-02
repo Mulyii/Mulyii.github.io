@@ -1,6 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Splay</title>
+    <url>/2022/11/28/Splay/</url>
+    <content><![CDATA[<pre><code class="lang-cpp">int root, tot;
+const int MAXN = 1e5 + 10;
+struct ND &#123;
+    int ch[2],  // 儿子
+        f,      // 父亲
+        siz,    // 子树大小
+        val,    // 值
+        cnt;    // 个数
+&#125; nd[MAXN];
+void update(int x) &#123;
+    nd[x].siz = nd[nd[x].ch[0]].siz + nd[nd[x].ch[1]].siz + nd[x].cnt;
+&#125;
+void rotate(int x) &#123;
+    int y = nd[x].f;
+    int z = nd[y].f;
+    int k = nd[y].ch[1] == x;
+    nd[z].ch[nd[z].ch[1] == y] = x;
+    nd[x].f = z;
+    nd[y].ch[k] = nd[x].ch[k ^ 1];
+    nd[nd[x].ch[k ^ 1]].f = y;
+    nd[x].ch[k ^ 1] = y;
+    nd[y].f = x;
+    update(y), update(x);
+&#125;
+void splay(int x, int goal) &#123;
+    while(nd[x].f != goal) &#123;
+        int y = nd[x].f;
+        int z = nd[y].f;
+        if(z != goal) &#123;
+            (nd[z].ch[1] == y) == (nd[y].ch[1] == x) ?
+                rotate(y) : rotate(x);
+        &#125;
+        rotate(x);
+    &#125;
+    if(goal == 0) &#123;
+        root = x;
+    &#125;
+&#125;
+void find(int x) &#123;
+    int u = root;
+    if(!u) &#123;
+        return;
+    &#125;
+    while(nd[u].ch[x &gt; nd[u].val] &amp;&amp; x != nd[u].val) &#123;
+        u = nd[u].ch[x &gt; nd[u].val];
+    &#125;
+    splay(u, 0);
+&#125;
+void insert(int x) &#123;
+    int u = root, f = 0;
+    while(u &amp;&amp; nd[u].val != x) &#123;
+        f = u;
+        u = nd[u].ch[x &gt; nd[u].val];
+    &#125;
+    if(u) &#123;
+        nd[u].cnt ++;
+    &#125; else &#123;
+        u = ++ tot;
+        if(f) &#123;
+            nd[f].ch[x &gt; nd[f].val] = u;
+        &#125;
+        nd[u].ch[0] = nd[u].ch[1] = 0;
+        nd[u].f = f;
+        nd[u].val = x;
+        nd[u].cnt = 1;
+        nd[u].siz = 1;
+    &#125;
+    splay(u, 0);
+&#125;
+int Next(int x) &#123;
+    find(x);
+    int u = root;
+    if(nd[u].val &gt; x) return u;
+    u = nd[u].ch[1];
+    while(nd[u].ch[0]) u = nd[u].ch[0];
+    return u;
+&#125;
+int Pre(int x) &#123;
+    find(x);
+    int u = root;
+    if(nd[u].val &lt; x) return u;
+    u = nd[u].ch[0];
+    while(nd[u].ch[1]) u = nd[u].ch[1];
+    return u;
+&#125;
+void del(int x) &#123;
+    int pre = Pre(x), next = Next(x);
+    splay(pre, 0), splay(next, pre);
+    int del = nd[next].ch[0];
+    if(nd[del].cnt &gt; 1) &#123;
+        nd[del].cnt --;
+        splay(del, 0);
+    &#125; else &#123;
+        nd[next].ch[0] = 0;
+    &#125;
+&#125;
+int kth(int k) &#123;
+    int u = root;
+    if(nd[u].siz &lt; k) &#123;
+        return 0;
+    &#125;
+    while(1) &#123;
+        int y = nd[u].ch[0];
+        if(k &gt; nd[y].siz + nd[u].cnt) &#123;
+            k -= nd[y].siz + nd[u].cnt;
+            u = nd[u].ch[1];
+        &#125; else &#123;
+            if(k &lt;= nd[y].siz) &#123;
+                u = y;
+            &#125; else &#123;
+                return nd[u].val;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() &#123;
+    ios::sync_with_stdio(0), cin.tie(0);
+    int q;
+    cin &gt;&gt; q;
+    insert(1e9), insert(-1e9);
+    while(q --) &#123;
+        int op, x;
+        cin &gt;&gt; op &gt;&gt; x;
+        switch (op) &#123;
+            case 1:
+                insert(x);
+                break;
+            case 2:
+                del(x);
+                break;
+            case 3:
+                find(x);
+                cout &lt;&lt; nd[nd[root].ch[0]].siz &lt;&lt; &#39;\n&#39;;
+                break;
+            case 4:
+                cout &lt;&lt; kth(x + 1) &lt;&lt; &#39;\n&#39;;
+                break;
+            case 5:
+                cout &lt;&lt; nd[Pre(x)].val &lt;&lt; &#39;\n&#39;;
+                break;
+            case 6:
+                cout &lt;&lt; nd[Next(x)].val &lt;&lt; &#39;\n&#39;;
+                break;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+        <category>算法笔记</category>
+      </categories>
+      <tags>
+        <tag>Splay</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2022CCPC河南省赛题解</title>
     <url>/2022/10/20/2022CCPC%E6%B2%B3%E5%8D%97%E7%9C%81%E8%B5%9B%E9%A2%98%E8%A7%A3/</url>
     <content><![CDATA[<p><a href="https://codeforces.com/gym/103941">传送门</a></p>
@@ -464,167 +625,6 @@ int main() &#123;
       </categories>
       <tags>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Splay</title>
-    <url>/2022/11/28/Splay/</url>
-    <content><![CDATA[<pre><code class="lang-cpp">int root, tot;
-const int MAXN = 1e5 + 10;
-struct ND &#123;
-    int ch[2],  // 儿子
-        f,      // 父亲
-        siz,    // 子树大小
-        val,    // 值
-        cnt;    // 个数
-&#125; nd[MAXN];
-void update(int x) &#123;
-    nd[x].siz = nd[nd[x].ch[0]].siz + nd[nd[x].ch[1]].siz + nd[x].cnt;
-&#125;
-void rotate(int x) &#123;
-    int y = nd[x].f;
-    int z = nd[y].f;
-    int k = nd[y].ch[1] == x;
-    nd[z].ch[nd[z].ch[1] == y] = x;
-    nd[x].f = z;
-    nd[y].ch[k] = nd[x].ch[k ^ 1];
-    nd[nd[x].ch[k ^ 1]].f = y;
-    nd[x].ch[k ^ 1] = y;
-    nd[y].f = x;
-    update(y), update(x);
-&#125;
-void splay(int x, int goal) &#123;
-    while(nd[x].f != goal) &#123;
-        int y = nd[x].f;
-        int z = nd[y].f;
-        if(z != goal) &#123;
-            (nd[z].ch[1] == y) == (nd[y].ch[1] == x) ?
-                rotate(y) : rotate(x);
-        &#125;
-        rotate(x);
-    &#125;
-    if(goal == 0) &#123;
-        root = x;
-    &#125;
-&#125;
-void find(int x) &#123;
-    int u = root;
-    if(!u) &#123;
-        return;
-    &#125;
-    while(nd[u].ch[x &gt; nd[u].val] &amp;&amp; x != nd[u].val) &#123;
-        u = nd[u].ch[x &gt; nd[u].val];
-    &#125;
-    splay(u, 0);
-&#125;
-void insert(int x) &#123;
-    int u = root, f = 0;
-    while(u &amp;&amp; nd[u].val != x) &#123;
-        f = u;
-        u = nd[u].ch[x &gt; nd[u].val];
-    &#125;
-    if(u) &#123;
-        nd[u].cnt ++;
-    &#125; else &#123;
-        u = ++ tot;
-        if(f) &#123;
-            nd[f].ch[x &gt; nd[f].val] = u;
-        &#125;
-        nd[u].ch[0] = nd[u].ch[1] = 0;
-        nd[u].f = f;
-        nd[u].val = x;
-        nd[u].cnt = 1;
-        nd[u].siz = 1;
-    &#125;
-    splay(u, 0);
-&#125;
-int Next(int x) &#123;
-    find(x);
-    int u = root;
-    if(nd[u].val &gt; x) return u;
-    u = nd[u].ch[1];
-    while(nd[u].ch[0]) u = nd[u].ch[0];
-    return u;
-&#125;
-int Pre(int x) &#123;
-    find(x);
-    int u = root;
-    if(nd[u].val &lt; x) return u;
-    u = nd[u].ch[0];
-    while(nd[u].ch[1]) u = nd[u].ch[1];
-    return u;
-&#125;
-void del(int x) &#123;
-    int pre = Pre(x), next = Next(x);
-    splay(pre, 0), splay(next, pre);
-    int del = nd[next].ch[0];
-    if(nd[del].cnt &gt; 1) &#123;
-        nd[del].cnt --;
-        splay(del, 0);
-    &#125; else &#123;
-        nd[next].ch[0] = 0;
-    &#125;
-&#125;
-int kth(int k) &#123;
-    int u = root;
-    if(nd[u].siz &lt; k) &#123;
-        return 0;
-    &#125;
-    while(1) &#123;
-        int y = nd[u].ch[0];
-        if(k &gt; nd[y].siz + nd[u].cnt) &#123;
-            k -= nd[y].siz + nd[u].cnt;
-            u = nd[u].ch[1];
-        &#125; else &#123;
-            if(k &lt;= nd[y].siz) &#123;
-                u = y;
-            &#125; else &#123;
-                return nd[u].val;
-            &#125;
-        &#125;
-    &#125;
-&#125;
-#include &lt;bits/stdc++.h&gt;
-using namespace std;
-int main() &#123;
-    ios::sync_with_stdio(0), cin.tie(0);
-    int q;
-    cin &gt;&gt; q;
-    insert(1e9), insert(-1e9);
-    while(q --) &#123;
-        int op, x;
-        cin &gt;&gt; op &gt;&gt; x;
-        switch (op) &#123;
-            case 1:
-                insert(x);
-                break;
-            case 2:
-                del(x);
-                break;
-            case 3:
-                find(x);
-                cout &lt;&lt; nd[nd[root].ch[0]].siz &lt;&lt; &#39;\n&#39;;
-                break;
-            case 4:
-                cout &lt;&lt; kth(x + 1) &lt;&lt; &#39;\n&#39;;
-                break;
-            case 5:
-                cout &lt;&lt; nd[Pre(x)].val &lt;&lt; &#39;\n&#39;;
-                break;
-            case 6:
-                cout &lt;&lt; nd[Next(x)].val &lt;&lt; &#39;\n&#39;;
-                break;
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-        <category>算法笔记</category>
-      </categories>
-      <tags>
-        <tag>Splay</tag>
       </tags>
   </entry>
   <entry>
@@ -1534,6 +1534,82 @@ for(int i = 0; i &lt; n; i ++) &#123;
       </tags>
   </entry>
   <entry>
+    <title>模运算规范及表达式求模板值</title>
+    <url>/2022/10/30/%E6%A8%A1%E8%BF%90%E7%AE%97%E8%A7%84%E8%8C%83%E5%8F%8A%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E6%A8%A1%E6%9D%BF%E5%80%BC/</url>
+    <content><![CDATA[<h3 id="模运算规范，避免不必要的数值越界"><a href="#模运算规范，避免不必要的数值越界" class="headerlink" title="模运算规范，避免不必要的数值越界"></a>模运算规范，避免不必要的数值越界</h3><pre><code class="lang-cpp">const int mod = 998244353;
+inline int add(int a,int b)&#123; return a + b &lt; mod ? a + b : a + b - mod;&#125;
+inline int sub(int a,int b)&#123; return a &lt; b ? mod + a - b : a - b;&#125;
+inline int mul(int a,int b)&#123; return 1ll * a * b % mod; &#125;
+</code></pre>
+<h3 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h3><pre><code class="lang-cpp">namespace CAL &#123;
+    int expression(char*&amp;s);  // 计算一个不带括号的表达式值
+    int token(char*&amp;s) &#123;      // 取出一个值加入到栈中
+        if(*s == &#39;(&#39;) &#123;
+            s ++;
+            int ret = expression(s);
+            s ++;
+            return ret;
+        &#125;
+        int ret = 0;
+        while(&#39;0&#39; &lt;= *s &amp;&amp; *s &lt;= &#39;9&#39;)&#123;
+            ret = ret * 10 + *s++ - &#39;0&#39;;
+        &#125;
+        return ret % mod;
+    &#125;
+    int rank(char op) &#123;
+        switch(op) &#123;
+            case &#39;-&#39;: return 1;
+            case &#39;+&#39;: return 1;
+            case &#39;*&#39;: return 0;
+        &#125;
+        return 2;
+    &#125;
+    int expression(char*&amp;s)&#123;
+        stack&lt;int&gt; svar;
+        stack&lt;char&gt; sop;
+        svar.push(token(s));
+        while(true)&#123;
+            char op = *s;
+            if(!op || op == &#39;)&#39;) op = &#39;$&#39;;
+            else s++;
+            while(!sop.empty() &amp;&amp; rank(sop.top()) &lt;= rank(op))&#123;
+                int b = svar.top();
+                svar.pop();
+                int a = svar.top();
+                svar.pop();
+                switch(sop.top())&#123;
+                    case &#39;+&#39;:&#123;
+                        svar.push(add(a, b));
+                        break;
+                    &#125;
+                    case &#39;-&#39;:&#123;
+                        svar.push(sub(a, b));
+                        break;
+                    &#125;
+                    case &#39;*&#39;: &#123;
+                        svar.push(mul(a, b));
+                        break;
+                    &#125;
+                &#125;
+                sop.pop();
+            &#125;
+            if(op == &#39;$&#39;) break;
+            svar.push(token(s));
+            sop.push(op);
+        &#125;
+        return svar.top();
+    &#125;
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>模板</category>
+      </categories>
+      <tags>
+        <tag>模拟表达式求值</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>莫队</title>
     <url>/2023/04/16/%E8%8E%AB%E9%98%9F/</url>
     <content><![CDATA[<h1 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h1><ul>
@@ -1612,253 +1688,6 @@ for(int i = 0; i &lt; n; i ++) &#123;
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>模运算规范及表达式求模板值</title>
-    <url>/2022/10/30/%E6%A8%A1%E8%BF%90%E7%AE%97%E8%A7%84%E8%8C%83%E5%8F%8A%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E6%A8%A1%E6%9D%BF%E5%80%BC/</url>
-    <content><![CDATA[<h3 id="模运算规范，避免不必要的数值越界"><a href="#模运算规范，避免不必要的数值越界" class="headerlink" title="模运算规范，避免不必要的数值越界"></a>模运算规范，避免不必要的数值越界</h3><pre><code class="lang-cpp">const int mod = 998244353;
-inline int add(int a,int b)&#123; return a + b &lt; mod ? a + b : a + b - mod;&#125;
-inline int sub(int a,int b)&#123; return a &lt; b ? mod + a - b : a - b;&#125;
-inline int mul(int a,int b)&#123; return 1ll * a * b % mod; &#125;
-</code></pre>
-<h3 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h3><pre><code class="lang-cpp">namespace CAL &#123;
-    int expression(char*&amp;s);  // 计算一个不带括号的表达式值
-    int token(char*&amp;s) &#123;      // 取出一个值加入到栈中
-        if(*s == &#39;(&#39;) &#123;
-            s ++;
-            int ret = expression(s);
-            s ++;
-            return ret;
-        &#125;
-        int ret = 0;
-        while(&#39;0&#39; &lt;= *s &amp;&amp; *s &lt;= &#39;9&#39;)&#123;
-            ret = ret * 10 + *s++ - &#39;0&#39;;
-        &#125;
-        return ret % mod;
-    &#125;
-    int rank(char op) &#123;
-        switch(op) &#123;
-            case &#39;-&#39;: return 1;
-            case &#39;+&#39;: return 1;
-            case &#39;*&#39;: return 0;
-        &#125;
-        return 2;
-    &#125;
-    int expression(char*&amp;s)&#123;
-        stack&lt;int&gt; svar;
-        stack&lt;char&gt; sop;
-        svar.push(token(s));
-        while(true)&#123;
-            char op = *s;
-            if(!op || op == &#39;)&#39;) op = &#39;$&#39;;
-            else s++;
-            while(!sop.empty() &amp;&amp; rank(sop.top()) &lt;= rank(op))&#123;
-                int b = svar.top();
-                svar.pop();
-                int a = svar.top();
-                svar.pop();
-                switch(sop.top())&#123;
-                    case &#39;+&#39;:&#123;
-                        svar.push(add(a, b));
-                        break;
-                    &#125;
-                    case &#39;-&#39;:&#123;
-                        svar.push(sub(a, b));
-                        break;
-                    &#125;
-                    case &#39;*&#39;: &#123;
-                        svar.push(mul(a, b));
-                        break;
-                    &#125;
-                &#125;
-                sop.pop();
-            &#125;
-            if(op == &#39;$&#39;) break;
-            svar.push(token(s));
-            sop.push(op);
-        &#125;
-        return svar.top();
-    &#125;
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>模板</category>
-      </categories>
-      <tags>
-        <tag>模拟表达式求值</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>闵可夫斯基和</title>
-    <url>/2023/04/16/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E5%92%8C/</url>
-    <content><![CDATA[<h1 id="闵可夫斯基和"><a href="#闵可夫斯基和" class="headerlink" title="闵可夫斯基和"></a>闵可夫斯基和</h1><p>定义: 对于欧式空间上的两个点集 $A, B$, 存在点集 $C$ 满足 ${a + b \in C|a \in A,b\in B }$ （$a, b$均为向量的形式）, 则称 $C$ 为$A, B$的闵可夫斯基和, 即</p>
-<script type="math/tex; mode=display">
-    C = A + B</script><p>差 (different):<br>$C = A - B = {a - b | a \in A, b \in B} = A + (-B)$<br>表示对$\forall a \in A, \forall b \in B, \exist c \in C (c = a - b)$<br>或者可以这样理解$\forall c \in C, \exists b \in B, \exist a \in A (a =  c + b)$</p>
-<p>==warning==: 这里的加号和减号不是一对可以互逆的运算, $(A - B) + B \neq A$</p>
-<p><a href="https://en.wikipedia.org/wiki/Minkowski_addition">wikipedia</a></p>
-<ul>
-<li>例题(第一道过的洛谷黑题):</li>
-</ul>
-<p><a href="https://www.luogu.com.cn/problem/P4557">战争</a></p>
-<p>题目大意: 有两个部落$A,B$, 两个部落分别有$n, m$个人, 如两个部落所围成的凸包没有重合的点, 则不会发生战争. 现在$B$部落的全部人打算向$(x, y)$向量迁移, 有$q$次询问, 问是否会发生战争.</p>
-<p>思路是找到一个点集$C$, 满足$\forall c \in C, \exists b \in B 满足 c + b \in A$, 这和前面差的定义是相同的, 故此题转化为了求$C = A - B$, 然后每次询问二分判断点是否在$C$内.</p>
-<p>参考代码 (包含了<strong>闵可夫斯基和</strong>以及<strong>判断一个点是否在凸包内</strong>):</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-using Real = long long;
-struct Point &#123;
-    Real x, y;
-    Point() &#123;&#125;
-    Point(Real x, Real y) : x(x), y(y) &#123;&#125;
-    friend istream&amp; operator &gt;&gt; (istream &amp;is, Point&amp; v) &#123;
-        return is &gt;&gt; v.x &gt;&gt; v.y;
-    &#125;
-    Point&amp; operator+= (const Point&amp; p) &#123;
-        x += p.x, y += p.y;
-        return *this;
-    &#125;
-    Point&amp; operator-= (const Point&amp; p) &#123;
-        x -= p.x, y -= p.y;
-        return *this;
-    &#125;
-    Point operator+ (const Point&amp; p) const &#123;
-        return Point(*this) += p;
-    &#125;
-    Point operator- (const Point&amp; p) const &#123;
-        return Point(*this) -= p;
-    &#125;
-    Point operator- () &#123;
-        return Point(-x, -y);
-    &#125;
-    friend Real crs(const Point&amp; a, const Point&amp; b) &#123;
-        return a.x * b.y - a.y * b.x;
-    &#125;
-    bool operator&lt; (const Point&amp; p) const &#123;
-        if(x != p.x) return x &lt; p.x;
-        return y &lt; p.y;
-    &#125;
-&#125;;
-using Points = vector&lt;Point&gt;;
-enum position &#123; CCW = 1, CW = -1, ON = 0 &#125;;
-int ccw(const Point&amp; a, Point b, Point c) &#123;
-    b -= a, c -= a;
-    if(crs(b, c) &gt; 0) return CCW;
-    if(crs(b, c) &lt; 0) return CW;
-    return ON;
-&#125;
-int ccw(Point a, Point b) &#123;
-    return ccw(Point(0, 0), a, b);
-&#125;
-Points Convexhell(Points&amp; ps) &#123;
-    int n = ps.size(), k = 0;
-    Points res(2 * n);
-    sort(ps.begin(), ps.end());
-    for(int i = 0; i &lt; n; res[k ++] = ps[i ++]) &#123;
-        while(k &gt;= 2 &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
-            k --;
-        &#125;
-    &#125;
-    for(int i = n - 2, t = k + 1; i &gt;= 0; res[k ++] = ps[i --]) &#123;
-        while(k &gt;= t &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
-            k --;
-        &#125;
-    &#125;
-    res.resize(k - 1);
-    return res;
-&#125;
-Points Minkowski(Points&amp; A, Points&amp; B) &#123;
-    int n = A.size(), m = B.size();
-    Points res (n + m + 1);
-    res[0] = A[0] + B[0];
-    int k = 1, i = 0, j = 0;
-    int cA = 0, cB = 0;
-    while(cA &lt; n &amp;&amp; cB &lt; m) &#123;
-        int nxi = (i + 1) % n, nxj = (j + 1) % m;
-        Point x = A[nxi] - A[i];
-        Point y = B[nxj] - B[j];
-        if(ccw(x, y) == CCW) &#123;
-            res[k ++] = res[k - 1] + x;
-            i = nxi, cA ++;
-        &#125; else if(ccw(x, y) == CW) &#123;
-            res[k ++] = res[k - 1] + y;
-            j = nxj, cB ++;
-        &#125; else &#123;
-            res[k ++] = res[k - 1] + x + y;
-            j = nxj, i = nxi;
-            cA ++, cB ++;
-        &#125;
-    &#125;
-    while(cA &lt; n) &#123;
-        int nxi = (i + 1) % n;
-        res[k ++] = res[k - 1] + A[nxi] - A[i];
-        cA ++, i = nxi;
-    &#125;
-    while(cB &lt; m) &#123;
-        int nxj = (j + 1) % m;
-        res[k ++] = res[k - 1] + B[nxj] - B[j];
-        cB ++, j = nxj;
-    &#125;
-    res.resize(k - 1);
-    return res;
-&#125;
-bool check_in(Point&amp; p, Points&amp; ps) &#123;
-    int n = ps.size();
-    int O = 0, l = 1, r = n - 1;
-    if(ccw(ps[O], ps[r], p) == CCW || ccw(ps[O], ps[l], p) == CW) &#123;
-        return false;
-    &#125;
-    while(l + 1 &lt; r) &#123;
-        int m = l + r &gt;&gt; 1;
-        if(ccw(ps[O], ps[m], p) == CCW) &#123;
-            l = m;
-        &#125; else &#123;
-            r = m;
-        &#125;
-    &#125;
-    if(ccw(ps[l], ps[r], p) == CW) &#123;
-        return false;
-    &#125; else &#123;
-        return true;
-    &#125;
-&#125;
-void solve() &#123;
-    int n, m, q;
-    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
-    Points A(n), B(m);
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; A[i];
-    &#125;
-    for(int i = 0; i &lt; m; i ++) &#123;
-        cin &gt;&gt; B[i];
-        B[i] = -B[i];
-    &#125;
-    A = Convexhell(A); n = A.size();
-    B = Convexhell(B); m = B.size();
-    Points C = Minkowski(A, B);
-    while(q --) &#123;
-        Point query;
-        cin &gt;&gt; query;
-        if(check_in(query, C)) &#123;
-            cout &lt;&lt; &quot;1\n&quot;;
-        &#125; else &#123;
-            cout &lt;&lt; &quot;0\n&quot;;
-        &#125;
-    &#125;
-&#125;
-int main() &#123;
-    ios::sync_with_stdio(false), cin.tie(0);
-    int _ = 1;
-    while(_ --) solve();
-&#125;
-</code></pre>
-]]></content>
-      <categories>
-        <category>算法竞赛</category>
-      </categories>
-      <tags>
-        <tag>计算几何</tag>
       </tags>
   </entry>
   <entry>
@@ -2218,6 +2047,177 @@ for(int i = 1; i &lt; s.size(); i ++) &#123;
       </categories>
       <tags>
         <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>闵可夫斯基和</title>
+    <url>/2023/04/16/%E9%97%B5%E5%8F%AF%E5%A4%AB%E6%96%AF%E5%9F%BA%E5%92%8C/</url>
+    <content><![CDATA[<h1 id="闵可夫斯基和"><a href="#闵可夫斯基和" class="headerlink" title="闵可夫斯基和"></a>闵可夫斯基和</h1><p>定义: 对于欧式空间上的两个点集 $A, B$, 存在点集 $C$ 满足 ${a + b \in C|a \in A,b\in B }$ （$a, b$均为向量的形式）, 则称 $C$ 为$A, B$的闵可夫斯基和, 即</p>
+<script type="math/tex; mode=display">
+    C = A + B</script><p>差 (different):<br>$C = A - B = {a - b | a \in A, b \in B} = A + (-B)$<br>表示对$\forall a \in A, \forall b \in B, \exist c \in C (c = a - b)$<br>或者可以这样理解$\forall c \in C, \exists b \in B, \exist a \in A (a =  c + b)$</p>
+<p>==warning==: 这里的加号和减号不是一对可以互逆的运算, $(A - B) + B \neq A$</p>
+<p><a href="https://en.wikipedia.org/wiki/Minkowski_addition">wikipedia</a></p>
+<ul>
+<li>例题(第一道过的洛谷黑题):</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/problem/P4557">战争</a></p>
+<p>题目大意: 有两个部落$A,B$, 两个部落分别有$n, m$个人, 如两个部落所围成的凸包没有重合的点, 则不会发生战争. 现在$B$部落的全部人打算向$(x, y)$向量迁移, 有$q$次询问, 问是否会发生战争.</p>
+<p>思路是找到一个点集$C$, 满足$\forall c \in C, \exists b \in B 满足 c + b \in A$, 这和前面差的定义是相同的, 故此题转化为了求$C = A - B$, 然后每次询问二分判断点是否在$C$内.</p>
+<p>参考代码 (包含了<strong>闵可夫斯基和</strong>以及<strong>判断一个点是否在凸包内</strong>):</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+using Real = long long;
+struct Point &#123;
+    Real x, y;
+    Point() &#123;&#125;
+    Point(Real x, Real y) : x(x), y(y) &#123;&#125;
+    friend istream&amp; operator &gt;&gt; (istream &amp;is, Point&amp; v) &#123;
+        return is &gt;&gt; v.x &gt;&gt; v.y;
+    &#125;
+    Point&amp; operator+= (const Point&amp; p) &#123;
+        x += p.x, y += p.y;
+        return *this;
+    &#125;
+    Point&amp; operator-= (const Point&amp; p) &#123;
+        x -= p.x, y -= p.y;
+        return *this;
+    &#125;
+    Point operator+ (const Point&amp; p) const &#123;
+        return Point(*this) += p;
+    &#125;
+    Point operator- (const Point&amp; p) const &#123;
+        return Point(*this) -= p;
+    &#125;
+    Point operator- () &#123;
+        return Point(-x, -y);
+    &#125;
+    friend Real crs(const Point&amp; a, const Point&amp; b) &#123;
+        return a.x * b.y - a.y * b.x;
+    &#125;
+    bool operator&lt; (const Point&amp; p) const &#123;
+        if(x != p.x) return x &lt; p.x;
+        return y &lt; p.y;
+    &#125;
+&#125;;
+using Points = vector&lt;Point&gt;;
+enum position &#123; CCW = 1, CW = -1, ON = 0 &#125;;
+int ccw(const Point&amp; a, Point b, Point c) &#123;
+    b -= a, c -= a;
+    if(crs(b, c) &gt; 0) return CCW;
+    if(crs(b, c) &lt; 0) return CW;
+    return ON;
+&#125;
+int ccw(Point a, Point b) &#123;
+    return ccw(Point(0, 0), a, b);
+&#125;
+Points Convexhell(Points&amp; ps) &#123;
+    int n = ps.size(), k = 0;
+    Points res(2 * n);
+    sort(ps.begin(), ps.end());
+    for(int i = 0; i &lt; n; res[k ++] = ps[i ++]) &#123;
+        while(k &gt;= 2 &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
+            k --;
+        &#125;
+    &#125;
+    for(int i = n - 2, t = k + 1; i &gt;= 0; res[k ++] = ps[i --]) &#123;
+        while(k &gt;= t &amp;&amp; ccw(res[k - 2], res[k - 1], ps[i]) != CCW) &#123;
+            k --;
+        &#125;
+    &#125;
+    res.resize(k - 1);
+    return res;
+&#125;
+Points Minkowski(Points&amp; A, Points&amp; B) &#123;
+    int n = A.size(), m = B.size();
+    Points res (n + m + 1);
+    res[0] = A[0] + B[0];
+    int k = 1, i = 0, j = 0;
+    int cA = 0, cB = 0;
+    while(cA &lt; n &amp;&amp; cB &lt; m) &#123;
+        int nxi = (i + 1) % n, nxj = (j + 1) % m;
+        Point x = A[nxi] - A[i];
+        Point y = B[nxj] - B[j];
+        if(ccw(x, y) == CCW) &#123;
+            res[k ++] = res[k - 1] + x;
+            i = nxi, cA ++;
+        &#125; else if(ccw(x, y) == CW) &#123;
+            res[k ++] = res[k - 1] + y;
+            j = nxj, cB ++;
+        &#125; else &#123;
+            res[k ++] = res[k - 1] + x + y;
+            j = nxj, i = nxi;
+            cA ++, cB ++;
+        &#125;
+    &#125;
+    while(cA &lt; n) &#123;
+        int nxi = (i + 1) % n;
+        res[k ++] = res[k - 1] + A[nxi] - A[i];
+        cA ++, i = nxi;
+    &#125;
+    while(cB &lt; m) &#123;
+        int nxj = (j + 1) % m;
+        res[k ++] = res[k - 1] + B[nxj] - B[j];
+        cB ++, j = nxj;
+    &#125;
+    res.resize(k - 1);
+    return res;
+&#125;
+bool check_in(Point&amp; p, Points&amp; ps) &#123;
+    int n = ps.size();
+    int O = 0, l = 1, r = n - 1;
+    if(ccw(ps[O], ps[r], p) == CCW || ccw(ps[O], ps[l], p) == CW) &#123;
+        return false;
+    &#125;
+    while(l + 1 &lt; r) &#123;
+        int m = l + r &gt;&gt; 1;
+        if(ccw(ps[O], ps[m], p) == CCW) &#123;
+            l = m;
+        &#125; else &#123;
+            r = m;
+        &#125;
+    &#125;
+    if(ccw(ps[l], ps[r], p) == CW) &#123;
+        return false;
+    &#125; else &#123;
+        return true;
+    &#125;
+&#125;
+void solve() &#123;
+    int n, m, q;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+    Points A(n), B(m);
+    for(int i = 0; i &lt; n; i ++) &#123;
+        cin &gt;&gt; A[i];
+    &#125;
+    for(int i = 0; i &lt; m; i ++) &#123;
+        cin &gt;&gt; B[i];
+        B[i] = -B[i];
+    &#125;
+    A = Convexhell(A); n = A.size();
+    B = Convexhell(B); m = B.size();
+    Points C = Minkowski(A, B);
+    while(q --) &#123;
+        Point query;
+        cin &gt;&gt; query;
+        if(check_in(query, C)) &#123;
+            cout &lt;&lt; &quot;1\n&quot;;
+        &#125; else &#123;
+            cout &lt;&lt; &quot;0\n&quot;;
+        &#125;
+    &#125;
+&#125;
+int main() &#123;
+    ios::sync_with_stdio(false), cin.tie(0);
+    int _ = 1;
+    while(_ --) solve();
+&#125;
+</code></pre>
+]]></content>
+      <categories>
+        <category>算法竞赛</category>
+      </categories>
+      <tags>
+        <tag>计算几何</tag>
       </tags>
   </entry>
 </search>
