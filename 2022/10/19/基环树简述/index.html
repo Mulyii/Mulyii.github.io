@@ -1,349 +1,207 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8" />
-        <title>基环树简述 | Muly&#39;s blog</title>
-        <meta name="author" content="晓染" />
-        <meta name="description" content="A blog records study of Algorithm, Math and Physics" />
-        <meta name="keywords" content="blog" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/favicon.png" />
-        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
-
-
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
-<script src="/js/lib/math.js"></script>
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div id="desktop-menu">
-        <a class="title" href="/">
-            <span>MULY&#39;S BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </div>
-    <div id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;MULY&#39;S BLOG</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </div>
-</nav>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <transition name="into">
-                <div id="main" v-show="!loading">
-                    <div class="article">
-    <div>
-        <h1>基环树简述</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/10/19
-        </span>
-        
-        <span class="category">
-            <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                算法笔记
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" style="color: #00a596">基环树</a>
-            </span>
-            
-        </span>
-        
-    </div>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>基环树简述 - Muly&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="A blog records study of Algorithm, Math and Physics,概念基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.
+重要的事 找环tarjan找环, 给一份容易实现的代码（不能找重边和自环）123456789101112131415,"> 
+    <meta name="author" content="晓染"> 
+    <link rel="alternative" href="atom.xml" title="Muly&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
     
-    <div class="content" v-pre>
-        <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.<br><img src="https://static01.imgkr.com/temp/daf52d93387f444ab74d26d08050ee10.png" alt="图1"></p>
-<h3 id="重要的事-找环"><a href="#重要的事-找环" class="headerlink" title="重要的事 找环"></a>重要的事 找环</h3><p>tarjan找环, 给一份容易实现的代码（不能找重边和自环）</p>
-<pre><code class="lang-cpp">int n, m;
-vector&lt;int&gt; G[MAXN];
-namespace Circle &#123;
-    vector&lt;int&gt; circle; // 环上的点
-    int tag[MAXN]; // 标记: -1未访问; 1访问过; 2在环上
-    void init() &#123;
-        for(int i = 0; i &lt; n; i ++) &#123;
-            tag[i] = -1;
-        &#125;
-    &#125;
-    int dfs(int u, int f) &#123;
-        if(tag[u] != -1) &#123;
-            return u;
-        &#125;
-        tag[u] = 1;
-        for(auto v : G[u]) if(v != f) &#123;
-            int t = dfs(v, u);
-            if(t &gt; -1) &#123;
-                circle.push_back(u);
-                tag[u] = 2;
-                return t == u ? -1 : t;
-            &#125;
-        &#125;
-        return -1;
-    &#125;
-&#125;
-</code></pre>
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="基环树简述 - Muly&#39;s blog"/>
+    <meta name="twitter:description" content="A blog records study of Algorithm, Math and Physics,概念基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.
+重要的事 找环tarjan找环, 给一份容易实现的代码（不能找重边和自环）123456789101112131415,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Muly&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="基环树简述 - Muly&#39;s blog"/>
+    <meta property="og:description" content="A blog records study of Algorithm, Math and Physics,概念基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.
+重要的事 找环tarjan找环, 给一份容易实现的代码（不能找重边和自环）123456789101112131415,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Muly&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://ryantsuii.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">基环树简述</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">基环树简述</h1>
+        <div class="stuff">
+            <span>十月 19, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%8E%AF%E6%A0%91/" rel="tag">基环树</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>基环树指$n$个点$n$条边的连通图, 仅比树多一条边, 有大部分树的性质.<br><img src="https://static01.imgkr.com/temp/daf52d93387f444ab74d26d08050ee10.png" alt="图1"></p>
+<h3 id="重要的事-找环"><a href="#重要的事-找环" class="headerlink" title="重要的事 找环"></a>重要的事 找环</h3><p>tarjan找环, 给一份容易实现的代码（不能找重边和自环）<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; G[MAXN];</span><br><span class="line"><span class="keyword">namespace</span> Circle &#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; circle; <span class="comment">// 环上的点</span></span><br><span class="line">    <span class="type">int</span> tag[MAXN]; <span class="comment">// 标记: -1未访问; 1访问过; 2在环上</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            tag[i] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> f)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tag[u] != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> u;</span><br><span class="line">        &#125;</span><br><span class="line">        tag[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> v : G[u]) <span class="keyword">if</span>(v != f) &#123;</span><br><span class="line">            <span class="type">int</span> t = <span class="built_in">dfs</span>(v, u);</span><br><span class="line">            <span class="keyword">if</span>(t &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">                circle.<span class="built_in">push_back</span>(u);</span><br><span class="line">                tag[u] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">return</span> t == u ? <span class="number">-1</span> : t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h4 id="旅行"><a href="#旅行" class="headerlink" title="旅行"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5022">旅行</a></h4><ul>
 <li>题目大意: 给定一棵普通树或者基环树, 求访问全部节点最小的字典序(每个节点只记录第一次访问).</li>
 <li>对于一般树, 可以$1$节点开始跑; 对于基环树, 可以删一条边使其变成普通树, 时间复杂度$O(n^2)$</li>
-<li>参考代码<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 5e3 + 10, mod = 998244353;
-int n, m;
-vector&lt;int&gt; G[MAXN];
-vector&lt;int&gt; res, ste;
-namespace Circle &#123;
-  vector&lt;int&gt; circle;
-  int tag[MAXN];
-  void init() &#123;
-      for(int i = 0; i &lt; n; i ++) &#123;
-          tag[i] = -1;
-      &#125;
-  &#125;
-  int dfs(int u, int f) &#123;
-      if(tag[u] != -1) &#123;
-          return u;
-      &#125;
-      tag[u] = 1;
-      for(auto v : G[u]) if(v != f) &#123;
-          int t = dfs(v, u);
-          if(t &gt; -1) &#123;
-              circle.push_back(u);
-              tag[u] = 2;
-              return t == u ? -1 : t;
-          &#125;
-      &#125;
-      return -1;
-  &#125;
-&#125;
-bool cmp(vector&lt;int&gt; &amp;a, vector&lt;int&gt; &amp;b) &#123;
-  if(!a.size()) &#123;
-      return 1;
-  &#125; else &#123;
-      for(int i = 0; i &lt; n; i ++) &#123;
-          if(a[i] != b[i]) &#123;
-              return a[i] &gt; b[i];
-          &#125;
-      &#125;
-  &#125;
-  return 0;
-&#125;
-int du = -1, dv = -1; // 删的边
-void dfs(int u, int p) &#123;
-  ste.push_back(u);
-  for(int v : G[u]) if(v != p) &#123;
-      if((du == u &amp;&amp; dv == v) || du == v &amp;&amp; dv == u) continue;
-      dfs(v, u);
-  &#125;
-&#125;
-int main() &#123;
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  cin &gt;&gt; n &gt;&gt; m;
-  for(int i = 0; i &lt; m; i ++) &#123;
-      int u, v;
-      cin &gt;&gt; u &gt;&gt; v;
-      u --, v --;
-      G[u].push_back(v), G[v].push_back(u);
-  &#125;
-  for(int i = 0; i &lt; n; i ++) &#123;
-      sort(G[i].begin(), G[i].end());
-  &#125;
-  if(m == n - 1) &#123;
-      dfs(0, 0);
-      res = ste;
-  &#125; else &#123;
-      Circle::init();
-      Circle::dfs(0, 0);
-      for(int i = 0; i &lt; Circle::circle.size() - 1; i ++) &#123;
-          du = Circle::circle[i], dv = Circle::circle[i + 1];
-          ste.clear();
-          dfs(0, 0);
-          if(cmp(res, ste)) &#123;
-              res = ste;
-          &#125;
-      &#125;
-  &#125;
-  for(int i : res) &#123;
-      cout &lt;&lt; i + 1 &lt;&lt; &#39; &#39;;
-  &#125;
-&#125;
-</code></pre>
-</li>
+<li>参考代码<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">5e3</span> + <span class="number">10</span>, mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; G[MAXN];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; res, ste;</span><br><span class="line"><span class="keyword">namespace</span> Circle &#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; circle;</span><br><span class="line">    <span class="type">int</span> tag[MAXN];</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            tag[i] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> f)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(tag[u] != <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> u;</span><br><span class="line">        &#125;</span><br><span class="line">        tag[u] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> v : G[u]) <span class="keyword">if</span>(v != f) &#123;</span><br><span class="line">            <span class="type">int</span> t = <span class="built_in">dfs</span>(v, u);</span><br><span class="line">            <span class="keyword">if</span>(t &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">                circle.<span class="built_in">push_back</span>(u);</span><br><span class="line">                tag[u] = <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">return</span> t == u ? <span class="number">-1</span> : t;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;a, vector&lt;<span class="type">int</span>&gt; &amp;b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!a.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] != b[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> a[i] &gt; b[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> du = <span class="number">-1</span>, dv = <span class="number">-1</span>; <span class="comment">// 删的边</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">    ste.<span class="built_in">push_back</span>(u);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> v : G[u]) <span class="keyword">if</span>(v != p) &#123;</span><br><span class="line">        <span class="keyword">if</span>((du == u &amp;&amp; dv == v) || du == v &amp;&amp; dv == u) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(v, u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i ++) &#123;</span><br><span class="line">        <span class="type">int</span> u, v;</span><br><span class="line">        cin &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        u --, v --;</span><br><span class="line">        G[u].<span class="built_in">push_back</span>(v), G[v].<span class="built_in">push_back</span>(u);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(G[i].<span class="built_in">begin</span>(), G[i].<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(m == n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        res = ste;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Circle::<span class="built_in">init</span>();</span><br><span class="line">        Circle::<span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; Circle::circle.<span class="built_in">size</span>() - <span class="number">1</span>; i ++) &#123;</span><br><span class="line">            du = Circle::circle[i], dv = Circle::circle[i + <span class="number">1</span>];</span><br><span class="line">            ste.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="built_in">dfs</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">cmp</span>(res, ste)) &#123;</span><br><span class="line">                res = ste;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i : res) &#123;</span><br><span class="line">        cout &lt;&lt; i + <span class="number">1</span> &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
 
     </div>
     
-    
-    
-    
-    
-    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B-%E6%89%BE%E7%8E%AF"><span class="toc-number">2.</span> <span class="toc-text">重要的事 找环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%85%E8%A1%8C"><span class="toc-number">3.1.</span> <span class="toc-text">旅行</span></a></li></ol></li></ol>
+        </div>
     
 </div>
 
-                    <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2023 - 2023 Muly&#39;s blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;晓染
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
+
     </div>
-</footer>
+</div>
+</body>
 
-                </div>
-            </transition>
-            
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
         </div>
-        <script src="/js/main.js"></script>
-        
-        
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 
 
-        
-    </body>
 </html>

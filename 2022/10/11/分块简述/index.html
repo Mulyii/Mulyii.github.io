@@ -1,191 +1,75 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN">
-    <head>
-        <meta charset="utf-8" />
-        <title>分块简述 | Muly&#39;s blog</title>
-        <meta name="author" content="晓染" />
-        <meta name="description" content="A blog records study of Algorithm, Math and Physics" />
-        <meta name="keywords" content="blog" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <link rel="icon" href="/images/favicon.png" />
-        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
-<link rel="stylesheet" href="/css/fonts.min.css" />
-<script> const mixins = {}; </script>
-
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
-<link
-    rel="stylesheet"
-    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
-/>
-<script src="/js/lib/highlight.js"></script>
-
-
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
-<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
-<script src="/js/lib/math.js"></script>
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="/css/main.css" />
-
-    <meta name="generator" content="Hexo 6.3.0"></head>
-    <body>
-        <div id="layout">
-            <transition name="fade">
-                <div id="loading" v-show="loading">
-                    <div id="loading-circle">
-                        <h2>LOADING</h2>
-                        <p>加载过慢请开启缓存 浏览器默认开启</p>
-                        <img src="/images/loading.gif" />
-                    </div>
-                </div>
-            </transition>
-            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
-    <div id="desktop-menu">
-        <a class="title" href="/">
-            <span>MULY&#39;S BLOG</span>
-        </a>
-        
-        <a href="/">
-            <i class="fa-solid fa-house fa-fw"></i>
-            <span>&ensp;Home</span>
-        </a>
-        
-        <a href="/about">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;About</span>
-        </a>
-        
-        <a href="/archives">
-            <i class="fa-solid fa-id-card fa-fw"></i>
-            <span>&ensp;Archives</span>
-        </a>
-        
-        <a href="/categories">
-            <i class="fa-solid fa-bookmark fa-fw"></i>
-            <span>&ensp;Categories</span>
-        </a>
-        
-        <a href="/tags">
-            <i class="fa-solid fa-tags fa-fw"></i>
-            <span>&ensp;Tags</span>
-        </a>
-        
-    </div>
-    <div id="mobile-menu">
-        <div class="title" @click="showMenuItems = !showMenuItems">
-            <i class="fa-solid fa-bars fa-fw"></i>
-            <span>&emsp;MULY&#39;S BLOG</span>
-        </div>
-        <transition name="slide">
-            <div class="items" v-show="showMenuItems">
-                
-                <a href="/">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-house fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
-                    </div>
-                </a>
-                
-                <a href="/about">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
-                    </div>
-                </a>
-                
-                <a href="/archives">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-id-card fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
-                    </div>
-                </a>
-                
-                <a href="/categories">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
-                    </div>
-                </a>
-                
-                <a href="/tags">
-                    <div class="item">
-                        <div style="min-width: 20px; max-width: 50px; width: 10%">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </div>
-                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
-                    </div>
-                </a>
-                
-            </div>
-        </transition>
-    </div>
-</nav>
-<transition name="fade">
-    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
-</transition>
-
-            <transition name="into">
-                <div id="main" v-show="!loading">
-                    <div class="article">
-    <div>
-        <h1>分块简述</h1>
-    </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/10/11
-        </span>
-        
-        <span class="category">
-            <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                算法笔记
-            </a>
-        </span>
-        
-        
-        <span class="tags">
-            <span class="icon">
-                <i class="fa-solid fa-tags fa-fw"></i>
-            </span>
-            
-            <span class="tag">
-                
-                <a href="/tags/%E5%88%86%E5%9D%97/" style="color: #ff7d73">分块</a>
-            </span>
-            
-        </span>
-        
-    </div>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>分块简述 - Muly&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="A blog records study of Algorithm, Math and Physics,数组分块简述在某些情况下，我们可能需要暴力地处理数组的每一个数，数组分块提供了一种简单的优化来降低复杂度，使得原本的$O(n)$降为$O(\sqrt n)$，这可能不是最优解，但一定足够简单（事实上,"> 
+    <meta name="author" content="晓染"> 
+    <link rel="alternative" href="atom.xml" title="Muly&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
     
-    <div class="content" v-pre>
-        <h3 id="数组分块简述"><a href="#数组分块简述" class="headerlink" title="数组分块简述"></a>数组分块简述</h3><p>在某些情况下，我们可能需要暴力地处理数组的每一个数，数组分块提供了一种简单的优化来降低复杂度，使得原本的$O(n)$降为$O(\sqrt n)$，这可能不是最优解，但一定足够简单（事实上，在1e5范围内，$O(\log^2 n)$和$O(\sqrt n)$差距不大）。<br><strong>这类问题的“整体”性质更弱，有时不存在高效的信息合并化简方法，需要在“批量”和“零散”之间找到平衡点。</strong></p>
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="分块简述 - Muly&#39;s blog"/>
+    <meta name="twitter:description" content="A blog records study of Algorithm, Math and Physics,数组分块简述在某些情况下，我们可能需要暴力地处理数组的每一个数，数组分块提供了一种简单的优化来降低复杂度，使得原本的$O(n)$降为$O(\sqrt n)$，这可能不是最优解，但一定足够简单（事实上,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="Muly&#39;s blog"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="分块简述 - Muly&#39;s blog"/>
+    <meta property="og:description" content="A blog records study of Algorithm, Math and Physics,数组分块简述在某些情况下，我们可能需要暴力地处理数组的每一个数，数组分块提供了一种简单的优化来降低复杂度，使得原本的$O(n)$降为$O(\sqrt n)$，这可能不是最优解，但一定足够简单（事实上,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Muly&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://ryantsuii.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">分块简述</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">分块简述</h1>
+        <div class="stuff">
+            <span>十月 11, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%88%86%E5%9D%97/" rel="tag">分块</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="数组分块简述"><a href="#数组分块简述" class="headerlink" title="数组分块简述"></a>数组分块简述</h3><p>在某些情况下，我们可能需要暴力地处理数组的每一个数，数组分块提供了一种简单的优化来降低复杂度，使得原本的$O(n)$降为$O(\sqrt n)$，这可能不是最优解，但一定足够简单（事实上，在1e5范围内，$O(\log^2 n)$和$O(\sqrt n)$差距不大）。<br><strong>这类问题的“整体”性质更弱，有时不存在高效的信息合并化简方法，需要在“批量”和“零散”之间找到平衡点。</strong></p>
 <ul>
 <li>基础形式</li>
 </ul>
@@ -193,75 +77,7 @@
 <p>理解了分块的概念以后，你就可以开始着手尝试用分块去解决一些线段树问题了（虽然此时分块对比线段树不占优）。</p>
 <h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><h5 id="模板题"><a href="#模板题" class="headerlink" title="模板题"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372">模板题</a></h5><p>题目大意：区间上所有元素加一个数$k$；求区间所有元素的和。<br>对于这个问题，简单地开三个数组$a,s,v$ 分别表示：数组值；分块中除去标记的数组值和；标记：分块中的每个元素 + k。</p>
 <p>参考代码：<br>每个块的左右边界可以用结构体记录下来，也可以直接计算，这里采用的是直接计算的方式。</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 1e5 + 10, mod = 998244353;
-int BS;
-ll a[MAXN], s[405], v[405];
-void add(int l, int r, int k) &#123;
-    int bl = l / BS, br = r / BS;
-    if(bl == br) &#123;
-        for(int i = l; i &lt;= r; i ++) &#123;
-            a[i] += k, s[bl] += k;
-        &#125;
-    &#125; else &#123;
-        for(int i = l; i &lt; (bl + 1) * BS; i ++) &#123;
-            a[i] += k, s[bl] += k;
-        &#125;
-        for(int i = bl + 1; i &lt; br; i ++) &#123;
-            v[i] += k, s[i] += 1ll * BS * k;
-        &#125;
-        for(int i = br * BS; i &lt;= r; i ++) &#123;
-            a[i] += k, s[br] += k;
-        &#125;
-    &#125;
-&#125;
-ll query(int l, int r) &#123;
-    ll res = 0;
-    int bl = l / BS, br = r / BS;
-    if(bl == br) &#123;
-        for(int i = l; i &lt;= r; i ++) &#123;
-            res += a[i] + v[bl];
-        &#125;
-    &#125; else &#123;
-        for(int i = l; i &lt; (bl + 1) * BS; i ++) &#123;
-            res += a[i] + v[bl];
-        &#125;
-        for(int i = bl + 1; i &lt; br; i ++) &#123;
-            res += s[i];
-        &#125;
-        for(int i = br * BS; i &lt;= r; i ++) &#123;
-            res += a[i] + v[br];
-        &#125;
-    &#125;
-    return res;
-&#125;
-int main() &#123;
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int n, m;
-    cin &gt;&gt; n &gt;&gt; m;
-    BS = sqrt(n) + 1;
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; a[i];
-        s[i / BS]  += a[i];
-    &#125;
-    while(m -- ) &#123;
-        int op, l, r, k;
-        cin &gt;&gt; op  &gt;&gt; l &gt;&gt; r;
-        l --, r --;
-        if(op == 1) &#123;
-            cin &gt;&gt; k;
-            add(l, r, k);
-        &#125; else &#123;
-            cout &lt;&lt; query(l, r) &lt;&lt; &#39;\n&#39;;
-        &#125;
-    &#125;
-
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">1e5</span> + <span class="number">10</span>, mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">int</span> BS;</span><br><span class="line">ll a[MAXN], s[<span class="number">405</span>], v[<span class="number">405</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> bl = l / BS, br = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(bl == br) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; i ++) &#123;</span><br><span class="line">            a[i] += k, s[bl] += k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            a[i] += k, s[bl] += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl + <span class="number">1</span>; i &lt; br; i ++) &#123;</span><br><span class="line">            v[i] += k, s[i] += <span class="number">1ll</span> * BS * k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = br * BS; i &lt;= r; i ++) &#123;</span><br><span class="line">            a[i] += k, s[br] += k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> bl = l / BS, br = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(bl == br) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; i ++) &#123;</span><br><span class="line">            res += a[i] + v[bl];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            res += a[i] + v[bl];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl + <span class="number">1</span>; i &lt; br; i ++) &#123;</span><br><span class="line">            res += s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = br * BS; i &lt;= r; i ++) &#123;</span><br><span class="line">            res += a[i] + v[br];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    BS = <span class="built_in">sqrt</span>(n) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        s[i / BS]  += a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(m -- ) &#123;</span><br><span class="line">        <span class="type">int</span> op, l, r, k;</span><br><span class="line">        cin &gt;&gt; op  &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        l --, r --;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="number">1</span>) &#123;</span><br><span class="line">            cin &gt;&gt; k;</span><br><span class="line">            <span class="built_in">add</span>(l, r, k);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="built_in">query</span>(l, r) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>分块的大小可以人为确定，需要计算时间复杂度后再确定。此题中理论时间复杂度为$O(q (B + n / B))$， 另$B = \sqrt n$，得到最优时间复杂度$O(q \sqrt n)$。</p>
 <h5 id="教主的魔法"><a href="#教主的魔法" class="headerlink" title="教主的魔法"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2801">教主的魔法</a></h5><p>题目大意：1、区间加；2、求区间大于$c$的元素个数。</p>
 <p>首先来思考一下如何找出一个整块中大于$c$的元素个数<br>……<br>如果一个整块中的元素有序，那么是不是可以二分。</p>
@@ -271,153 +87,9 @@ int main() &#123;
 <p>关于B的取值问题，首先应该考虑平衡两种操作的时间复杂度，其次应该考虑整块的时间复杂度和散块部分的时间复杂度，具体而言就是让两者相等求出B。比如此题中对散块重新排序可以优化成提取有序的两部分（有改动和无改动）再merge，此时加操作的时间复杂度就降为$O(B + n / B)$，发现这个复杂度是恒小于询问操作的复杂度的，此时就应该考虑适当增大B的大小，可以对$(n / B) log B + B$ 求导计算出极值，也可以用三分来求，事实上这个值约等于$\sqrt{n\log \sqrt n}$。</p>
 </blockquote>
 <p>参考代码（不加优化）：</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 1100000, mod = 998244353;
-int n, q, BS;
-int a[MAXN], v[410], s[MAXN];
-void add(int l, int r, int k) &#123;
-    int bl = l / BS, br = r / BS;
-    if(bl == br) &#123;
-        for(int i = l; i &lt;= r; i ++) &#123;
-            a[i] += k;
-        &#125;
-        for(int i = bl * BS; i &lt; (bl + 1) * BS; i ++) &#123;
-            s[i] = a[i];
-        &#125;
-        sort(s + bl * BS, s + (bl + 1) * BS);
-    &#125; else &#123;
-        for(int i = l; i &lt; (bl + 1) * BS; i ++) &#123;
-            a[i] += k;
-        &#125;
-        for(int i = bl * BS; i &lt; (bl + 1) * BS; i ++) &#123;
-            s[i] = a[i];
-        &#125;
-        sort(s + bl * BS, s + (bl + 1) * BS);
-        for(int i = bl + 1; i &lt; br; i ++) &#123;
-            v[i] += k;
-        &#125;
-        for(int i = br * BS; i &lt;= r; i ++) &#123;
-            a[i] += k;
-        &#125;
-        for(int i = br * BS; i &lt; (br + 1) * BS; i ++) &#123;
-            s[i] = a[i];
-        &#125;
-        sort(s + br * BS, s + (br + 1) * BS);
-    &#125;
-&#125;
-int query(int l, int r, int c) &#123;
-    int bl = l / BS, br = r / BS;
-    int C, res = 0;
-    if(bl == br) &#123;
-        C = c - v[bl];
-        for(int i = l; i &lt;= r; i ++) &#123;
-            if(a[i] &gt;= C) res ++;
-        &#125;
-    &#125; else &#123;
-        C = c - v[bl];
-        for(int i = l; i &lt; (bl + 1) * BS; i ++) &#123;
-            if(a[i] &gt;= C) res ++;
-        &#125;
-        for(int i = bl + 1; i &lt; br; i ++) &#123;
-            C = c - v[i];
-            res += BS - (lower_bound(s + BS * i, s + BS * (i + 1), C) - (s + BS * i));
-        &#125;
-        C = c - v[br];
-        for(int i = br * BS; i &lt;= r; i ++) &#123;
-            if(a[i] &gt;= C) res ++;
-        &#125;
-    &#125;
-    return res;
-&#125;
-int main() &#123;
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    memset(a, 0x3f3f3f3f, sizeof a);
-    cin &gt;&gt; n &gt;&gt; q;
-    BS = sqrt(n) + 1;
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; a[i];
-        s[i] = a[i];
-    &#125;
-    for(int i = 0; i * BS &lt;= n ; i ++) &#123;
-        sort(s + i * BS, s + (i + 1) * BS);
-    &#125;
-    while(q --) &#123;
-        char op;
-        int l, r, x;
-        cin &gt;&gt; op &gt;&gt; l &gt;&gt; r &gt;&gt; x;
-        l --, r --;
-        if(op == &#39;M&#39;) add(l, r, x);
-        else cout &lt;&lt; query(l, r, x) &lt;&lt; &#39;\n&#39;;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">1100000</span>, mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">int</span> n, q, BS;</span><br><span class="line"><span class="type">int</span> a[MAXN], v[<span class="number">410</span>], s[MAXN];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> bl = l / BS, br = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(bl == br) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; i ++) &#123;</span><br><span class="line">            a[i] += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl * BS; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            s[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s + bl * BS, s + (bl + <span class="number">1</span>) * BS);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            a[i] += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl * BS; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            s[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s + bl * BS, s + (bl + <span class="number">1</span>) * BS);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl + <span class="number">1</span>; i &lt; br; i ++) &#123;</span><br><span class="line">            v[i] += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = br * BS; i &lt;= r; i ++) &#123;</span><br><span class="line">            a[i] += k;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = br * BS; i &lt; (br + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            s[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(s + br * BS, s + (br + <span class="number">1</span>) * BS);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> bl = l / BS, br = r / BS;</span><br><span class="line">    <span class="type">int</span> C, res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(bl == br) &#123;</span><br><span class="line">        C = c - v[bl];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt;= C) res ++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        C = c - v[bl];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt; (bl + <span class="number">1</span>) * BS; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt;= C) res ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = bl + <span class="number">1</span>; i &lt; br; i ++) &#123;</span><br><span class="line">            C = c - v[i];</span><br><span class="line">            res += BS - (<span class="built_in">lower_bound</span>(s + BS * i, s + BS * (i + <span class="number">1</span>), C) - (s + BS * i));</span><br><span class="line">        &#125;</span><br><span class="line">        C = c - v[br];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = br * BS; i &lt;= r; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] &gt;= C) res ++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0x3f3f3f3f</span>, <span class="keyword">sizeof</span> a);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; q;</span><br><span class="line">    BS = <span class="built_in">sqrt</span>(n) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">        s[i] = a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i * BS &lt;= n ; i ++) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(s + i * BS, s + (i + <span class="number">1</span>) * BS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(q --) &#123;</span><br><span class="line">        <span class="type">char</span> op;</span><br><span class="line">        <span class="type">int</span> l, r, x;</span><br><span class="line">        cin &gt;&gt; op &gt;&gt; l &gt;&gt; r &gt;&gt; x;</span><br><span class="line">        l --, r --;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">&#x27;M&#x27;</span>) <span class="built_in">add</span>(l, r, x);</span><br><span class="line">        <span class="keyword">else</span> cout &lt;&lt; <span class="built_in">query</span>(l, r, x) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>稍稍写一下归并的代码（给一个结构体写的板子）</p>
-<pre><code class="lang-cpp">int n, m, BS;
-ll a[MAXN];
-struct BLOCK &#123;
-    int l, r;
-    ll ex;
-    vector&lt;ll&gt; B;
-    vector&lt;int&gt; mp;
-    BLOCK(int s) &#123;
-        B.resize(s);
-        ex = 0;
-    &#125;
-    BLOCK(int _l, int _r) &#123;
-        ex = 0;
-        l = _l, r = _r;
-        int s = r - l + 1;
-        B.resize(s);
-        mp.resize(s);
-        for(int i = l; i &lt;= r; i ++) &#123;
-            mp[i - l] = i;
-        &#125;
-        sort(mp.begin(), mp.end(), [&amp;] (int x, int y)  &#123;
-            return a[x] &lt; a[y];
-        &#125;);
-        for(int i = 0; i &lt; s; i ++) &#123;
-            B[i] = a[mp[i]];
-        &#125;
-    &#125;
-    void rebuild(int s, int t, int k) &#123;
-        vector&lt;int&gt; _1, _2;
-        for(int i = 0; i &lt; mp.size(); i ++) &#123;
-            int x = mp[i];
-            if(x &gt;= s &amp;&amp; x &lt;= t) &#123;
-                _1.push_back(x);
-            &#125; else &#123;
-                _2.push_back(x);
-            &#125;
-        &#125;
-        for(int i : _1) a[i] += k;
-        int i = 0, j = 0, c = 0;
-        while(i &lt; _1.size() &amp;&amp; j &lt; _2.size()) &#123;
-            if(a[_1[i]] &lt; a[_2[j]]) mp[c ++] = _1[i ++];
-            else mp[c ++] = _2[j ++];
-        &#125;
-        while(i &lt; _1.size()) mp[c ++] = _1[i ++];
-        while(j &lt; _2.size()) mp[c ++] = _2[j ++];
-        for(int i = 0; i &lt; mp.size(); i ++) B[i] = a[mp[i]];
-    &#125;
-&#125;;
-vector&lt;BLOCK&gt; block;
-void add(int l, int r, int k) &#123;
-    int lb = l / BS, rb = r / BS;
-    if(lb == rb) &#123;
-        block[lb].rebuild(l, r, k);
-    &#125; else &#123;
-        block[lb].rebuild(l, block[lb].r, k);
-        block[rb].rebuild(block[rb].l, r, k);
-        for(int i = lb + 1; i &lt; rb; i ++) &#123;
-            block[i].ex += k;
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m, BS;</span><br><span class="line">ll a[MAXN];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BLOCK</span> &#123;</span><br><span class="line">    <span class="type">int</span> l, r;</span><br><span class="line">    ll ex;</span><br><span class="line">    vector&lt;ll&gt; B;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; mp;</span><br><span class="line">    <span class="built_in">BLOCK</span>(<span class="type">int</span> s) &#123;</span><br><span class="line">        B.<span class="built_in">resize</span>(s);</span><br><span class="line">        ex = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">BLOCK</span>(<span class="type">int</span> _l, <span class="type">int</span> _r) &#123;</span><br><span class="line">        ex = <span class="number">0</span>;</span><br><span class="line">        l = _l, r = _r;</span><br><span class="line">        <span class="type">int</span> s = r - l + <span class="number">1</span>;</span><br><span class="line">        B.<span class="built_in">resize</span>(s);</span><br><span class="line">        mp.<span class="built_in">resize</span>(s);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; i ++) &#123;</span><br><span class="line">            mp[i - l] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(mp.<span class="built_in">begin</span>(), mp.<span class="built_in">end</span>(), [&amp;] (<span class="type">int</span> x, <span class="type">int</span> y)  &#123;</span><br><span class="line">            <span class="keyword">return</span> a[x] &lt; a[y];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s; i ++) &#123;</span><br><span class="line">            B[i] = a[mp[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rebuild</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> t, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; _1, _2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp.<span class="built_in">size</span>(); i ++) &#123;</span><br><span class="line">            <span class="type">int</span> x = mp[i];</span><br><span class="line">            <span class="keyword">if</span>(x &gt;= s &amp;&amp; x &lt;= t) &#123;</span><br><span class="line">                _1.<span class="built_in">push_back</span>(x);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                _2.<span class="built_in">push_back</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : _1) a[i] += k;</span><br><span class="line">        <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; _1.<span class="built_in">size</span>() &amp;&amp; j &lt; _2.<span class="built_in">size</span>()) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[_1[i]] &lt; a[_2[j]]) mp[c ++] = _1[i ++];</span><br><span class="line">            <span class="keyword">else</span> mp[c ++] = _2[j ++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; _1.<span class="built_in">size</span>()) mp[c ++] = _1[i ++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt; _2.<span class="built_in">size</span>()) mp[c ++] = _2[j ++];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp.<span class="built_in">size</span>(); i ++) B[i] = a[mp[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector&lt;BLOCK&gt; block;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lb = l / BS, rb = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(lb == rb) &#123;</span><br><span class="line">        block[lb].<span class="built_in">rebuild</span>(l, r, k);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        block[lb].<span class="built_in">rebuild</span>(l, block[lb].r, k);</span><br><span class="line">        block[rb].<span class="built_in">rebuild</span>(block[rb].l, r, k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = lb + <span class="number">1</span>; i &lt; rb; i ++) &#123;</span><br><span class="line">            block[i].ex += k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="由乃打扑克"><a href="#由乃打扑克" class="headerlink" title="由乃打扑克"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5356">由乃打扑克</a></h5><blockquote>
 <p>给你一个长为 $n$ 的序列 $a$，需要支持 $m$ 次操作，操作有两种：<br>1、查询区间 $[l,r]$ 的第 $k$ 小值。<br>2、区间 $[l,r]$ 加上 $k$。</p>
 </blockquote>
@@ -425,251 +97,139 @@ void add(int l, int r, int k) &#123;
 <p>第$k$小的值$x$就相当于区间内存在$k-1$个数小于等于$x$，并且求这个值符合二分的规则，故可以整体二分确定$x$的大小，具体的check方法与上一例题一模一样。</p>
 <p>几个优化：<br><strong>1.</strong> 二分前将左右两块散块合并，这样可以用$O(log\ B)$来代替对整个散块遍历的$O(B)$<br><strong>2.</strong> 二分前计算出二分的上下界，以减少二分次数。<br>复杂度分析：<br>add 时间复杂度$O(B + n / B）$<br>query 时间复杂度$O(B + (n / B)log\ B\ log\ w)$<br>（$log\ w$ 是二分是次数，大概为$20-30$）。</p>
 <p>确定块长：理论上复杂度的计算应该是查询时间复杂度<br>对$B$求偏导得到的，但是按照理论来算的话，这题这么做是可以被卡掉的。于是需要调亿点点块长，下面这份代码块长取$912$可以拿到$82pts$（已经不想扣常数了）。</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 1e5 + 9, mod = 998244353;
-void read() &#123;&#125;
-template&lt;typename T,typename... Ts&gt;
-inline void read(T &amp;arg,Ts&amp;... args) &#123;
-    T x = 0, f = 1;
-    char c = getchar();
-    while(!isdigit(c))&#123;if(c == &#39;-&#39;) f = -1; c = getchar();&#125;
-    while(isdigit(c))&#123;x = (x &lt;&lt; 3) +(x &lt;&lt; 1) + (c - &#39;0&#39;);c = getchar();&#125;
-    arg = x * f;
-    read(args...);
-&#125;
-int n, m, BS;
-ll a[MAXN];
-int _1[MAXN], _2[MAXN], t1, t2;
-struct BLOCK &#123;
-    int l, r;
-    ll ex;
-    vector&lt;ll&gt; B;
-    vector&lt;int&gt; mp;
-    BLOCK(int s) &#123;
-        B.resize(s);
-        ex = 0;
-    &#125;
-    BLOCK(int _l, int _r) &#123;
-        ex = 0;
-        l = _l, r = _r;
-        int s = r - l + 1;
-        B.resize(s);
-        mp.resize(s);
-        for(int i = l; i &lt;= r; ++ i) &#123;
-            mp[i - l] = i;
-        &#125;
-        sort(mp.begin(), mp.end(), [&amp;] (int x, int y)  &#123;
-            return a[x] &lt; a[y];
-        &#125;);
-        for(int i = 0; i &lt; s; i ++) &#123;
-            B[i] = a[mp[i]];
-        &#125;
-    &#125;
-    void rebuild(int s, int t, int k) &#123;
-        t1 = t2 = 0;
-        for(int i = 0; i &lt; mp.size(); ++ i) &#123;
-            int x = mp[i];
-            if(x &gt;= s &amp;&amp; x &lt;= t) _1[t1 ++] = x;
-            else _2[t2 ++] = x;
-        &#125;
-        for(int i = 0; i &lt; t1; ++ i) a[_1[i]] += k;
-        int  i = 0, j = 0, c = 0;
-        while(i &lt; t1 &amp;&amp; j &lt; t2) &#123;
-            if(a[_1[i]] &lt; a[_2[j]]) mp[c ++] = _1[i ++];
-            else mp[c ++] = _2[j ++];
-        &#125;
-        while(i &lt; t1) mp[c ++] = _1[i ++];
-        while(j &lt; t2) mp[c ++] = _2[j ++];
-        for(int i = 0; i &lt; mp.size(); i ++) B[i] = a[mp[i]];
-    &#125;
-&#125;;
-vector&lt;BLOCK&gt; block;
-inline void add(int l, int r, int k) &#123;
-    int lb = l / BS, rb = r / BS;
-    if(lb == rb) &#123;
-        block[lb].rebuild(l, r, k);
-    &#125; else &#123;
-        block[lb].rebuild(l, block[lb].r, k);
-        block[rb].rebuild(block[rb].l, r, k);
-        for(int i = lb + 1; i &lt; rb; i ++) &#123;
-            block[i].ex += k;
-        &#125;
-    &#125;
-&#125;
-inline ll query(int l, int r, int k) &#123;
-    int lb = l / BS, rb = r / BS;
-    if(lb == rb) &#123;
-        int c = 0;
-        for(int i : block[lb].mp) &#123;
-            if(i &gt;= l &amp;&amp; i &lt;= r) c ++;
-            if(c == k) return a[i] + block[lb].ex;
-        &#125;
-    &#125; else &#123;
-        BLOCK _ex(block[lb].r - l + 1 + r - block[rb].l + 1);
-        t1 = t2 = 0;
-        for(int i : block[lb].mp) &#123;
-            if(i &gt;= l) _1[t1 ++] = a[i] + block[lb].ex;
-        &#125;
-        for(int i : block[rb].mp) &#123;
-            if(i &lt;= r) _2[t2 ++] = a[i] + block[rb].ex;
-        &#125;
-        int c = 0, i = 0, j = 0;
-        while(i &lt; t1 &amp;&amp; j &lt; t2) &#123;
-            if(_1[i] &lt; _2[j]) _ex.B[c ++] = _1[i ++];
-            else _ex.B[c ++] = _2[j ++];
-        &#125;
-        while(i &lt; t1) _ex.B[c ++] = _1[i ++];
-        while(j &lt; t2) _ex.B[c ++] = _2[j ++];
-        ll L = 1e18, R = -1e18;
-        L = min(L, _ex.B[0]);
-        R = max(R, _ex.B.back());
-        for(int i = lb + 1; i &lt; rb; ++ i) &#123;
-            L = min(L, block[i].B[0] + block[i].ex);
-            R = max(R, block[i].B.back() + block[i].ex);
-        &#125;
-        L --, R ++;
-        while(R &gt; L + 1) &#123;
-            ll M = L + R  &gt;&gt; 1;
-            int cnt = 0;
-            cnt += lower_bound(_ex.B.begin(), _ex.B.end(), M) - _ex.B.begin();
-            for(int i = lb + 1; i &lt; rb; i ++) &#123;
-                cnt += lower_bound(block[i].B.begin(), block[i].B.end(), M - block[i].ex) - block[i].B.begin();
-            &#125;
-            if(cnt &gt;= k) R = M;
-            else L = M;
-        &#125;
-        return R - 1;
-    &#125;
-&#125;
-int main() &#123;
-    read(n, m);
-    for(int i = 0; i &lt; n; ++ i) &#123;
-        read(a[i]);
-    &#125;
-    BS = 912;
-    for(int i = 0; 1ll * i * BS &lt; n; ++ i) &#123;
-        int l = i * BS, r = min(n - 1, (i + 1) * BS - 1);
-        block.push_back(BLOCK(l, r));
-    &#125;
-    while(m --) &#123;
-        int op, l, r, k;
-        read(op, l, r, k);
-        l --, r --;
-        if(op == 1) &#123;
-            if(r - l + 1 &lt; k) &#123;
-                cout &lt;&lt; &quot;-1\n&quot;;
-            &#125; else &#123;
-                printf(&quot;%lld\n&quot;, query(l, r, k));
-            &#125;
-        &#125; else &#123;
-            add(l, r, k);
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">1e5</span> + <span class="number">9</span>, mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... Ts&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">read</span><span class="params">(T &amp;arg,Ts&amp;... args)</span> </span>&#123;</span><br><span class="line">    T x = <span class="number">0</span>, f = <span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))&#123;<span class="keyword">if</span>(c == <span class="string">&#x27;-&#x27;</span>) f = <span class="number">-1</span>; c = <span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))&#123;x = (x &lt;&lt; <span class="number">3</span>) +(x &lt;&lt; <span class="number">1</span>) + (c - <span class="string">&#x27;0&#x27;</span>);c = <span class="built_in">getchar</span>();&#125;</span><br><span class="line">    arg = x * f;</span><br><span class="line">    <span class="built_in">read</span>(args...);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> n, m, BS;</span><br><span class="line">ll a[MAXN];</span><br><span class="line"><span class="type">int</span> _1[MAXN], _2[MAXN], t1, t2;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">BLOCK</span> &#123;</span><br><span class="line">    <span class="type">int</span> l, r;</span><br><span class="line">    ll ex;</span><br><span class="line">    vector&lt;ll&gt; B;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; mp;</span><br><span class="line">    <span class="built_in">BLOCK</span>(<span class="type">int</span> s) &#123;</span><br><span class="line">        B.<span class="built_in">resize</span>(s);</span><br><span class="line">        ex = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">BLOCK</span>(<span class="type">int</span> _l, <span class="type">int</span> _r) &#123;</span><br><span class="line">        ex = <span class="number">0</span>;</span><br><span class="line">        l = _l, r = _r;</span><br><span class="line">        <span class="type">int</span> s = r - l + <span class="number">1</span>;</span><br><span class="line">        B.<span class="built_in">resize</span>(s);</span><br><span class="line">        mp.<span class="built_in">resize</span>(s);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = l; i &lt;= r; ++ i) &#123;</span><br><span class="line">            mp[i - l] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(mp.<span class="built_in">begin</span>(), mp.<span class="built_in">end</span>(), [&amp;] (<span class="type">int</span> x, <span class="type">int</span> y)  &#123;</span><br><span class="line">            <span class="keyword">return</span> a[x] &lt; a[y];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s; i ++) &#123;</span><br><span class="line">            B[i] = a[mp[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">rebuild</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> t, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        t1 = t2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp.<span class="built_in">size</span>(); ++ i) &#123;</span><br><span class="line">            <span class="type">int</span> x = mp[i];</span><br><span class="line">            <span class="keyword">if</span>(x &gt;= s &amp;&amp; x &lt;= t) _1[t1 ++] = x;</span><br><span class="line">            <span class="keyword">else</span> _2[t2 ++] = x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; t1; ++ i) a[_1[i]] += k;</span><br><span class="line">        <span class="type">int</span>  i = <span class="number">0</span>, j = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; t1 &amp;&amp; j &lt; t2) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[_1[i]] &lt; a[_2[j]]) mp[c ++] = _1[i ++];</span><br><span class="line">            <span class="keyword">else</span> mp[c ++] = _2[j ++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; t1) mp[c ++] = _1[i ++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt; t2) mp[c ++] = _2[j ++];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; mp.<span class="built_in">size</span>(); i ++) B[i] = a[mp[i]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector&lt;BLOCK&gt; block;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lb = l / BS, rb = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(lb == rb) &#123;</span><br><span class="line">        block[lb].<span class="built_in">rebuild</span>(l, r, k);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        block[lb].<span class="built_in">rebuild</span>(l, block[lb].r, k);</span><br><span class="line">        block[rb].<span class="built_in">rebuild</span>(block[rb].l, r, k);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = lb + <span class="number">1</span>; i &lt; rb; i ++) &#123;</span><br><span class="line">            block[i].ex += k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">query</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lb = l / BS, rb = r / BS;</span><br><span class="line">    <span class="keyword">if</span>(lb == rb) &#123;</span><br><span class="line">        <span class="type">int</span> c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : block[lb].mp) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= l &amp;&amp; i &lt;= r) c ++;</span><br><span class="line">            <span class="keyword">if</span>(c == k) <span class="keyword">return</span> a[i] + block[lb].ex;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        BLOCK _ex(block[lb].r - l + <span class="number">1</span> + r - block[rb].l + <span class="number">1</span>);</span><br><span class="line">        t1 = t2 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : block[lb].mp) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &gt;= l) _1[t1 ++] = a[i] + block[lb].ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i : block[rb].mp) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i &lt;= r) _2[t2 ++] = a[i] + block[rb].ex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> c = <span class="number">0</span>, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; t1 &amp;&amp; j &lt; t2) &#123;</span><br><span class="line">            <span class="keyword">if</span>(_1[i] &lt; _2[j]) _ex.B[c ++] = _1[i ++];</span><br><span class="line">            <span class="keyword">else</span> _ex.B[c ++] = _2[j ++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; t1) _ex.B[c ++] = _1[i ++];</span><br><span class="line">        <span class="keyword">while</span>(j &lt; t2) _ex.B[c ++] = _2[j ++];</span><br><span class="line">        ll L = <span class="number">1e18</span>, R = <span class="number">-1e18</span>;</span><br><span class="line">        L = <span class="built_in">min</span>(L, _ex.B[<span class="number">0</span>]);</span><br><span class="line">        R = <span class="built_in">max</span>(R, _ex.B.<span class="built_in">back</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = lb + <span class="number">1</span>; i &lt; rb; ++ i) &#123;</span><br><span class="line">            L = <span class="built_in">min</span>(L, block[i].B[<span class="number">0</span>] + block[i].ex);</span><br><span class="line">            R = <span class="built_in">max</span>(R, block[i].B.<span class="built_in">back</span>() + block[i].ex);</span><br><span class="line">        &#125;</span><br><span class="line">        L --, R ++;</span><br><span class="line">        <span class="keyword">while</span>(R &gt; L + <span class="number">1</span>) &#123;</span><br><span class="line">            ll M = L + R  &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            cnt += <span class="built_in">lower_bound</span>(_ex.B.<span class="built_in">begin</span>(), _ex.B.<span class="built_in">end</span>(), M) - _ex.B.<span class="built_in">begin</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = lb + <span class="number">1</span>; i &lt; rb; i ++) &#123;</span><br><span class="line">                cnt += <span class="built_in">lower_bound</span>(block[i].B.<span class="built_in">begin</span>(), block[i].B.<span class="built_in">end</span>(), M - block[i].ex) - block[i].B.<span class="built_in">begin</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(cnt &gt;= k) R = M;</span><br><span class="line">            <span class="keyword">else</span> L = M;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">read</span>(n, m);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++ i) &#123;</span><br><span class="line">        <span class="built_in">read</span>(a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    BS = <span class="number">912</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; <span class="number">1ll</span> * i * BS &lt; n; ++ i) &#123;</span><br><span class="line">        <span class="type">int</span> l = i * BS, r = <span class="built_in">min</span>(n - <span class="number">1</span>, (i + <span class="number">1</span>) * BS - <span class="number">1</span>);</span><br><span class="line">        block.<span class="built_in">push_back</span>(<span class="built_in">BLOCK</span>(l, r));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(m --) &#123;</span><br><span class="line">        <span class="type">int</span> op, l, r, k;</span><br><span class="line">        <span class="built_in">read</span>(op, l, r, k);</span><br><span class="line">        l --, r --;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(r - l + <span class="number">1</span> &lt; k) &#123;</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, <span class="built_in">query</span>(l, r, k));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">add</span>(l, r, k);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="弹飞绵羊"><a href="#弹飞绵羊" class="headerlink" title="弹飞绵羊"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3203">弹飞绵羊</a></h5><blockquote>
 <p>有$n$个点，每个点都有一个值$k$，第$i$个点会通过一次弹射到$i + k_i$上，直到点不存在。两种操作，一种询问第$i$个点一共会经历几次弹射，另一种修改$k_i$。</p>
 </blockquote>
 <p>如果不存在修改操作，那么只需要预处理出所有点的答案，每次查询只需要$O(1)$的复杂度就可以求出解。而修改的操作是$O(n)$的，因此需要一种方法来平衡两种操作。发现可以将所有点任意地分割成$x$段，每一小段中的每个点都存在一个$k’_i$从所在段中弹飞，并且落到另一段中的某个点，因此可以记录每个段中每个点从所在段弹飞的所需的次数以及落点，此时每次修改只需要修改所在块即可。故得出解：将$n$个点分成$\sqrt n$段，同时记录次数和位置，修改就重构块，查询就对该点在所有块中的次数求和。两种操作的时间复杂度均为$\sqrt n$。</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-typedef pair&lt;int, int&gt; PII;
-const int INF = 1e9 + 7, MAXN = 2e5 + 400, mod = 998244353;
-int n, BS, m, B;
-int a[MAXN], c[MAXN], to[MAXN];
-void upd(int l, int r) &#123;
-    for(int i = r; i &gt;= l; i --) &#123;
-        if(i + a[i] &gt; r) &#123;
-            c[i] = 1;
-            to[i] = i + a[i];
-        &#125; else &#123;
-            c[i] = c[i + a[i]] + 1;
-            to[i] = to[i + a[i]];
-        &#125;
-    &#125;
-&#125;
-int query(int x) &#123;
-    int res = 0, pos = x;
-    do &#123;
-        res += c[pos];
-        pos = to[pos];
-    &#125; while(pos &lt; n);
-    return res;
-&#125;
-int main() &#123;
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cin &gt;&gt; n;
-    BS = sqrt(n) + 1;
-    for(int i = 0; i &lt; n; i ++) &#123;
-        cin &gt;&gt; a[i];
-    &#125;
-    for(int i = 0; i &lt; n; i += BS) &#123;
-        upd(i, min(n - 1, i + BS - 1));
-    &#125;
-    cin &gt;&gt; m;
-    while (m --) &#123;
-        int op, x, y;
-        cin &gt;&gt; op &gt;&gt; x;
-        if(op == 1) &#123;
-            cout &lt;&lt; query(x) &lt;&lt; &#39;\n&#39;;
-        &#125; else &#123;
-            cin &gt;&gt; y;
-            a[x] = y;
-            int b = x / BS;
-            upd(b * BS, min(n - 1, (b + 1) * BS - 1));
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">2e5</span> + <span class="number">400</span>, mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">int</span> n, BS, m, B;</span><br><span class="line"><span class="type">int</span> a[MAXN], c[MAXN], to[MAXN];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">upd</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = r; i &gt;= l; i --) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i + a[i] &gt; r) &#123;</span><br><span class="line">            c[i] = <span class="number">1</span>;</span><br><span class="line">            to[i] = i + a[i];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            c[i] = c[i + a[i]] + <span class="number">1</span>;</span><br><span class="line">            to[i] = to[i + a[i]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>, pos = x;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        res += c[pos];</span><br><span class="line">        pos = to[pos];</span><br><span class="line">    &#125; <span class="keyword">while</span>(pos &lt; n);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    BS = <span class="built_in">sqrt</span>(n) + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i += BS) &#123;</span><br><span class="line">        <span class="built_in">upd</span>(i, <span class="built_in">min</span>(n - <span class="number">1</span>, i + BS - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    cin &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span> (m --) &#123;</span><br><span class="line">        <span class="type">int</span> op, x, y;</span><br><span class="line">        cin &gt;&gt; op &gt;&gt; x;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="number">1</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="built_in">query</span>(x) &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cin &gt;&gt; y;</span><br><span class="line">            a[x] = y;</span><br><span class="line">            <span class="type">int</span> b = x / BS;</span><br><span class="line">            <span class="built_in">upd</span>(b * BS, <span class="built_in">min</span>(n - <span class="number">1</span>, (b + <span class="number">1</span>) * BS - <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  <br/><br>  <br/></p>
 <ul>
 <li>有时间再补<br><a target="_blank" rel="noopener" href="https://loj.ac/p/6546">简单的数列题</a><br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4135">作诗</a><br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4168">[Violet]蒲公英</a><br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P5574">任务分配问题</a></li>
 </ul>
 
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="false"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
     </div>
     
-    
-    
-    
-    
-    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%88%86%E5%9D%97%E7%AE%80%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">数组分块简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E9%A2%98"><span class="toc-number">2.0.1.</span> <span class="toc-text">模板题</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%99%E4%B8%BB%E7%9A%84%E9%AD%94%E6%B3%95"><span class="toc-number">2.0.2.</span> <span class="toc-text">教主的魔法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%B1%E4%B9%83%E6%89%93%E6%89%91%E5%85%8B"><span class="toc-number">2.0.3.</span> <span class="toc-text">由乃打扑克</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BC%B9%E9%A3%9E%E7%BB%B5%E7%BE%8A"><span class="toc-number">2.0.4.</span> <span class="toc-text">弹飞绵羊</span></a></li></ol></li></ol></li></ol>
+        </div>
     
 </div>
 
-                    <footer id="footer">
-    <div id="footer-wrap">
-        <div>
-            &copy;
-            2023 - 2023 Muly&#39;s blog
-            <span id="footer-icon">
-                <i class="fa-solid fa-font-awesome fa-fw"></i>
-            </span>
-            &commat;晓染
-        </div>
-        <div>
-            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
-            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
-        </div>
-        
+
     </div>
-</footer>
+</div>
+</body>
 
-                </div>
-            </transition>
-            
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
         </div>
-        <script src="/js/main.js"></script>
-        
-        
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
 
 
-        
-    </body>
 </html>
