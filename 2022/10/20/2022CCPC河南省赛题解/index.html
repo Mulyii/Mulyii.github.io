@@ -1,81 +1,191 @@
 
 <!DOCTYPE html>
-<html lang="zh-CN" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>2022CCPC河南省赛题解 - Muly&#39;s blog</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="A blog records study of Algorithm, Math and Physics,传送门
-A Mocha 上小班啦签到，交换$01$位置输出即可。
-1234567891011121314151617181920#include&amp;lt;bits/stdc++.h&amp;gt;using ,"> 
-    <meta name="author" content="Muly"> 
-    <link rel="alternative" href="atom.xml" title="Muly&#39;s blog" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    
-    
-    
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:title" content="2022CCPC河南省赛题解 - Muly&#39;s blog"/>
-    <meta name="twitter:description" content="A blog records study of Algorithm, Math and Physics,传送门
-A Mocha 上小班啦签到，交换$01$位置输出即可。
-1234567891011121314151617181920#include&amp;lt;bits/stdc++.h&amp;gt;using ,"/>
-    
-    
-    
-    
-    <meta property="og:site_name" content="Muly&#39;s blog"/>
-    <meta property="og:type" content="object"/>
-    <meta property="og:title" content="2022CCPC河南省赛题解 - Muly&#39;s blog"/>
-    <meta property="og:description" content="A blog records study of Algorithm, Math and Physics,传送门
-A Mocha 上小班啦签到，交换$01$位置输出即可。
-1234567891011121314151617181920#include&amp;lt;bits/stdc++.h&amp;gt;using ,"/>
-    
-<link rel="stylesheet" href="/css/diaspora.css">
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <title>2022CCPC河南省赛题解 | Muly&#39;s blog</title>
+        <meta name="author" content="Muly" />
+        <meta name="description" content="A blog records study of Algorithm, Math and Physics" />
+        <meta name="keywords" content="blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <link rel="icon" href="/images/favicon.png" />
+        <script src="https://cdn.staticfile.org/vue/3.2.47/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="/css/fonts.min.css" />
+<script> const mixins = {}; </script>
 
-    <script>window.searchDbPath = "/search.xml";</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
-<meta name="generator" content="Hexo 6.3.0"></head>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
-<body class="loading">
-    <span id="config-title" style="display:none">Muly&#39;s blog</span>
-    <div id="loader"></div>
-    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://mulyq.github.io"></a>
-    <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">2022CCPC河南省赛题解</h3>
-    <div class="social">
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
-            </div>
-            <div id="qr"></div>
-        </div>
+
+<script src="https://cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.7.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.js"></script>
+<script src="https://cdn.staticfile.org/KaTeX/0.16.4/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/KaTeX/0.16.4/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <div id="layout">
+            <transition name="fade">
+                <div id="loading" v-show="loading">
+                    <div id="loading-circle">
+                        <h2>LOADING</h2>
+                        <p>加载过慢请开启缓存 浏览器默认开启</p>
+                        <img src="/images/loading.gif" />
+                    </div>
+                </div>
+            </transition>
+            <nav id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <div id="desktop-menu">
+        <a class="title" href="/">
+            <span>MULY&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-首页 fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-关于 fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-归档 fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-分类 fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-标签 fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
     </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">2022CCPC河南省赛题解</h1>
-        <div class="stuff">
-            <span>十月 20, 2022</span>
-            
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
-
-
+    <div id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;MULY&#39;S BLOG</span>
         </div>
-        <div class="content markdown">
-            <p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103941">传送门</a></p>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-首页 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-关于 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-归档 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-分类 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-标签 fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </div>
+</nav>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+            <transition name="into">
+                <div id="main" v-show="!loading">
+                    <div class="article">
+    <div>
+        <h1>2022CCPC河南省赛题解</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/10/20
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E9%A2%98%E8%A7%A3/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                题解
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E9%A2%98%E8%A7%A3/" style="color: #ff7d73">题解</a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p><a target="_blank" rel="noopener" href="https://codeforces.com/gym/103941">传送门</a></p>
 <h3 id="A-Mocha-上小班啦"><a href="#A-Mocha-上小班啦" class="headerlink" title="A Mocha 上小班啦"></a>A Mocha 上小班啦</h3><p>签到，交换$01$位置输出即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">2e5</span> + <span class="number">10</span>, mod = <span class="number">998244353</span>;</span><br><span class="line">string tab = <span class="string">&quot;1023456789&quot;</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span>(n &gt; tab.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;</span><br><span class="line">            cout &lt;&lt; tab[i];</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="B-Hash"><a href="#B-Hash" class="headerlink" title="B Hash"></a>B Hash</h3><p>考虑子串的长度不大于$15$的情况(官方题解说只要考虑这种情况就行了)，然后dp就行了。只需证明长度为$16$的字串必然会存在一个划分使得产生的价值大于不划分产生的价值。具体看官方题解吧，这个证明我也说不太清（现场的话应该可以猜字串长度不会太大来做）。</p>
@@ -92,128 +202,45 @@ A Mocha 上小班啦签到，交换$01$位置输出即可。
 <p>代码写得又臭又长，好在写了注释，应该可以看懂。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> INF = <span class="number">1e9</span> + <span class="number">7</span>, MAXN = <span class="number">2e5</span> + <span class="number">10</span>, mod = <span class="number">998244353</span>;</span><br><span class="line">PII t[<span class="number">3</span>][<span class="number">10</span>][<span class="number">10</span>];   <span class="comment">// 0  X, 1  Y ,2  Z; first 位置， second 编号</span></span><br><span class="line"><span class="type">int</span> v[<span class="number">510</span>];         <span class="comment">// 0 未上电梯，1在x电梯上，2在y电梯上，3在z电梯上</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">P</span> &#123;</span><br><span class="line">    <span class="type">int</span> tim;        <span class="comment">// 出现时间</span></span><br><span class="line">    <span class="type">int</span> x, y, z;    <span class="comment">// 当前位置</span></span><br><span class="line">    <span class="type">int</span> tx, ty, tz; <span class="comment">// 目标位置</span></span><br><span class="line">&#125; p[<span class="number">60</span>]; </span><br><span class="line"><span class="type">int</span> n, m, h, q, k;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= h; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(t[<span class="number">0</span>][i][j].first &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                t[<span class="number">0</span>][i][j].first %= n;</span><br><span class="line">                t[<span class="number">0</span>][i][j].first ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= h; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(t[<span class="number">1</span>][i][j].first &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                t[<span class="number">1</span>][i][j].first %= m;</span><br><span class="line">                t[<span class="number">1</span>][i][j].first ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(t[<span class="number">2</span>][i][j].first &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">                t[<span class="number">2</span>][i][j].first %= h;</span><br><span class="line">                t[<span class="number">2</span>][i][j].first ++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">RES</span> &#123;</span><br><span class="line">    <span class="type">int</span> tt;</span><br><span class="line">    <span class="type">int</span> p;</span><br><span class="line">    <span class="type">int</span> io;</span><br><span class="line">    <span class="type">int</span> xl;</span><br><span class="line">    <span class="type">int</span> x, y, z;</span><br><span class="line">    <span class="type">const</span> <span class="type">bool</span> <span class="keyword">operator</span> &lt; (<span class="type">const</span> RES&amp; a) <span class="type">const</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(tt != a.tt) <span class="keyword">return</span> tt &lt; a.tt;</span><br><span class="line">        <span class="keyword">if</span>(xl != a.xl) <span class="keyword">return</span> xl &lt; a.xl;</span><br><span class="line">        <span class="keyword">if</span>(io != a.io) <span class="keyword">return</span> io &lt; a.io;</span><br><span class="line">        <span class="keyword">if</span>(p != a.p) <span class="keyword">return</span> p &lt; a.p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">vector&lt;RES&gt; res;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m &gt;&gt; h &gt;&gt; k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i ++) &#123;</span><br><span class="line">        <span class="type">int</span> type, ex, ey, ez;</span><br><span class="line">        cin &gt;&gt; type &gt;&gt; ex &gt;&gt; ey &gt;&gt; ez;</span><br><span class="line">        <span class="keyword">if</span>(type == <span class="number">0</span>) &#123;</span><br><span class="line">            t[type][ey][ez].first = ex;</span><br><span class="line">            t[type][ey][ez].second = i;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(type == <span class="number">1</span>) &#123;</span><br><span class="line">            t[type][ex][ez].first = ey;</span><br><span class="line">            t[type][ex][ez].second = i;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            t[type][ex][ey].first = ez;</span><br><span class="line">            t[type][ex][ey].second = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cin &gt;&gt; q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; q; i ++) &#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;[tim, x, y, z, tx, ty, tz] = p[i];</span><br><span class="line">        cin &gt;&gt; tim &gt;&gt; x &gt;&gt; y &gt;&gt; z &gt;&gt; tx &gt;&gt; ty &gt;&gt; tz;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> tt = <span class="number">0</span>; <span class="comment">// 当前时间戳</span></span><br><span class="line">    <span class="type">bool</span> ok = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        ok = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; q; i ++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i].tim &lt;= tt) &#123;</span><br><span class="line">                <span class="comment">// 未进电梯</span></span><br><span class="line">                <span class="keyword">if</span>(v[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(p[i].x != p[i].tx) &#123;</span><br><span class="line">                        ok = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span>(t[<span class="number">0</span>][p[i].y][p[i].z].first == p[i].x) &#123;</span><br><span class="line">                            res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">1</span> , t[<span class="number">0</span>][p[i].y][p[i].z].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                            v[i] = <span class="number">1</span>;</span><br><span class="line">                            p[i].x %= n;</span><br><span class="line">                            p[i].x ++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(p[i].y != p[i].ty) &#123;</span><br><span class="line">                        ok = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span>(t[<span class="number">1</span>][p[i].x][p[i].z].first == p[i].y) &#123;</span><br><span class="line">                            res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">1</span> , t[<span class="number">1</span>][p[i].x][p[i].z].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                            v[i] = <span class="number">2</span>;</span><br><span class="line">                            p[i].y %= m;</span><br><span class="line">                            p[i].y ++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(p[i].z != p[i].tz) &#123;</span><br><span class="line">                        ok = <span class="number">1</span>;</span><br><span class="line">                        <span class="keyword">if</span>(t[<span class="number">2</span>][p[i].x][p[i].y].first == p[i].z) &#123;</span><br><span class="line">                            res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">1</span> , t[<span class="number">2</span>][p[i].x][p[i].y].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                            v[i] = <span class="number">3</span>;</span><br><span class="line">                            p[i].z %= h;</span><br><span class="line">                            p[i].z ++;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v[i] == <span class="number">1</span>) &#123;</span><br><span class="line">                    ok = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(p[i].x == p[i].tx) &#123;</span><br><span class="line">                        res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">0</span>, t[<span class="number">0</span>][p[i].y][p[i].z].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                        v[i] = <span class="number">0</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        p[i].x %= n;</span><br><span class="line">                        p[i].x ++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v[i] == <span class="number">2</span>) &#123;</span><br><span class="line">                    ok = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(p[i].y == p[i].ty) &#123;</span><br><span class="line">                        res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">0</span>, t[<span class="number">1</span>][p[i].x][p[i].z].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                        v[i] = <span class="number">0</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        p[i].y %= m;</span><br><span class="line">                        p[i].y ++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(v[i] == <span class="number">3</span>) &#123;</span><br><span class="line">                    ok = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">if</span>(p[i].z == p[i].tz) &#123;</span><br><span class="line">                        res.<span class="built_in">push_back</span>(&#123;tt, i + <span class="number">1</span>, <span class="number">0</span>, t[<span class="number">2</span>][p[i].x][p[i].y].second + <span class="number">1</span>, p[i].x, p[i].y, p[i].z&#125;);</span><br><span class="line">                        v[i] = <span class="number">0</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        p[i].z %= h;</span><br><span class="line">                        p[i].z ++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ok = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">work</span>();</span><br><span class="line">        tt ++;</span><br><span class="line">    &#125; <span class="keyword">while</span> (ok);</span><br><span class="line">    <span class="built_in">sort</span>(res.<span class="built_in">begin</span>(), res.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> i : res) &#123;</span><br><span class="line">        <span class="comment">// [time] Person person_id IN / OUT Elevator elevator_id at (x, y, z);</span></span><br><span class="line">        <span class="keyword">if</span>(i.io == <span class="number">1</span>) &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;[&quot;</span> &lt;&lt; i.tt &lt;&lt; <span class="string">&quot;s] Person &quot;</span> &lt;&lt; i.p &lt;&lt; <span class="string">&quot; IN Elevator &quot;</span> &lt;&lt; i.xl &lt;&lt; <span class="string">&quot; at (&quot;</span> &lt;&lt; i.x &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; i.y &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; i.z &lt;&lt; <span class="string">&quot;)\n&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;[&quot;</span> &lt;&lt; i.tt &lt;&lt; <span class="string">&quot;s] Person &quot;</span> &lt;&lt; i.p &lt;&lt; <span class="string">&quot; OUT Elevator &quot;</span> &lt;&lt; i.xl &lt;&lt; <span class="string">&quot; at (&quot;</span> &lt;&lt; i.x &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; i.y &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; i.z &lt;&lt; <span class="string">&quot;)\n&quot;</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                </ul>
-            
-        </div>
-        
-        
-    <div id="gitalk-container" class="comment link"
-		data-enable="false"
-        data-ae="false"
-        data-ci=""
-        data-cs=""
-        data-r=""
-        data-o=""
-        data-a=""
-        data-d="false"
-    >查看评论</div>
-
-
     </div>
     
-        <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Mocha-%E4%B8%8A%E5%B0%8F%E7%8F%AD%E5%95%A6"><span class="toc-number">1.</span> <span class="toc-text">A Mocha 上小班啦</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Hash"><span class="toc-number">2.</span> <span class="toc-text">B Hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-Serval-%E7%9A%84%E4%BF%B3%E5%8F%A5"><span class="toc-number">3.</span> <span class="toc-text">E Serval 的俳句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-%E9%9B%86%E5%90%88%E4%B9%8B%E5%92%8C"><span class="toc-number">4.</span> <span class="toc-text">F 集合之和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G-Mocha-%E4%B8%8A%E5%A4%A7%E7%8F%AD%E5%95%A6"><span class="toc-number">5.</span> <span class="toc-text">G Mocha 上大班啦</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H-%E6%97%8B%E8%BD%AC%E6%B0%B4%E7%AE%A1"><span class="toc-number">6.</span> <span class="toc-text">H 旋转水管</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-Oshwiciqwq-%E7%9A%84%E7%94%B5%E6%A2%AF"><span class="toc-number">7.</span> <span class="toc-text">I Oshwiciqwq 的电梯</span></a></li></ol>
-        </div>
+    
+    
+    
+    
+    
     
 </div>
 
-
-    </div>
-</div>
-</body>
-
-
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/typed.js"></script>
-<script src="/js/diaspora.js"></script>
-
-
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-
-
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
+                    <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2023 - 2023 Muly&#39;s blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Muly
         </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/argvchs/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
                 </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
+            </transition>
+            
         </div>
-    </div>
-</div>
-
-
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
-        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
-        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
-        messageStyle: "none"
-    });
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+        <script src="/js/main.js"></script>
+        
+        
 
 
 
 
+        
+    </body>
 </html>
