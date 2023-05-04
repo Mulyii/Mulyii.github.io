@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="blog">
     
-    <meta name="author" content="晓染Ryan">
+    <meta name="author" content="晓染">
     <!-- preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,13 +26,14 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="莫队">
 <meta property="og:url" content="http://ryantsuii.github.io/2023/04/16/%E8%8E%AB%E9%98%9F/index.html">
-<meta property="og:site_name" content="Muly&#39;s blog">
+<meta property="og:site_name" content="Ryan&#39;s blog">
 <meta property="og:description" content="浅谈莫队算法">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-16T15:42:14.000Z">
-<meta property="article:modified_time" content="2023-05-04T11:47:51.398Z">
+<meta property="article:modified_time" content="2023-05-04T18:06:28.039Z">
 <meta property="article:author" content="晓染">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="莫队">
 <meta name="twitter:card" content="summary">
     
     
@@ -47,7 +48,7 @@
         
             莫队 -
         
-        晓染Ryan的小窝
+        Ryan&#39;s blog
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -64,7 +65,7 @@
     <script id="hexo-configurations">
     let Global = window.Global || {};
     Global.hexo_config = {"hostname":"ryantsuii.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1890ff","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/keqing.jpg","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"晓染Ryan","subtitle":{"text":["与其诅咒黑暗，不如燃起蜡烛！"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":150,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":false,"smart_backspace":false},"text_color":{"light":"#4754C3","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Ryantsuii","zhihu":"https://www.zhihu.com/people/qi-jie-77-48","twitter":null,"bilibili":"https://space.bilibili.com/285870200?spm_id_from=333.1007.0.0","email":null,"qq":"tencent://message/?uin=466010106 \" target=\"_blank"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":null,"artist":null,"url":"https://m701.music.126.net/20230505005611/63333a4726f28a47b1c122aac409b8fa/jdyyaac/0e09/0552/5453/9cd077966028618e4dbdc9d2a0d22a3e.m4a","cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Ryantsuii"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1890ff","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/keqing.jpg","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"晓染Ryan","subtitle":{"text":["与其诅咒黑暗，不如燃起蜡烛！"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":120,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":false},"text_color":{"light":"#4754C3","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Ryantsuii","zhihu":"https://www.zhihu.com/people/qi-jie-77-48","twitter":null,"bilibili":"https://space.bilibili.com/285870200?spm_id_from=333.1007.0.0","email":null,"qq":"tencent://message/?uin=466010106 \" target=\"_blank"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":null,"artist":null,"url":"/music/bgm.mp3","cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Ryantsuii"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
     Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
     
@@ -219,7 +220,7 @@ mjx-container[display="true"] + br {
             
             <a class="logo-title" href="/">
                 
-                晓染Ryan的小窝
+                Ryan&#39;s blog
                 
             </a>
         </div>
@@ -469,7 +470,7 @@ mjx-container[display="true"] + br {
                     </div>
                     <div class="info">
                         <div class="author">
-                            <span class="name">晓染Ryan</span>
+                            <span class="name">晓染</span>
                             
                                 <span class="author-label"></span>
                             
@@ -485,8 +486,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-05-04 19:47:51</span>
-            <span class="mobile">2023-05-04 19:47</span>
+            <span class="desktop">2023-05-05 02:06:28</span>
+            <span class="mobile">2023-05-05 02:06</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -512,6 +513,10 @@ mjx-container[display="true"] + br {
                         <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
                     </li>
                 
+                    <li>
+                        | <a href="/tags/%E8%8E%AB%E9%98%9F/">莫队</a>&nbsp;
+                    </li>
+                
             </ul>
         </span>
     
@@ -532,8 +537,7 @@ mjx-container[display="true"] + br {
             
 
             <div class="article-content markdown-body">
-                <h1>莫队</h1>
-<ul class="lvl-0">
+                <ul class="lvl-0">
 <li class="lvl-2">
 <p>算法原理:<br>
 对于序列上的查询问题, 如果[l, r] 的答案可以<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>扩展到[l- 1, r], [l + 1, r], [l, r-1], [l, r + 1], 那么对于所有询问, 离线处理后可以在<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.491ex;" xmlns="http://www.w3.org/2000/svg" width="4.645ex" height="2.398ex" role="img" focusable="false" viewBox="0 -843 2053 1060"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="msqrt" transform="translate(600,0)"><g transform="translate(853,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g></g><g data-mml-node="mo" transform="translate(0,-17)"><path data-c="221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path></g><rect width="600" height="60" x="853" y="723"></rect></g></g></g></svg></mjx-container>的时间内找到所有问题的答案.</p>
@@ -560,6 +564,10 @@ mjx-container[display="true"] + br {
                     
                         <li class="tag-item">
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>&nbsp;
+                        </li>
+                    
+                        <li class="tag-item">
+                            <a href="/tags/%E8%8E%AB%E9%98%9F/">#莫队</a>&nbsp;
                         </li>
                     
                 </ul>
@@ -614,7 +622,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">莫队</div>
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">莫队</span></a></li></ol>
+        
 
     </div>
 </div>
@@ -641,7 +649,7 @@ mjx-container[display="true"] + br {
               <span>2023</span>
               -
             
-            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">晓染Ryan</a>
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">晓染</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -882,4 +890,7 @@ mjx-container[display="true"] + br {
 <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/plugins/aplayer.js"></script>
 
 </body>
+
+<!-- <iframe src="/music/bgm.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe> -->
+
 </html>

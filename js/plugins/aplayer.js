@@ -18,16 +18,17 @@ for (const audio of Global.theme_config.plugins.aplayer.audios) {
 
 
 if (isMini) {
-  const ap = new APlayer({
+  ap = new APlayer({
       container: document.getElementById('aplayer'),
       mini: true,
       audio: audioList,
       autoplay: true,
-  });
-} else if (isFixed) {
-  const ap = new APlayer({
+    });
+  } else if (isFixed) {
+    const ap = new APlayer({
       container: document.getElementById('aplayer'),
       fixed: true,
       audio: audioList,
+      autoplay: true,
   });
 }
