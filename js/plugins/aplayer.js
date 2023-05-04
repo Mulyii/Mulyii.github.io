@@ -22,6 +22,7 @@ if (isMini) {
       container: document.getElementById('aplayer'),
       mini: true,
       audio: audioList,
+      autoplay: true,
   });
 } else if (isFixed) {
   const ap = new APlayer({
