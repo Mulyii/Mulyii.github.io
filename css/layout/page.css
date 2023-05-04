@@ -35,8 +35,8 @@
   --note-type-title-bg: #fdf3e9;
   --note-black-title-bg: #e9e9e9;
   --note-purple-title-bg: #f9e9fd;
-  --home-banner-img: url("/images/keqing.png");
-  --home-banner-text-color: #fff;
+  --home-banner-img: url("/images/keqing.jpg");
+  --home-banner-text-color: #4754c3;
   --home-banner-icons-container-border-color: rgba(255,255,255,0.35);
   --home-banner-icons-container-background-color: rgba(255,255,255,0.3);
   --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
@@ -83,8 +83,8 @@
     --note-type-title-bg: #fdf3e9;
     --note-black-title-bg: #e9e9e9;
     --note-purple-title-bg: #f9e9fd;
-    --home-banner-img: url("/images/keqing.png");
-    --home-banner-text-color: #fff;
+    --home-banner-img: url("/images/keqing.jpg");
+    --home-banner-text-color: #4754c3;
     --home-banner-icons-container-border-color: rgba(255,255,255,0.35);
     --home-banner-icons-container-background-color: rgba(255,255,255,0.3);
     --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
@@ -180,8 +180,8 @@
   --note-type-title-bg: #fdf3e9;
   --note-black-title-bg: #e9e9e9;
   --note-purple-title-bg: #f9e9fd;
-  --home-banner-img: url("/images/keqing.png");
-  --home-banner-text-color: #fff;
+  --home-banner-img: url("/images/keqing.jpg");
+  --home-banner-text-color: #4754c3;
   --home-banner-icons-container-border-color: rgba(255,255,255,0.35);
   --home-banner-icons-container-background-color: rgba(255,255,255,0.3);
   --redefine-box-shadow: var(--shadow-color-2) 0px 6px 24px 0px, var(--shadow-color-1) 0px 0px 0px 1px;
