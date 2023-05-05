@@ -67,6 +67,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  Global.printThemeInfo();
+  // Global.printThemeInfo();
   Global.refresh();
 });
