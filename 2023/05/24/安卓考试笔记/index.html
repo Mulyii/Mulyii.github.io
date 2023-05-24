@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="blog">
+    
+    <meta name="author" content="晓染">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    
+        
+            <link rel="preconnect" href="https://npm.elemecdn.com" crossorigin>
+        
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://ryantsuii.github.io/2023/05/24/安卓考试笔记/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="Fragment absFragment 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667class FruitAbsFragment_xjq : Fragment() &amp;#123;    priv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ryan&#39;s blog">
+<meta property="og:url" content="http://ryantsuii.github.io/2023/05/24/%E5%AE%89%E5%8D%93%E8%80%83%E8%AF%95%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Ryan&#39;s blog">
+<meta property="og:description" content="Fragment absFragment 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667class FruitAbsFragment_xjq : Fragment() &amp;#123;    priv">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-24T00:16:12.059Z">
+<meta property="article:modified_time" content="2023-05-24T00:34:54.781Z">
+<meta property="article:author" content="晓染">
+<meta property="article:tag" content="blog">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/kagami.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/kagami.png">
+    <meta name="theme-color" content="#1890ff">
+    <link rel="shortcut icon" href="/images/kagami.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+        Ryan&#39;s blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/assets/fonts.css">
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    let Global = window.Global || {};
+    Global.hexo_config = {"hostname":"ryantsuii.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    Global.theme_config = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[""]},"code_block":{"copy":true,"style":"simple","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":false,"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#1890ff","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":false},"busuanzi_counter":{"enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"pjax":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/keqing.jpg","dark":"/images/keqing_dark.jpg"},"title":"晓染Ryan","subtitle":{"text":["与其诅咒黑暗，不如燃起蜡烛！"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":120,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":false},"text_color":{"light":"#4754C3","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"links":{"github":"https://github.com/Ryantsuii","zhihu":"https://www.zhihu.com/people/qi-jie-77-48","twitter":null,"bilibili":"https://space.bilibili.com/285870200?spm_id_from=333.1007.0.0","email":null,"qq":"tencent://message/?uin=466010106 \" target=\"_blank"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":null,"artist":null,"url":"/music/bgm.mp3","cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.1.3","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","Github":"https://github.com/Ryantsuii"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","first_item":"menu","announcement":null,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}}};
+    Global.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/fontawesome/fontawesome.min.css">
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/fontawesome/brands.min.css">
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/fontawesome/solid.min.css">
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/fontawesome/regular.min.css">
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="main-content-container">
+
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Ryan&#39;s blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/categories"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-folder"></i>
+                                        
+                                        分类
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/tags"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-tags"></i>
+                                        
+                                        标签
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/archives"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-archive"></i>
+                                        
+                                        归档
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown" 
+                                    href="#" onClick="return false;">
+                                    
+                                        
+                                            <i class="fa-regular fa-user"></i>
+                                        
+                                        关于&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                    
+                                        <li>
+                                        <a href="/about">ME
+                                        </a>
+                                        </li>
+                                    
+                                        <li>
+                                        <a target="_blank" rel="noopener" href="https://github.com/Ryantsuii">GITHUB
+                                        </a>
+                                        </li>
+                                    
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i></div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer">
+        <ul class="drawer-navbar-list">
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/categories"  >
+                             
+                                
+                                    <i class="fa-regular fa-folder"></i>
+                                
+                                分类
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/tags"  >
+                             
+                                
+                                    <i class="fa-regular fa-tags"></i>
+                                
+                                标签
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="" 
+                        href="/archives"  >
+                             
+                                
+                                    <i class="fa-regular fa-archive"></i>
+                                
+                                归档
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+                
+                    <li class="drawer-navbar-item flex-center">
+                        <a class="has-dropdown" 
+                        href="#" onClick="return false;">
+                            
+                                
+                                    <i class="fa-regular fa-user"></i>
+                                
+                                关于&nbsp;<i class="fa-solid fa-chevron-down"></i>
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                              
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" href="/about">ME</a>
+                            </li>
+                        
+                            <li class="dropdown-item flex-center">
+                                <a class="dropdown-item" target="_blank" rel="noopener" href="https://github.com/Ryantsuii">GITHUB</a>
+                            </li>
+                        
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular"></h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/kagami.png">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">晓染</span>
+                            
+                                <span class="author-label"></span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-05-24 08:16:12</span>
+        <span class="mobile">2023-05-24 08:16</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-05-24 08:34:54</span>
+            <span class="mobile">2023-05-24 08:34</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <h2 id="Fragment">Fragment</h2>
+<h4 id="absFragment">absFragment</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FruitAbsFragment_xjq</span> : <span class="type">Fragment</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> isTowPage = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateView</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        inflater: <span class="type">LayoutInflater</span>, container: <span class="type">ViewGroup</span>?,</span></span></span><br><span class="line"><span class="params"><span class="function">        savedInstanceState: <span class="type">Bundle</span>?,</span></span></span><br><span class="line"><span class="params"><span class="function">    )</span></span>: View? &#123;</span><br><span class="line">        <span class="keyword">val</span> view = inflater.inflate(R.layout.fragment_fruit_abstr, container, <span class="literal">false</span>)</span><br><span class="line">        <span class="keyword">return</span> view</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityCreated</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityCreated(savedInstanceState)</span><br><span class="line">        isTowPage = activity?.findViewById&lt;View&gt;(R.id.FruitLayout) != <span class="literal">null</span></span><br><span class="line">        <span class="keyword">val</span> layoutManager = LinearLayoutManager(activity)</span><br><span class="line">        <span class="keyword">val</span> adapter = FruitAdapter(loadData())</span><br><span class="line">        <span class="keyword">val</span> fruitRecyclerView = activity?.findViewById&lt;RecyclerView&gt;(R.id.FruitRecyclerView)</span><br><span class="line">        fruitRecyclerView?.adapter = adapter</span><br><span class="line">        fruitRecyclerView?.layoutManager = layoutManager</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">loadData</span><span class="params">()</span></span>: List&lt;Fruit_xjq&gt; &#123;</span><br><span class="line">        <span class="keyword">val</span> fruitList = ArrayList&lt;Fruit_xjq&gt;()</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Apple&quot;</span>, R.mipmap.apple_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Pear&quot;</span>, R.mipmap.pear_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Banana&quot;</span>, R.mipmap.banana_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Cherry&quot;</span>, R.mipmap.cherry_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Grape&quot;</span>, R.mipmap.grape_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Mango&quot;</span>, R.mipmap.mango_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        fruitList.add(Fruit_xjq(<span class="string">&quot;Orange&quot;</span>, R.mipmap.orange_pic, <span class="number">2.0</span>,<span class="number">1</span>))</span><br><span class="line">        <span class="keyword">return</span>  fruitList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">inner</span> <span class="keyword">class</span> <span class="title class_">FruitAdapter</span>(<span class="keyword">val</span> FruitList: List&lt;Fruit_xjq&gt;) : RecyclerView.Adapter&lt;FruitAdapter.ViewHolder&gt;() &#123;</span><br><span class="line">        <span class="keyword">inner</span> <span class="keyword">class</span> <span class="title class_">ViewHolder</span>(view: View) : RecyclerView.ViewHolder(view) &#123;</span><br><span class="line">            <span class="keyword">val</span> fruitImage: ImageView = view.findViewById(R.id.fruit_image)</span><br><span class="line">            <span class="keyword">val</span> fruitName: TextView = view.findViewById(R.id.fruit_name)</span><br><span class="line">            <span class="keyword">val</span> fruitUnitPrice: TextView = view.findViewById(R.id.fruit_unit_price)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateViewHolder</span><span class="params">(parent: <span class="type">ViewGroup</span>, viewType: <span class="type">Int</span>)</span></span>: ViewHolder &#123;</span><br><span class="line">            <span class="keyword">val</span> view = LayoutInflater.from(parent.context).inflate(R.layout.fruit_item, parent, <span class="literal">false</span>)</span><br><span class="line">            <span class="keyword">val</span> holder = ViewHolder(view)</span><br><span class="line">            holder.itemView.setOnClickListener&#123;</span><br><span class="line">                <span class="keyword">val</span> fruit = FruitList[holder.adapterPosition]</span><br><span class="line">                <span class="keyword">if</span> (isTowPage) &#123;</span><br><span class="line">                    <span class="keyword">val</span> fruitDetailFrag = activity?.supportFragmentManager?.findFragmentById(R.id.fruit_details_frag) <span class="keyword">as</span> FruitDetailsFragment_xjq</span><br><span class="line">                    fruitDetailFrag.refresh(fruit.name, fruit.image_id.toString(), fruit.unit_price.toString())</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    FruitDetalsAtivity_xjq.actionStart(parent.context,fruit.name, fruit.image_id.toString(), fruit.unit_price.toString())</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>  holder</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getItemCount</span><span class="params">()</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">            <span class="keyword">return</span>  FruitList.size</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onBindViewHolder</span><span class="params">(holder: <span class="type">ViewHolder</span>, position: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">val</span> fruit = FruitList[position]</span><br><span class="line">            holder.fruitName.text = fruit.name</span><br><span class="line">            holder.fruitImage.setImageResource(fruit.image_id)</span><br><span class="line">            holder.fruitUnitPrice.text = <span class="string">&quot;$&quot;</span> + fruit.unit_price.toString() + <span class="string">&quot;/kg&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="detailFragment">detailFragment</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FruitDetailsFragment_xjq</span> : <span class="type">Fragment</span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> fruitName:TextView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> fruitImageView:ImageView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> fruitUnitPrice:TextView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> amount:TextView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> totalPrice:TextView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> detailsLayout:RelativeLayout</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> sub:Button</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> add:Button</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> Order:Button</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateView</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">        inflater: <span class="type">LayoutInflater</span>, container: <span class="type">ViewGroup</span>?,</span></span></span><br><span class="line"><span class="params"><span class="function">        savedInstanceState: <span class="type">Bundle</span>?,</span></span></span><br><span class="line"><span class="params"><span class="function">    )</span></span>: View? &#123;</span><br><span class="line">        <span class="keyword">val</span> view =  inflater.inflate(R.layout.fragment_fruit_details, container, <span class="literal">false</span>)</span><br><span class="line">        fruitName = view.findViewById(R.id.FruitName)</span><br><span class="line">        fruitImageView = view.findViewById(R.id.FruitImage)</span><br><span class="line">        fruitUnitPrice = view.findViewById(R.id.FruitUnitPrice)</span><br><span class="line">        amount = view.findViewById(R.id.digit)</span><br><span class="line">        totalPrice = view.findViewById(R.id.sum)</span><br><span class="line">        detailsLayout = view.findViewById(R.id.detailsLayout)</span><br><span class="line">        sub = view.findViewById(R.id.sub)</span><br><span class="line">        add = view.findViewById(R.id.add)</span><br><span class="line">        Order = view.findViewById(R.id.order)</span><br><span class="line">        add.setOnClickListener &#123;</span><br><span class="line">            amount.text = (amount.text.toString().toInt() + <span class="number">1</span>).toString()</span><br><span class="line">        &#125;</span><br><span class="line">        sub.setOnClickListener &#123;</span><br><span class="line">            amount.text = (amount.text.toString().toInt() - <span class="number">1</span>).toString()</span><br><span class="line">        &#125;</span><br><span class="line">        Order.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> num = amount.text.toString().toInt()</span><br><span class="line">            <span class="keyword">val</span> temp = StringBuilder()</span><br><span class="line">            <span class="keyword">for</span> (i <span class="keyword">in</span> fruitUnitPrice.text.toString()) &#123;</span><br><span class="line">                <span class="keyword">if</span>(i &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; i &lt;= <span class="string">&#x27;9&#x27;</span> || i == <span class="string">&#x27;.&#x27;</span>) &#123;</span><br><span class="line">                    temp.append(i)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">val</span> up = temp.toString().toDouble()</span><br><span class="line">            totalPrice.text = <span class="string">&#x27;$&#x27;</span> + (num * up).toString()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> view</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">refresh</span><span class="params">(name: <span class="type">String</span>, imageId: <span class="type">String</span>, unitPrice: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        detailsLayout.visibility = View.VISIBLE</span><br><span class="line">        fruitName.text = name</span><br><span class="line">        fruitImageView.setImageResource(imageId.toInt())</span><br><span class="line">        fruitUnitPrice.text = <span class="string">&quot;$&quot;</span> + unitPrice + <span class="string">&quot;/kg&quot;</span></span><br><span class="line">        amount.text = <span class="string">&quot;1&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="unit">unit</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FruitDetalsAtivity_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">actionStart</span><span class="params">(context: <span class="type">Context</span>, name: <span class="type">String</span>, imageId: <span class="type">String</span>, unitPrice: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(context, FruitDetalsAtivity_xjq::<span class="keyword">class</span>.java).apply &#123;</span><br><span class="line">                putExtra(<span class="string">&quot;name&quot;</span>, name)</span><br><span class="line">                putExtra(<span class="string">&quot;imageId&quot;</span>, imageId)</span><br><span class="line">                putExtra(<span class="string">&quot;unitPrice&quot;</span>, unitPrice)</span><br><span class="line">            &#125;</span><br><span class="line">            context.startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_fruit_details_ativity)</span><br><span class="line">        <span class="keyword">val</span> name = intent.getStringExtra(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">        <span class="keyword">val</span> imageId = intent.getStringExtra(<span class="string">&quot;imageId&quot;</span>)</span><br><span class="line">        <span class="keyword">val</span> unitPrice = intent.getStringExtra(<span class="string">&quot;unitPrice&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span>(name != <span class="literal">null</span> &amp;&amp; imageId != <span class="literal">null</span> &amp;&amp; unitPrice != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> fruitDetailFrag = supportFragmentManager.findFragmentById(R.id.fruit_details_frag) <span class="keyword">as</span> FruitDetailsFragment_xjq</span><br><span class="line">            fruitDetailFrag.refresh(name,  imageId, unitPrice)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="数据库">数据库</h2>
+<h4 id="main-Activity">main_Activity</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> dbHelper: MyDatabaseHelper_xjq</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        <span class="keyword">val</span> create_database = findViewById&lt;Button&gt;(R.id.create_database)</span><br><span class="line">        <span class="keyword">val</span> add_data = findViewById&lt;Button&gt;(R.id.add_data)</span><br><span class="line">        <span class="keyword">val</span> query_data = findViewById&lt;Button&gt;(R.id.query_data)</span><br><span class="line">        dbHelper = MyDatabaseHelper_xjq(<span class="keyword">this</span>, <span class="string">&quot;StudentStore.db&quot;</span>, <span class="number">3</span>)</span><br><span class="line">        create_database.setOnClickListener &#123;</span><br><span class="line">            dbHelper.writableDatabase</span><br><span class="line">        &#125;</span><br><span class="line">        add_data.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, AddData_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">            startActivityForResult(intent, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        query_data.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, QueryData_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">            startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="keyword">data</span>)</span><br><span class="line">        <span class="keyword">when</span> (requestCode) &#123;</span><br><span class="line">            <span class="number">1</span> -&gt; <span class="keyword">if</span> (resultCode == RESULT_OK) &#123;</span><br><span class="line">                <span class="keyword">val</span> id = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;id&quot;</span>)</span><br><span class="line">                <span class="keyword">val</span> name = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;name&quot;</span>)</span><br><span class="line">                <span class="keyword">val</span> college = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;college&quot;</span>)</span><br><span class="line">                <span class="keyword">val</span> age = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;age&quot;</span>)</span><br><span class="line">                <span class="keyword">val</span> pho = <span class="keyword">data</span>?.getStringExtra(<span class="string">&quot;pho&quot;</span>)</span><br><span class="line">                <span class="keyword">val</span> db = dbHelper.writableDatabase</span><br><span class="line">                <span class="keyword">val</span> value = ContentValues().apply &#123;</span><br><span class="line">                    put(<span class="string">&quot;id&quot;</span>, id)</span><br><span class="line">                    put(<span class="string">&quot;name&quot;</span>, name)</span><br><span class="line">                    put(<span class="string">&quot;college&quot;</span>, college)</span><br><span class="line">                    put(<span class="string">&quot;age&quot;</span>, age)</span><br><span class="line">                    put(<span class="string">&quot;pho&quot;</span>, pho)</span><br><span class="line">                &#125;</span><br><span class="line">                db.insert(<span class="string">&quot;Student&quot;</span>,<span class="literal">null</span>, value)</span><br><span class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;添加学生记录成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="DatabaseHelper">DatabaseHelper</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyDatabaseHelper_xjq</span> (<span class="keyword">val</span> context: Context, <span class="keyword">val</span> name: String, version:<span class="built_in">Int</span>) :</span><br><span class="line">    SQLiteOpenHelper(context, name, <span class="literal">null</span>, version) &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> createStudent = <span class="string">&quot;create table Student(&quot;</span>+</span><br><span class="line">            <span class="string">&quot;id integer primary key autoincrement,&quot;</span>+</span><br><span class="line">            <span class="string">&quot;name text,&quot;</span>+</span><br><span class="line">            <span class="string">&quot;college text,&quot;</span>+</span><br><span class="line">            <span class="string">&quot;age integer,&quot;</span>+</span><br><span class="line">            <span class="string">&quot;pho text)&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(db: <span class="type">SQLiteDatabase</span>?)</span></span> &#123;</span><br><span class="line">        db?.execSQL(createStudent)</span><br><span class="line">        Toast.makeText(context, <span class="string">&quot;数据库创建成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onUpgrade</span><span class="params">(db: <span class="type">SQLiteDatabase</span>?, oldVersion: <span class="type">Int</span>, newVersion: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">        db?.execSQL(<span class="string">&quot;drop table if exists Student&quot;</span>)</span><br><span class="line">        onCreate(db)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="Add">Add</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AddData_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_add_data_xjq)</span><br><span class="line">        <span class="keyword">val</span> add = findViewById&lt;Button&gt;(R.id.add)</span><br><span class="line">        <span class="keyword">val</span> edit_id = findViewById&lt;EditText&gt;(R.id.edit_id)</span><br><span class="line">        <span class="keyword">val</span> edit_name = findViewById&lt;EditText&gt;(R.id.edit_name)</span><br><span class="line">        <span class="keyword">val</span> edit_college = findViewById&lt;EditText&gt;(R.id.edit_college)</span><br><span class="line">        <span class="keyword">val</span> edit_age = findViewById&lt;EditText&gt;(R.id.edit_age)</span><br><span class="line">        <span class="keyword">val</span> edit_pho = findViewById&lt;EditText&gt;(R.id.edit_pho)</span><br><span class="line">        add.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> id = edit_id.text.toString()</span><br><span class="line">            <span class="keyword">val</span> name = edit_name.text.toString()</span><br><span class="line">            <span class="keyword">val</span> college = edit_college.text.toString()</span><br><span class="line">            <span class="keyword">val</span> age = edit_age.text.toString()</span><br><span class="line">            <span class="keyword">val</span> pho = edit_pho.text.toString()</span><br><span class="line">            <span class="keyword">val</span> returnIntent = Intent()</span><br><span class="line">            returnIntent.putExtra(<span class="string">&quot;id&quot;</span>, id)</span><br><span class="line">            returnIntent.putExtra(<span class="string">&quot;name&quot;</span>, name)</span><br><span class="line">            returnIntent.putExtra(<span class="string">&quot;college&quot;</span>, college)</span><br><span class="line">            returnIntent.putExtra(<span class="string">&quot;age&quot;</span>, age)</span><br><span class="line">            returnIntent.putExtra(<span class="string">&quot;pho&quot;</span>, pho)</span><br><span class="line">            setResult(RESULT_OK, returnIntent)</span><br><span class="line">            finish()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="query">query</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">QueryData_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> dbHelper: MyDatabaseHelper_xjq</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> studentInfo =  ArrayList&lt;StudentInfo_xjq&gt;()</span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">        studentInfo.clear()</span><br><span class="line">        dbHelper = MyDatabaseHelper_xjq(<span class="keyword">this</span>, <span class="string">&quot;StudentStore.db&quot;</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">val</span>  db = dbHelper.writableDatabase</span><br><span class="line">        <span class="keyword">val</span> cursor = db.query(<span class="string">&quot;Student&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>)</span><br><span class="line">        <span class="keyword">if</span>(cursor!!.moveToFirst()) &#123;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                studentInfo.add( StudentInfo_xjq (</span><br><span class="line">                    cursor.getInt(<span class="number">0</span>),</span><br><span class="line">                    cursor.getString(<span class="number">1</span>),</span><br><span class="line">                    cursor.getString(<span class="number">2</span>),</span><br><span class="line">                    cursor.getInt(<span class="number">3</span>),</span><br><span class="line">                    cursor.getString(<span class="number">4</span>))</span><br><span class="line">                )</span><br><span class="line">            &#125; <span class="keyword">while</span>(cursor.moveToNext())</span><br><span class="line">        &#125;</span><br><span class="line">        cursor.close()</span><br><span class="line">        <span class="keyword">val</span> adapter = studentAdapter(<span class="keyword">this</span>, R.layout.info_layout, studentInfo)</span><br><span class="line">        <span class="keyword">val</span> listView = findViewById&lt;ListView&gt;(R.id.result_list)</span><br><span class="line">        listView.adapter = adapter</span><br><span class="line">        listView.setOnItemClickListener &#123; parent, view, positon, id -&gt;</span><br><span class="line">            <span class="keyword">val</span> student = studentInfo[positon]</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, Update_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;id&quot;</span>,student.id)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;name&quot;</span>,student.name)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;college&quot;</span>,student.college)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;age&quot;</span>,student.age)</span><br><span class="line">            intent.putExtra(<span class="string">&quot;pho&quot;</span>,student.pho)</span><br><span class="line">            startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_query_data_xjq)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResume</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume()</span><br><span class="line">        <span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">inner</span> <span class="keyword">class</span> <span class="title class_">studentAdapter</span>(activity : Activity, <span class="keyword">val</span> id: <span class="built_in">Int</span>, <span class="keyword">data</span> : ArrayList&lt;StudentInfo_xjq&gt;) :</span><br><span class="line">        ArrayAdapter&lt;StudentInfo_xjq&gt; (activity, id, <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getView</span><span class="params">(position: <span class="type">Int</span>, convertView: <span class="type">View</span>?, parent: <span class="type">ViewGroup</span>)</span></span>: View &#123;</span><br><span class="line">            <span class="keyword">val</span> view = LayoutInflater.from(context).inflate(id, parent, <span class="literal">false</span>)</span><br><span class="line">            <span class="keyword">val</span> name: TextView = view.findViewById(R.id.name)</span><br><span class="line">            <span class="keyword">val</span> id :TextView = view.findViewById(R.id.id)</span><br><span class="line">            <span class="keyword">val</span> college: TextView = view.findViewById(R.id.college)</span><br><span class="line">            <span class="keyword">val</span> student = getItem(position)</span><br><span class="line">            <span class="keyword">if</span>(student != <span class="literal">null</span>) &#123;</span><br><span class="line">                name.text = student.name</span><br><span class="line">                id.text = student.id.toString()</span><br><span class="line">                college.text = student.college</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>  view</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="update">update</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Update_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">lateinit</span> <span class="keyword">var</span> dbHelper: MyDatabaseHelper_xjq</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        dbHelper = MyDatabaseHelper_xjq(<span class="keyword">this</span>, <span class="string">&quot;StudentStore.db&quot;</span>, <span class="number">3</span>)</span><br><span class="line">        setContentView(R.layout.activity_update_xjq)</span><br><span class="line">        <span class="keyword">val</span> id = findViewById&lt;TextView&gt;(R.id.val_edit_id)</span><br><span class="line">        <span class="keyword">val</span> name = findViewById&lt;EditText&gt;(R.id.edit_name)</span><br><span class="line">        <span class="keyword">val</span> college = findViewById&lt;EditText&gt;(R.id.edit_college)</span><br><span class="line">        <span class="keyword">val</span> age = findViewById&lt;EditText&gt;(R.id.edit_age)</span><br><span class="line">        <span class="keyword">val</span> pho = findViewById&lt;EditText&gt;(R.id.edit_pho)</span><br><span class="line"><span class="comment">//        val intent = Intent()</span></span><br><span class="line">        id.setText(intent.getIntExtra(<span class="string">&quot;id&quot;</span>, <span class="number">0</span>).toString())</span><br><span class="line">        name.setText(intent.getStringExtra(<span class="string">&quot;name&quot;</span>))</span><br><span class="line">        college.setText(intent.getStringExtra(<span class="string">&quot;college&quot;</span>))</span><br><span class="line">        age.setText(intent.getIntExtra(<span class="string">&quot;age&quot;</span>, <span class="number">18</span>).toString())</span><br><span class="line">        pho.setText(intent.getStringExtra(<span class="string">&quot;pho&quot;</span>))</span><br><span class="line">        <span class="keyword">val</span> update = findViewById&lt;Button&gt;(R.id.update)</span><br><span class="line">        <span class="keyword">val</span> del = findViewById&lt;Button&gt;(R.id.del)</span><br><span class="line">        update.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> db = dbHelper.writableDatabase</span><br><span class="line">            <span class="keyword">val</span> values = ContentValues()</span><br><span class="line">            values.put(<span class="string">&quot;name&quot;</span>, name.text.toString())</span><br><span class="line">            values.put(<span class="string">&quot;college&quot;</span>, college.text.toString())</span><br><span class="line">            values.put(<span class="string">&quot;age&quot;</span>, age.text.toString().toInt())</span><br><span class="line">            values.put(<span class="string">&quot;pho&quot;</span>, pho.text.toString())</span><br><span class="line">            db.update(<span class="string">&quot;Student&quot;</span>, values, <span class="string">&quot;id = ?&quot;</span>, arrayOf(id.text.toString()))</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;数据更新成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">            finish()</span><br><span class="line">        &#125;</span><br><span class="line">        del.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> db = dbHelper.writableDatabase</span><br><span class="line">            db.delete(<span class="string">&quot;Student&quot;</span>, <span class="string">&quot;id = ?&quot;</span>, arrayOf(id.text.toString()))</span><br><span class="line">            Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;数据删除成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">            finish()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="media">media</h2>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> mediaPlayer = MediaPlayer()</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> imageView:ImageView</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> videoView:VideoView</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        <span class="keyword">val</span> button = findViewById&lt;Button&gt;(R.id.browseBtn)</span><br><span class="line">        <span class="keyword">val</span> play = findViewById&lt;Button&gt;(R.id.play)</span><br><span class="line">        <span class="keyword">val</span> stop = findViewById&lt;Button&gt;(R.id.stop)</span><br><span class="line">        <span class="keyword">val</span> pause = findViewById&lt;Button&gt;(R.id.pause)</span><br><span class="line">        imageView = findViewById(R.id.imageView)</span><br><span class="line">        videoView = findViewById(R.id.videoView)</span><br><span class="line">        button.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(Intent.ACTION_OPEN_DOCUMENT)</span><br><span class="line">            intent.addCategory(Intent.CATEGORY_OPENABLE)</span><br><span class="line">            intent.type=<span class="string">&quot;*/*&quot;</span></span><br><span class="line">            startActivityForResult(intent, <span class="number">1</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        play.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">if</span>(!mediaPlayer.isPlaying) &#123;</span><br><span class="line">                mediaPlayer.start()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!videoView.isPlaying) &#123;</span><br><span class="line">                videoView.start()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        stop.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">if</span>(mediaPlayer.isPlaying) &#123;</span><br><span class="line">                mediaPlayer.reset()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(videoView.isPlaying) &#123;</span><br><span class="line">                videoView.resume()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        pause.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">if</span>(mediaPlayer.isPlaying) &#123;</span><br><span class="line">                mediaPlayer.pause()</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(videoView.isPlaying) &#123;</span><br><span class="line">                videoView.pause()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onDestroy</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy()</span><br><span class="line">        mediaPlayer.stop()</span><br><span class="line">        mediaPlayer.release()</span><br><span class="line">        videoView.stopPlayback()</span><br><span class="line">        videoView.releasePointerCapture()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> pic = listOf(<span class="string">&quot;jpeg&quot;</span>,<span class="string">&quot;png&quot;</span>, <span class="string">&quot;jpg&quot;</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> mus = listOf(<span class="string">&quot;wav&quot;</span>,<span class="string">&quot;mp3&quot;</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> vid = listOf(<span class="string">&quot;mp4&quot;</span>)</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="keyword">data</span>)</span><br><span class="line">        <span class="keyword">when</span>(requestCode) &#123;</span><br><span class="line">            <span class="number">1</span> -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(resultCode == RESULT_OK &amp;&amp; <span class="keyword">data</span> != <span class="literal">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">val</span> uri = <span class="keyword">data</span>.<span class="keyword">data</span></span><br><span class="line">                    <span class="keyword">if</span> (uri != <span class="literal">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span>(getFileExtensionFromUri(uri) <span class="keyword">in</span> pic) &#123;</span><br><span class="line">                            <span class="keyword">val</span> bitmap = getBitmapFromUri(uri)</span><br><span class="line">                            imageView.visibility = ImageView.VISIBLE</span><br><span class="line">                            videoView.visibility = VideoView.INVISIBLE</span><br><span class="line">                            imageView.setImageBitmap(bitmap)</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(getFileExtensionFromUri(uri) <span class="keyword">in</span> mus) &#123;</span><br><span class="line">                            imageView.visibility = ImageView.INVISIBLE</span><br><span class="line">                            videoView.visibility = VideoView.INVISIBLE</span><br><span class="line">                            mediaPlayer.setDataSource(<span class="keyword">this</span>, uri)</span><br><span class="line">                            mediaPlayer.prepare()</span><br><span class="line">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(getFileExtensionFromUri(uri) <span class="keyword">in</span> vid) &#123;</span><br><span class="line">                            imageView.visibility = ImageView.INVISIBLE</span><br><span class="line">                            videoView.visibility = VideoView.VISIBLE</span><br><span class="line">                            videoView.setVideoURI(uri)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getFileExtensionFromUri</span><span class="params">(uri: <span class="type">Uri</span>)</span></span>: String? &#123;</span><br><span class="line">        <span class="keyword">val</span> contentResolver = applicationContext.contentResolver</span><br><span class="line">        <span class="keyword">val</span> mimeTypeMap = MimeTypeMap.getSingleton()</span><br><span class="line">        <span class="keyword">return</span> mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getBitmapFromUri</span><span class="params">(uri : <span class="type">Uri</span>)</span></span> =</span><br><span class="line">        contentResolver.openFileDescriptor(uri, <span class="string">&quot;r&quot;</span>)?.use &#123;</span><br><span class="line">            BitmapFactory.decodeFileDescriptor(it.fileDescriptor)</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="okhttp">okhttp</h2>
+<h4 id="main-Activity-2">main_Activity</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MainActivity_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_main)</span><br><span class="line">        <span class="keyword">val</span> add_data = findViewById&lt;Button&gt;(R.id.add)</span><br><span class="line">        <span class="keyword">val</span> query_data =findViewById&lt;Button&gt;(R.id.query)</span><br><span class="line">        add_data.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, AddData_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">            startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">        query_data.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, QueryData_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">            startActivity(intent)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="add-data">add_data</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AddData_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_add_data_xjq)</span><br><span class="line">        <span class="keyword">val</span> add = findViewById&lt;Button&gt;(R.id.add)</span><br><span class="line">        <span class="keyword">val</span> edit_id = findViewById&lt;EditText&gt;(R.id.edit_id)</span><br><span class="line">        <span class="keyword">val</span> edit_name = findViewById&lt;EditText&gt;(R.id.edit_name)</span><br><span class="line">        <span class="keyword">val</span> edit_college = findViewById&lt;EditText&gt;(R.id.edit_college)</span><br><span class="line">        <span class="keyword">val</span> edit_age = findViewById&lt;EditText&gt;(R.id.edit_age)</span><br><span class="line">        <span class="keyword">val</span> edit_pho = findViewById&lt;EditText&gt;(R.id.edit_pho)</span><br><span class="line">        add.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> student = StudentInfo_xjq(</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                edit_name.text.toString(),</span><br><span class="line">                edit_college.text.toString(),</span><br><span class="line">                edit_age.text.toString().toInt(),</span><br><span class="line">                edit_pho.text.toString()</span><br><span class="line">            )</span><br><span class="line">            <span class="keyword">val</span> url = <span class="string">&quot;http://2452x7g449.wicp.vip:9998/Service1.asmx/insertStudent&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">val</span> requestBody = FormBody.Builder()</span><br><span class="line">                .add(<span class="string">&quot;name&quot;</span>, student.name)</span><br><span class="line">                .add(<span class="string">&quot;dept&quot;</span>, student.college)</span><br><span class="line">                .add(<span class="string">&quot;age&quot;</span>, student.age.toString())</span><br><span class="line">                .add(<span class="string">&quot;phone&quot;</span>, student.pho)</span><br><span class="line">                .build()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">val</span> request = Request.Builder()</span><br><span class="line">                .url(url)</span><br><span class="line">                .post(requestBody)</span><br><span class="line">                .build()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">val</span> client = OkHttpClient()</span><br><span class="line">            client.newCall(request).enqueue(<span class="keyword">object</span> : Callback &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>, response: <span class="type">Response</span>)</span></span> &#123;</span><br><span class="line">                    <span class="comment">// 处理插入成功的情况</span></span><br><span class="line">                    runOnUiThread &#123;</span><br><span class="line">                        Toast.makeText(<span class="keyword">this</span><span class="symbol">@AddData_xjq</span>, <span class="string">&quot;数据插入成功&quot;</span>,Toast.LENGTH_SHORT).show()</span><br><span class="line">                        finish()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>, e: <span class="type">IOException</span>)</span></span> &#123;</span><br><span class="line">                    e.printStackTrace()</span><br><span class="line">                    <span class="comment">// 处理插入失败的情况</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="query-data">query_data</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">QueryData_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> studentId: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">fetchData</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 使用网络请求库从服务端获取数据表的所有学生信息</span></span><br><span class="line">        <span class="keyword">val</span> url = <span class="string">&quot;http://2452x7g449.wicp.vip:9998/Service1.asmx/QueryStudents&quot;</span></span><br><span class="line">        <span class="keyword">val</span> request = Request.Builder()</span><br><span class="line">            .url(url)</span><br><span class="line">            .build()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> client = OkHttpClient()</span><br><span class="line">        client.newCall(request).enqueue(<span class="keyword">object</span> : Callback &#123;</span><br><span class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>, response: <span class="type">Response</span>)</span></span> &#123;</span><br><span class="line">                <span class="keyword">val</span> responseData = response.body?.string()</span><br><span class="line">                <span class="comment">// 解析responseData，并将数据存储在一个列表中</span></span><br><span class="line">                <span class="keyword">val</span> studentList: ArrayList&lt;StudentInfo_xjq&gt; = parseResponseData(responseData)</span><br><span class="line">                <span class="comment">// 在主线程更新UI</span></span><br><span class="line">                runOnUiThread &#123;</span><br><span class="line">                    <span class="keyword">val</span> adapter = studentAdapter(<span class="keyword">this</span><span class="symbol">@QueryData_xjq</span>, R.layout.info_layout, studentList)</span><br><span class="line">                    <span class="keyword">val</span> listView = findViewById&lt;ListView&gt;(R.id.result_list)</span><br><span class="line">                    listView.adapter = adapter</span><br><span class="line">                    listView.setOnItemClickListener &#123; _, _, position, _ -&gt;</span><br><span class="line">                        <span class="keyword">val</span> selectedStudent = studentList[position]</span><br><span class="line">                        <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span><span class="symbol">@QueryData_xjq</span>, Update_xjq::<span class="keyword">class</span>.java)</span><br><span class="line">                        intent.putExtra(<span class="string">&quot;id&quot;</span>, selectedStudent.id)</span><br><span class="line">                        intent.putExtra(<span class="string">&quot;name&quot;</span>,selectedStudent.name)</span><br><span class="line">                        intent.putExtra(<span class="string">&quot;college&quot;</span>,selectedStudent.college)</span><br><span class="line">                        intent.putExtra(<span class="string">&quot;age&quot;</span>,selectedStudent.age)</span><br><span class="line">                        intent.putExtra(<span class="string">&quot;pho&quot;</span>,selectedStudent.pho)</span><br><span class="line">                        startActivity(intent)</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>, e: <span class="type">IOException</span>)</span></span> &#123;</span><br><span class="line">                e.printStackTrace()</span><br><span class="line">                <span class="comment">// 处理请求失败的情况</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">parseResponseData</span><span class="params">(responseData: <span class="type">String</span>?)</span></span>: ArrayList&lt;StudentInfo_xjq&gt; &#123;</span><br><span class="line">        <span class="keyword">val</span> studentList: ArrayList&lt;StudentInfo_xjq&gt; = arrayListOf()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">val</span> documentBuilderFactory = DocumentBuilderFactory.newInstance()</span><br><span class="line">            <span class="keyword">val</span> documentBuilder = documentBuilderFactory.newDocumentBuilder()</span><br><span class="line">            <span class="keyword">val</span> document: Document = documentBuilder.parse(responseData?.byteInputStream())</span><br><span class="line"></span><br><span class="line">            <span class="keyword">val</span> newDataSetElement: Element = document.getElementsByTagName(<span class="string">&quot;NewDataSet&quot;</span>).item(<span class="number">0</span>) <span class="keyword">as</span> Element</span><br><span class="line">            <span class="keyword">val</span> tableElements: NodeList = newDataSetElement.getElementsByTagName(<span class="string">&quot;Table&quot;</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until tableElements.length) &#123;</span><br><span class="line">                <span class="keyword">val</span> tableElement: Element = tableElements.item(i) <span class="keyword">as</span> Element</span><br><span class="line">                <span class="keyword">val</span> id: <span class="built_in">Int</span> = tableElement.getElementsByTagName(<span class="string">&quot;id&quot;</span>).item(<span class="number">0</span>).textContent.toInt()</span><br><span class="line">                <span class="keyword">val</span> name: String = tableElement.getElementsByTagName(<span class="string">&quot;name&quot;</span>).item(<span class="number">0</span>).textContent</span><br><span class="line">                <span class="keyword">val</span> dept: String = tableElement.getElementsByTagName(<span class="string">&quot;dept&quot;</span>).item(<span class="number">0</span>).textContent</span><br><span class="line">                <span class="keyword">val</span> age: <span class="built_in">Int</span> = tableElement.getElementsByTagName(<span class="string">&quot;age&quot;</span>).item(<span class="number">0</span>).textContent.toInt()</span><br><span class="line">                <span class="keyword">val</span> phone: String = tableElement.getElementsByTagName(<span class="string">&quot;phone&quot;</span>).item(<span class="number">0</span>).textContent</span><br><span class="line"></span><br><span class="line">                <span class="keyword">val</span> student = StudentInfo_xjq(id, name, dept, age, phone)</span><br><span class="line">                studentList.add(student)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">            e.printStackTrace()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> studentList</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_query_data_xjq)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResume</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume()</span><br><span class="line">        fetchData()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">inner</span> <span class="keyword">class</span> <span class="title class_">studentAdapter</span>(activity : Activity, <span class="keyword">val</span> id: <span class="built_in">Int</span>, <span class="keyword">data</span> : ArrayList&lt;StudentInfo_xjq&gt;) :</span><br><span class="line">        ArrayAdapter&lt;StudentInfo_xjq&gt;(activity, id, <span class="keyword">data</span>) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getView</span><span class="params">(position: <span class="type">Int</span>, convertView: <span class="type">View</span>?, parent: <span class="type">ViewGroup</span>)</span></span>: View &#123;</span><br><span class="line">            <span class="keyword">val</span> view = LayoutInflater.from(context).inflate(id, parent, <span class="literal">false</span>)</span><br><span class="line">            <span class="keyword">val</span> name: TextView = view.findViewById(R.id.name)</span><br><span class="line">            <span class="keyword">val</span> id : TextView = view.findViewById(R.id.id)</span><br><span class="line">            <span class="keyword">val</span> college: TextView = view.findViewById(R.id.college)</span><br><span class="line">            <span class="keyword">val</span> student = getItem(position)</span><br><span class="line">            <span class="keyword">if</span>(student != <span class="literal">null</span>) &#123;</span><br><span class="line">                name.text = student.name</span><br><span class="line">                id.text = student.id.toString()</span><br><span class="line">                college.text = student.college</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>  view</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h4 id="update-data">update_data</h4>
+<div class="highlight-container" data-rel="Kt"><figure class="iseeu highlight kt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Update_xjq</span> : <span class="type">AppCompatActivity</span>() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.activity_update_xjq)</span><br><span class="line">        <span class="keyword">val</span> id = findViewById&lt;TextView&gt;(R.id.val_edit_id)</span><br><span class="line">        <span class="keyword">val</span> name = findViewById&lt;EditText&gt;(R.id.edit_name)</span><br><span class="line">        <span class="keyword">val</span> college = findViewById&lt;EditText&gt;(R.id.edit_college)</span><br><span class="line">        <span class="keyword">val</span> age = findViewById&lt;EditText&gt;(R.id.edit_age)</span><br><span class="line">        <span class="keyword">val</span> pho = findViewById&lt;EditText&gt;(R.id.edit_pho)</span><br><span class="line">        id.setText(intent.getIntExtra(<span class="string">&quot;id&quot;</span>, <span class="number">0</span>).toString())</span><br><span class="line">        name.setText(intent.getStringExtra(<span class="string">&quot;name&quot;</span>))</span><br><span class="line">        college.setText(intent.getStringExtra(<span class="string">&quot;college&quot;</span>))</span><br><span class="line">        age.setText(intent.getIntExtra(<span class="string">&quot;age&quot;</span>, <span class="number">18</span>).toString())</span><br><span class="line">        pho.setText(intent.getStringExtra(<span class="string">&quot;pho&quot;</span>))</span><br><span class="line">        <span class="keyword">val</span> update = findViewById&lt;Button&gt;(R.id.update)</span><br><span class="line">        <span class="keyword">val</span> del = findViewById&lt;Button&gt;(R.id.del)</span><br><span class="line">        update.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> url = <span class="string">&quot;http://2452x7g449.wicp.vip:9998/Service1.asmx/updateStudent&quot;</span></span><br><span class="line">            <span class="keyword">val</span> requestBody = FormBody.Builder()</span><br><span class="line">                .add(<span class="string">&quot;id&quot;</span>, id.text.toString())</span><br><span class="line">                .add(<span class="string">&quot;name&quot;</span>, name.text.toString())</span><br><span class="line">                .add(<span class="string">&quot;dept&quot;</span>, college.text.toString())</span><br><span class="line">                .add(<span class="string">&quot;age&quot;</span>, age.text.toString())</span><br><span class="line">                .add(<span class="string">&quot;phone&quot;</span>, pho.text.toString())</span><br><span class="line">                .build()</span><br><span class="line">            <span class="keyword">val</span> request = Request.Builder()</span><br><span class="line">                .url(url)</span><br><span class="line">                .post(requestBody)</span><br><span class="line">                .build()</span><br><span class="line">            <span class="keyword">val</span> client = OkHttpClient()</span><br><span class="line">            client.newCall(request).enqueue(<span class="keyword">object</span> : Callback &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>, response: <span class="type">Response</span>)</span></span> &#123;</span><br><span class="line">                    <span class="comment">// 处理修改成功的情况</span></span><br><span class="line">                    runOnUiThread &#123;</span><br><span class="line">                        Toast.makeText(<span class="keyword">this</span><span class="symbol">@Update_xjq</span>,<span class="string">&quot;数据修改成功&quot;</span>, Toast.LENGTH_SHORT).show()</span><br><span class="line">                        finish()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>, e: <span class="type">IOException</span>)</span></span> &#123;</span><br><span class="line">                    e.printStackTrace()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        del.setOnClickListener &#123;</span><br><span class="line">            <span class="keyword">val</span> url = <span class="string">&quot;http://2452x7g449.wicp.vip:9998/Service1.asmx/deleteStudent&quot;</span></span><br><span class="line">            <span class="keyword">val</span> requestBody = FormBody.Builder()</span><br><span class="line">                .add(<span class="string">&quot;id&quot;</span>, id.text.toString())</span><br><span class="line">                .build()</span><br><span class="line">            <span class="keyword">val</span> request = Request.Builder()</span><br><span class="line">                .url(url)</span><br><span class="line">                .post(requestBody)</span><br><span class="line">                .build()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">val</span> client = OkHttpClient()</span><br><span class="line">            client.newCall(request).enqueue(<span class="keyword">object</span> : Callback &#123;</span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onResponse</span><span class="params">(call: <span class="type">Call</span>, response: <span class="type">Response</span>)</span></span> &#123;</span><br><span class="line">                    <span class="comment">// 处理删除成功的情况</span></span><br><span class="line">                    runOnUiThread &#123;</span><br><span class="line">                        Toast.makeText(</span><br><span class="line">                            <span class="keyword">this</span><span class="symbol">@Update_xjq</span>,</span><br><span class="line">                            <span class="string">&quot;数据删除成功&quot;</span>,</span><br><span class="line">                            Toast.LENGTH_SHORT</span><br><span class="line">                        ).show()</span><br><span class="line">                        finish()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onFailure</span><span class="params">(call: <span class="type">Call</span>, e: <span class="type">IOException</span>)</span></span> &#123;</span><br><span class="line">                    e.printStackTrace()</span><br><span class="line">                    <span class="comment">// 处理删除失败的情况</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<h2 id="RalativeLayout">RalativeLayout</h2>
+<div class="highlight-container" data-rel="Xml"><figure class="iseeu highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;utf-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">&quot;http://schemas.android.com/apk/res/android&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">&quot;match_parent&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;150dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginLeft</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;30sp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textColor</span>=<span class="string">&quot;#000&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;90dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">&quot;@+id/name&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;10dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginStart</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/college&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;90dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;wrap_content&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignTop</span>=<span class="string">&quot;@+id/id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_alignParentEnd</span>=<span class="string">&quot;true&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginEnd</span>=<span class="string">&quot;20dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">&quot;20sp&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">View</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">&quot;@+id/vline&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">&quot;match_parent&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">&quot;1dp&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">&quot;@id/id&quot;</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_marginTop</span>=<span class="string">&quot;10dp&quot;</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
+            </div>
+
+            
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/05/15/%E7%BA%BF%E6%AE%B5%E6%A0%91/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">线段树</span>
+                                    <span class="post-nav-item">下一篇</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title"></div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment"><span class="nav-text">Fragment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#media"><span class="nav-text">media</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#okhttp"><span class="nav-text">okhttp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RalativeLayout"><span class="nav-text">RalativeLayout</span></a></li></ol>
+
+    </div>
+</div>
+            </div>
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+            
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info">
+            &copy;
+            
+              <span>2023</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">晓染</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" class="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv" class="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv" class="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            <span class="powered-by-container">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" href="https://hexo.io">Hexo</a> 驱动</span>
+                <br>
+            <span class="theme-version-container">主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.1.3</a>
+        </div>
+        
+        
+        
+            <div id="start_div" style="display:none">
+                2023/5/4 11:45:14
+            </div>
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+        
+            <script async data-pjax>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-expand-width flex-center">
+            <i class="fa-regular fa-expand"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex-center">
+                <i class="fa-regular fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+        
+            <li class="right-bottom-tools tool-aplayer flex-center">
+
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+</main>
+
+
+
+<script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/utils.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/main.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/layouts/navbarShrink.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/scrollTopBottom.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/lightDarkSwitch.js"></script>
+
+
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/localSearch.js"></script>
+
+
+
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/codeBlock.js"></script>
+
+
+
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/layouts/lazyload.js"></script>
+
+
+
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/runtime.js"></script>
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/layouts/odometer.min.js"></script>
+    <link rel="stylesheet" href="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/assets/odometer-theme-minimal.css">
+
+
+
+  <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/libs/Typed.min.js"></script>
+  <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/plugins/typed.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/tools/tocToggle.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/libs/anime.min.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/layouts/toc.js"></script><script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/plugins/tabs.js"></script>
+    
+</div>
+
+
+    <script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax',
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            Global.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            Global.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            Global.refresh();
+        });
+    });
+</script>
+
+
+
+
+    <div id="aplayer"></div>
+<script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/libs/APlayer.min.js"></script>
+<script src="//npm.elemecdn.com/hexo-theme-redefine@2.1.3/source/js/plugins/aplayer.js"></script>
+
+</body>
+</html>
