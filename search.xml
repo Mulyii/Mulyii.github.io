@@ -163,7 +163,7 @@
 <h3 id="配置AUR">配置AUR</h3>
 <p>Arch用户软件仓库（Arch User Repository, AUR）</p>
 <p>修改<code>/etc/pacman.conf</code></p>
-<p>将<code>·multilib</code> 取消注释</p>
+<p>将<code>[multilib]</code> 取消注释</p>
 <p>添加两行</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https：//repo.archlinuxcn.org/$arch</span><br></pre></td></tr></table></figure></div>
 <p>安装<code>archlinuxcn-keyring</code>导入密钥</p>
