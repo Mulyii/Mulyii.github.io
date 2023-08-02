@@ -17,21 +17,21 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://ryantsi.github.io/2023/06/23/archlinux/"/>
+    <link rel="canonical" href="http://ryantsi.github.io/2023/08/01/archlinux/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="ArchLinux 入门教程">
+        <meta name="description" content="ArchLinux入门安装教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ArchLinux">
-<meta property="og:url" content="http://ryantsi.github.io/2023/06/23/ArchLinux/index.html">
+<meta property="og:url" content="http://ryantsi.github.io/2023/08/01/ArchLinux/index.html">
 <meta property="og:site_name" content="Ryan&#39;s blog">
-<meta property="og:description" content="ArchLinux 入门教程">
+<meta property="og:description" content="ArchLinux入门安装教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ryantsi.github.io/images/Archlinux/imgae.png">
-<meta property="article:published_time" content="2023-06-23T07:33:49.000Z">
-<meta property="article:modified_time" content="2023-07-09T21:37:54.065Z">
+<meta property="article:published_time" content="2023-08-01T07:33:49.000Z">
+<meta property="article:modified_time" content="2023-08-02T00:27:52.639Z">
 <meta property="article:author" content="晓染">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -480,15 +480,15 @@ mjx-container[display="true"] + br {
                             <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-06-23 15:33:49</span>
-        <span class="mobile">2023-06-23 15:33</span>
+        <span class="desktop">2023-08-01 15:33:49</span>
+        <span class="mobile">2023-08-01 15:33</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-07-10 05:37:54</span>
-            <span class="mobile">2023-07-10 05:37</span>
+            <span class="desktop">2023-08-02 08:27:52</span>
+            <span class="mobile">2023-08-02 08:27</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -534,160 +534,149 @@ mjx-container[display="true"] + br {
             
 
             <div class="article-content markdown-body">
-                <p>以下是我自己在虚拟机上安装过多次可行的方法。</p>
-<h2 id="安装镜像文件">安装镜像文件</h2>
+                <p>以下是我自己在真机上安装过多次可行的方法。</p>
+<p>在真机安装和在虚拟机上安装还是有很大的区别，此文章简单说明了其中的一些必要的步骤。</p>
+<h2 id="准备安装介质">准备安装介质</h2>
 <p>从镜像网站上 <a class="link" target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 获取映像文件</p>
-<h2 id="启动方式的选择">启动方式的选择</h2>
+<p>用 <code>rufus</code> 等烧录文件将映像以<code>dd</code>形式烧录到U盘，<code>iso</code> 不行。</p>
+<h2 id="启动到Live环境">启动到Live环境</h2>
+<p>Live 环境中包含的 Archlinux 安装所需的工具。</p>
+<p>电脑重启后按 F2 进入 BIOS（不同厂商的电脑进入 BIOS 的按键可能不一样）。</p>
+<p>如果是双系统安装，需要在 BIOS 中将 Sevure Boot 设置为 Disable，装完后也可以在开始。</p>
+<h3 id="联网">联网</h3>
+<p>利用 <code>iwctl</code> 进行联网</p>
+<p><code>device list</code> 查看已安装网卡</p>
+<p><code>station DEVICE scan</code> 扫描周边的 wifi</p>
+<p><code>station DEVICE get-networks</code> 显示扫描到的 wifi</p>
+<p><code>station --passphrase=PASSPHRASE station DEVICE connect SSID </code> 连接到所选的 wifi</p>
+<h3 id="启动方式的选择">启动方式的选择</h3>
 <p>查看启动发生BIOS or UEFI</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -d /sys/firmware/efi ] &amp;&amp; echo UEFI || echo BIOS</span><br></pre></td></tr></table></figure></div>
-<h2 id="磁盘分区">磁盘分区</h2>
-<p>创建磁盘分区：需要一个根分区和一个EFI系统分区（UEFI 启动方式需要这个分区），可以选择创建一个交换分区</p>
-<blockquote>
+<h3 id="磁盘分区">磁盘分区</h3>
+<p>创建磁盘分区：需要一个根分区和一个EFI系统分区（UEFI 启动方式需要这个分区），可以选择创建一个交换分区。</p>
+<p>如果是双系统， EFI 分区可以直接挂载 Windows 已经创建好的 EFI 分区。</p>
 <p>交换分区是一种虚拟内存的表现形式，系统为了应付需要用到大量内存的场景，将磁盘上的一部分空间当作内存使用。</p>
+<blockquote>
 <p><strong>swap文件创建规则</strong>（参照oracle官方文档设定的标准）:</p>
 <ul class="lvl-1">
-<li class="lvl-2">
-<p>4G以内的物理内存，SWAP 设置为内存的2倍。</p>
-</li>
-<li class="lvl-2">
-<p>4-8G的物理内存，SWAP 等于内存大小。</p>
-</li>
-<li class="lvl-2">
-<p>8-64G 的物理内存，SWAP 设置为8G。</p>
-</li>
-<li class="lvl-2">
-<p>64-256G物理内存，SWAP 设置为16G。</p>
-</li>
+<li class="lvl-2">4G以内的物理内存，SWAP 设置为内存的2倍。</li>
+<li class="lvl-2">4-8G的物理内存，SWAP 等于内存大小。</li>
+<li class="lvl-2">8-64G 的物理内存，SWAP 设置为8G。</li>
+<li class="lvl-2">64-256G物理内存，SWAP 设置为16G。</li>
 </ul>
 </blockquote>
-<p>查看当前磁盘分区状况，以下三个命令均有类似的效果</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lsblk -l</span><br><span class="line">lsblk -f</span><br><span class="line">fdisk -l</span><br></pre></td></tr></table></figure></div>
-<blockquote>
-<p>结果中以 rom、loop 或者 airoot 结尾的设备可以被忽略。<em>用途暂鸽</em></p>
-</blockquote>
-<ol>
-<li class="lvl-3">
-<p>可以使用 cfdisk 分区工具来进行分区表（类图像画界面），也可以使用 fdisk 或 parted 修改分区表。</p>
-</li>
-</ol>
-<p>按照官方文档的说法 BIOS 启动应采用 MAR 分区表，UEFI 启动应采用 GPT 分区表。</p>
+<p>利用<code>fdisk -l</code>查看当前磁盘分区状况，找到所需要安装系统的磁盘，利用<code>cfdisk</code>进行分盘（这是一个图形化的分区修改界面）。</p>
+<p>如果是一块未分区的磁盘，会提示使用哪种分区表，按照官方文档的说法 BIOS 启动应采用 MAR 分区表，UEFI 启动应采用 GPT 分区表。</p>
 <blockquote>
 <p>具体详见 <a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Arch_%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B#Boot_loader">引导加载程序 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 </blockquote>
-<p>虚拟机分区实例：<br>
-<img lazyload="" src="/images/loading.svg" data-src="/images/Archlinux/imgae.png" alt="1"></p>
-<ol start="2">
-<li class="lvl-3">
-<p>格式化</p>
-</li>
-</ol>
+<p>虚拟机分区例子（传统引导）：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="/images/Archlinux/imgae.png" alt="1"></p>
+<h4 id="格式化分区">格式化分区</h4>
 <blockquote>
 <p>详见 <a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F">文件系统#创建文件系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 </blockquote>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/root_partition（根分区）</span><br><span class="line">mkswap /dev/swap_partition（交换空间分区）</span><br><span class="line">mkfs.fat -F 32 /dev/efi_system_partition（EFI 分区）</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li class="lvl-3">
-<p>挂载分区</p>
-</li>
-</ol>
+<h4 id="挂载分区">挂载分区</h4>
 <blockquote>
-<p>挂载，指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。</p>
+<p>挂载：指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。</p>
 </blockquote>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
-<h2 id="安装">安装</h2>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot/efi</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
+<p>要注意挂载顺序，一定是先挂载根分区再挂载 EFI 分区</p>
+<h3 id="安装">安装</h3>
 <ol>
 <li class="lvl-3">
 <p>选择镜像</p>
 </li>
 </ol>
 <p>官方所有的镜像源：<a class="link" target="_blank" rel="noopener" href="https://archlinux.org/download/">https://archlinux.org/download/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择最快的镜像源</span></span><br><span class="line">reflector --verbose -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择最快的镜像源</span></span><br><span class="line">reflector --verbose -l 200 -p http --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">安装reflector</span> </span><br><span class="line">pacman -S reflector </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看</span></span><br><span class="line">cat /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></div>
-<p>文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像下载。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华园镜像</span></span><br><span class="line">Server = https：//mirrors.tuna/tsinghua.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
+<p>文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像下载，优先级从上向下依次递减。</p>
 <ol start="2">
 <li class="lvl-3">
-<p>安装必需的软件包</p>
+<p>安装基本系统</p>
 </li>
 </ol>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap -K /mnt base linux linux-firmware base-devel</span><br></pre></td></tr></table></figure></div>
-<h2 id="配置系统">配置系统</h2>
-<ol>
-<li class="lvl-3">
-<p>Fstab</p>
-</li>
-</ol>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware linux-headers</span><br></pre></td></tr></table></figure></div>
+<p>其中 base 和 base-devel 包含一系列的系统软件，必须安装。linux是内核，linux-firmware 是一些驱动，linux-headers 是内核头文件。</p>
+<p>当然，内核也可以选择不是原版的Linux，可以在 wiki 上找到其他版本的内核 <a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/%E5%86%85%E6%A0%B8">wiki-内核 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="配置新系统">配置新系统</h3>
+<p><strong>创建Fstab文件</strong></p>
 <p>用以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li class="lvl-3">
-<p>chroot 到新安装的系统：</p>
-</li>
-</ol>
+<p><code>fastab</code> 该文件包含了当前分区挂载情况</p>
+<p><strong>chroot 到新安装的系统：</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure></div>
-<ol start="3">
-<li class="lvl-3">
-<p>配置文字的编码</p>
-</li>
-</ol>
-<p>下载文本编辑器 vim</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S vim</span><br></pre></td></tr></table></figure></div>
-<p>将中文以及英文前的注释去掉。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/locale.gen </span><br></pre></td></tr></table></figure></div>
+<p>从 Live 环境进入挂载点。</p>
+<p><strong>下载一些必要的软件</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syy # 更新软件包列表</span><br><span class="line">pacman -S archlinux-keyring # 安装 archlinux 导入密钥</span><br></pre></td></tr></table></figure></div>
+<p><code>networkmanager</code> 连接互联网</p>
+<p><code>net-tools</code> 包含 ifconfig 等命令</p>
+<p><code>vim</code> 文本编辑器</p>
+<p><code>dhcpcd</code> 分配 ip 地址</p>
+<p><code>cups</code> 打印机</p>
+<p><code>openssh</code> ssh 服务</p>
+<p><code>git</code></p>
+<p><code>grub</code> 用来引导系统</p>
+<p><code>os-prober</code> 双系统必装，可以选择进入那个系统</p>
+<p><code>efibootmge</code> UEFI引导必装</p>
+<p><code>intel-ucode/amd-ucode</code> CPU 微码必装</p>
+<p><code>man-db</code> 查看软件包的文档</p>
+<p><code>ntfs-3g</code> 访问 ntfs 格式（Windows）的磁盘，双系统必装</p>
+<p><code>noto-fonts-cjk</code> 和 <code>noto-fonts-emoji</code> 谷歌设计的中文字体</p>
+<p>利用 <code>pacman</code> 进行安装，有别于 Umbundu 的 apt</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xxx ...</span><br></pre></td></tr></table></figure></div>
+<p><strong>设置中文字符</strong></p>
+<p>编辑 locale.gen 将中文（zh_CN_UTF-8）以及英文（en_US_UTF-8）前的注释去掉。</p>
 <p>输入<code>locale-gen</code>设置字符集。</p>
-<p>在文件 <code>/etc/locale.conf</code> 中写入 <code>LANG=en_US.UTF-8</code> 保存</p>
+<p>在文件 <code>/etc/locale.conf</code> 中写入 <code>LANG=en_US.UTF-8</code> 保存。</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure></div>
-<ol start="4">
-<li class="lvl-3">
-<p>设置时区(以上海为例):</p>
-</li>
-</ol>
+<p><strong>设置时区(以上海为例)</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></div>
-<p>运行<code>hwclock</code>以生成 <code>/etc/adjtime</code></p>
+<p>生成<code>/etc/adjtime</code></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure></div>
-<h2 id="网络配置">网络配置</h2>
-<p>配置主机名:</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo yourname &gt; /etc/hostname</span><br></pre></td></tr></table></figure></div>
+<p><strong>配置主机名</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo YOURPC &gt; /etc/hostname</span><br></pre></td></tr></table></figure></div>
 <p>以及配置密码</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></div>
-<h2 id="安装其他的一些工具">安装其他的一些工具</h2>
-<ol>
-<li class="lvl-3">
-<p>安装网络工具</p>
-</li>
-</ol>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S iw wpa_supplicant wireless_tools net-tools</span><br></pre></td></tr></table></figure></div>
-<p>安装NetworkManager管理网络</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S networkmanager</span><br></pre></td></tr></table></figure></div>
-<p>启动和自启动 NetworkManager</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start NetworkManager</span><br><span class="line">systemctl enable NetworkManager</span><br></pre></td></tr></table></figure></div>
-<ol start="2">
-<li class="lvl-3">
-<p>安装ssh</p>
-</li>
-</ol>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S openssh</span><br></pre></td></tr></table></figure></div>
-<p>启动和自启动 ssh</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start sshd</span><br><span class="line">systemctl enable sshd</span><br></pre></td></tr></table></figure></div>
-<h2 id="配置本地用户">配置本地用户</h2>
-<p>新建用户</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m yourname</span><br></pre></td></tr></table></figure></div>
-<p>设置密码</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd yourname</span><br></pre></td></tr></table></figure></div>
-<p>配置sudo</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +w /etc/sudoers</span><br></pre></td></tr></table></figure></div>
-<p>修改<code>/etc/sudoers</code>,在 root ALL=(ALL) ALL 下加入一行 yourname ALL=(ALL) ALL</p>
-<h2 id="安装引导程序">安装引导程序</h2>
-<p>GRUB</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr</span><br><span class="line">vim /etc/default/grub # 取消 GRUB_DISABLE_OS_PROBER=false 前面的 #</span><br></pre></td></tr></table></figure></div>
+<p><strong>自启动 NetworkManager， ssh，dhcpcq</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable NetworkManager sshd dhcpcq</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装引导程序">安装引导程序</h3>
+<p>GRUB 默认不支持 os-prober，需要做如下修改：</p>
+<p>编辑<code>/etc/default/grub</code>，将最后一行<code>#GRUB_DISABLE_OS_PROBER=false</code>取消注释</p>
 <p>对于UEFI</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
 <p>对于BIOS</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
 <p>退出重启</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></div>
-<h2 id="安装桌面环境">安装桌面环境</h2>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S sddm plasma konsole kate filelight dolphin ark</span><br></pre></td></tr></table></figure></div>
-<p>打印环境变量</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printenv</span><br></pre></td></tr></table></figure></div>
+<p>双系统重启后可能还是找不到 Windows 的启动引导，可以在进入系统后再执行一次<code>grub-mkconfig -o /boot/grub/grub.cfg</code></p>
+<h3 id="配置本地用户">配置本地用户</h3>
+<p>创建普通用户</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel YOURNAME</span><br><span class="line">passwd YOURNAME</span><br></pre></td></tr></table></figure></div>
+<p>wheel 是 linux 本身包含的一个用户组。</p>
+<p>配置 sudo</p>
+<p>编辑<code>/etc/sudoers</code>，取消<code>#wheel ALL=(ALL:ALL) ALL</code>的注释。</p>
+<h3 id="配置AUR">配置AUR</h3>
+<p>Arch用户软件仓库（Arch User Repository, AUR）</p>
+<p>修改<code>/etc/pacman.conf</code></p>
+<p>将<code>·multilib</code> 取消注释</p>
+<p>添加两行</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https：//repo.archlinuxcn.org/$arch</span><br></pre></td></tr></table></figure></div>
+<p>安装<code>archlinuxcn-keyring</code>导入密钥</p>
+<p><strong>安装paru 或者 yay</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S paru</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装驱动">安装驱动</h3>
+<p><a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Xorg">wiki 显卡驱动表格 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xf86-video-amdgpu mesa lib32-mesa </span><br></pre></td></tr></table></figure></div>
+<h3 id="安装桌面环境">安装桌面环境</h3>
+<p>本人还是更喜欢 Gnome 桌面一点，因此这里介绍对 Gnome 的一些配置。</p>
+<h4 id="安装-Gnome-桌面">安装 Gnome 桌面</h4>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S gnome gnome-tweaks gnome-extra gdm</span><br></pre></td></tr></table></figure></div>
+<p>开机自启动</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable gdm</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装输入法">安装输入法</h3>
+
             </div>
 
             
@@ -707,29 +696,14 @@ mjx-container[display="true"] + br {
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                            rel="prev"
-                            href="/2023/07/20/%E4%B8%8A%E6%B5%B7-%E8%8B%8F%E5%B7%9E%E6%B8%B8%E8%AE%B0/"
-                            >
-                                <span class="left arrow-icon flex-center">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                                <span class="title flex-center">
-                                    <span class="post-nav-title-item">上海-苏州游记</span>
-                                    <span class="post-nav-item">上一篇</span>
-                                </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                             rel="next"
-                            href="/2023/05/28/%E7%BA%BF%E6%AE%B5%E6%A0%91%E9%A2%98%E5%8D%95/"
+                            href="/2023/07/29/%E5%9C%86%E6%96%B9%E6%A0%91/"
                             >
                                 <span class="title flex-center">
-                                    <span class="post-nav-title-item">线段树题单</span>
+                                    <span class="post-nav-title-item">圆方树</span>
                                     <span class="post-nav-item">下一篇</span>
                                 </span>
                                 <span class="right arrow-icon flex-center">
@@ -751,7 +725,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">ArchLinux</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6"><span class="nav-text">安装镜像文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">启动方式的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F"><span class="nav-text">配置系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-text">网络配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7"><span class="nav-text">安装其他的一些工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7"><span class="nav-text">配置本地用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="nav-text">安装引导程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-text">安装桌面环境</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="nav-text">准备安装介质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%88%B0Live%E7%8E%AF%E5%A2%83"><span class="nav-text">启动到Live环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E7%BD%91"><span class="nav-text">联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">启动方式的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-text">配置新系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="nav-text">安装引导程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7"><span class="nav-text">配置本地用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEAUR"><span class="nav-text">配置AUR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8"><span class="nav-text">安装驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-text">安装桌面环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%BE%93%E5%85%A5%E6%B3%95"><span class="nav-text">安装输入法</span></a></li></ol></li></ol>
 
     </div>
 </div>
