@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ryantsi.github.io/images/Archlinux/imgae.png">
 <meta property="article:published_time" content="2023-08-01T07:33:49.000Z">
-<meta property="article:modified_time" content="2023-08-02T17:07:55.290Z">
+<meta property="article:modified_time" content="2023-08-12T08:03:21.288Z">
 <meta property="article:author" content="晓染">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -487,8 +487,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-03 01:07:55</span>
-            <span class="mobile">2023-08-03 01:07</span>
+            <span class="desktop">2023-08-12 16:03:21</span>
+            <span class="mobile">2023-08-12 16:03</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -581,7 +581,7 @@ mjx-container[display="true"] + br {
 <blockquote>
 <p>挂载：指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。</p>
 </blockquote>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot/efi</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
 <p>要注意挂载顺序，一定是先挂载根分区再挂载 EFI 分区</p>
 <h3 id="安装">安装</h3>
 <ol>
@@ -590,7 +590,7 @@ mjx-container[display="true"] + br {
 </li>
 </ol>
 <p>官方所有的镜像源：<a class="link" target="_blank" rel="noopener" href="https://archlinux.org/download/">https://archlinux.org/download/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华园镜像</span></span><br><span class="line">Server = https：//mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华园镜像</span></span><br><span class="line">Server = https：//mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中科大镜像</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
 <p>文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像下载，优先级从上向下依次递减。</p>
 <ol start="2">
 <li class="lvl-3">
@@ -598,6 +598,7 @@ mjx-container[display="true"] + br {
 </li>
 </ol>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware linux-headers</span><br></pre></td></tr></table></figure></div>
+<p>其中 <code>pacstryp</code> 是一个安装脚本。</p>
 <p>其中 base 和 base-devel 包含一系列的系统软件，必须安装。linux是内核，linux-firmware 是一些驱动，linux-headers 是内核头文件。</p>
 <p>当然，内核也可以选择不是原版的Linux，可以在 wiki 上找到其他版本的内核 <a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/%E5%86%85%E6%A0%B8">wiki-内核 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h2 id="配置新系统">配置新系统</h2>
@@ -606,12 +607,12 @@ mjx-container[display="true"] + br {
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure></div>
 <p><code>fastab</code> 该文件包含了当前分区挂载情况</p>
 <p><strong>chroot 到新安装的系统：</strong></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure></div>
 <p>从 Live 环境进入挂载点。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure></div>
 <p><strong>下载一些必要的软件</strong></p>
-<p>利用 <code>pacman</code> 进行安装，有别于 Umbundu 的 apt</p>
+<p>利用 <code>pacman</code> 进行安装，类似 Umbundu 的 apt。</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S xxx ...</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syy # 更新软件包列表</span><br><span class="line">pacman -S archlinux-keyring # 安装 archlinux 导入密钥</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syy # 更新软件包列表</span><br></pre></td></tr></table></figure></div>
 <hr>
 <p><code>networkmanager</code> 连接互联网</p>
 <p><code>net-tools</code> 包含 ifconfig 等命令</p>
@@ -624,7 +625,7 @@ mjx-container[display="true"] + br {
 <p><code>os-prober</code> 双系统必装，可以选择进入那个系统</p>
 <p><code>efibootmge</code> UEFI引导必装</p>
 <p><code>intel-ucode/amd-ucode</code> CPU 微码必装</p>
-<p><code>man-db</code> 查看软件包的文档</p>
+<p><code>man</code> 查看软件包的文档</p>
 <p><code>ntfs-3g</code> 访问 ntfs 格式（Windows）的磁盘，双系统必装</p>
 <p><code>noto-fonts-cjk</code> 和 <code>noto-fonts-emoji</code> 谷歌设计的中文字体</p>
 <p><strong>设置中文字符</strong></p>
@@ -632,6 +633,10 @@ mjx-container[display="true"] + br {
 <p>输入<code>locale-gen</code>设置字符集。</p>
 <p>在文件 <code>/etc/locale.conf</code> 中写入 <code>LANG=en_US.UTF-8</code> 保存。</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure></div>
+<p>这里需要设置成英文，在 TTY 状态下中文会乱码。</p>
+<blockquote>
+<p>TTY 没有安装图形界面时的状态。</p>
+</blockquote>
 <p><strong>设置时区(以上海为例)</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></div>
 <p>生成<code>/etc/adjtime</code></p>
@@ -646,7 +651,7 @@ mjx-container[display="true"] + br {
 <p>GRUB 默认不支持 os-prober，需要做如下修改：</p>
 <p>编辑<code>/etc/default/grub</code>，将最后一行<code>#GRUB_DISABLE_OS_PROBER=false</code>取消注释</p>
 <p>对于UEFI</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
 <p>对于BIOS</p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
 <p>退出重启</p>
@@ -663,14 +668,16 @@ mjx-container[display="true"] + br {
 <p>wheel 是 linux 本身包含的一个用户组。</p>
 <p>配置 sudo</p>
 <p>编辑<code>/etc/sudoers</code>，取消<code>#wheel ALL=(ALL:ALL) ALL</code>的注释。</p>
-<p><code>su YOURNAME</code> 进入本地用户，下文的命令中若出现<code>$</code>则表示在本地用户执行的。</p>
+<p><code>su YOURNAME</code> 进入本地用户，下文中的命令中若出现<code>$</code>则表示在本地用户执行的。</p>
 <h3 id="配置AUR">配置AUR</h3>
-<p>Arch用户软件仓库（Arch User Repository, AUR）</p>
+<p>全称 Arch User Repository, 简称 AUR。</p>
 <p>修改<code>/etc/pacman.conf</code></p>
-<p>将<code>[multilib]</code> 取消注释</p>
+<p>将<code>[multilib]</code> 的两行取消注释，这个仓库包含 Arch 官方软件仓库的 32 位软件和链接库。</p>
+<p>配置 Archlinuxcn</p>
 <p>添加两行</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https：//repo.archlinuxcn.org/$arch</span><br></pre></td></tr></table></figure></div>
-<p>安装<code>archlinuxcn-keyring</code>导入密钥</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure></div>
+<p>这个仓库是 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体\美化包等。</p>
+<p>安装<code>archlinuxcn-keyring</code>导入 GPG 密钥</p>
 <p><strong>安装paru 或者 yay</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S paru</span></span><br></pre></td></tr></table></figure></div>
 <h3 id="安装驱动">安装驱动</h3>
