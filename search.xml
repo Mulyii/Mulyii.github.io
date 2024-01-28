@@ -102,351 +102,53 @@
   </entry>
   <entry>
     <title>Arch Linux 常用软件安装及其配置</title>
-    <url>/2023/08/12/Arch-Linux-%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h2 id="系统组件">系统组件</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">Software</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Desktop Environment</td>
-<td style="text-align:center">hyprland</td>
-</tr>
-<tr>
-<td style="text-align:center">Terminal</td>
-<td style="text-align:center">foot</td>
-</tr>
-<tr>
-<td style="text-align:center">Bar</td>
-<td style="text-align:center">waybar</td>
-</tr>
-<tr>
-<td style="text-align:center">Wallpaper manager</td>
-<td style="text-align:center">swaybg</td>
-</tr>
-<tr>
-<td style="text-align:center">Notification daemon</td>
-<td style="text-align:center">mako</td>
-</tr>
-<tr>
-<td style="text-align:center">Application launcher</td>
-<td style="text-align:center">rofi</td>
-</tr>
-<tr>
-<td style="text-align:center">File Manager</td>
-<td style="text-align:center">ranger, nemo</td>
-</tr>
-<tr>
-<td style="text-align:center">Input method framework</td>
-<td style="text-align:center">fcitx5</td>
-</tr>
-<tr>
-<td style="text-align:center">System resource monitor</td>
-<td style="text-align:center">btop</td>
-</tr>
-<tr>
-<td style="text-align:center">Shell</td>
-<td style="text-align:center">zsh</td>
-</tr>
-<tr>
-<td style="text-align:center">Image viewer</td>
-<td style="text-align:center">imv</td>
-</tr>
-<tr>
-<td style="text-align:center">Video player</td>
-<td style="text-align:center">mpv</td>
-</tr>
-<tr>
-<td style="text-align:center">Audio player</td>
-<td style="text-align:center">YesPlayMusic, aplay</td>
-</tr>
-<tr>
-<td style="text-align:center">Screenshot tool</td>
-<td style="text-align:center">grim, slurp, swappy</td>
-</tr>
-<tr>
-<td style="text-align:center">Network manager rool</td>
-<td style="text-align:center">NetworkManger</td>
-</tr>
-<tr>
-<td style="text-align:center">Screen recording tool</td>
-<td style="text-align:center">OBS Studio</td>
-</tr>
-<tr>
-<td style="text-align:center">Browser</td>
-<td style="text-align:center">Google Chrome</td>
-</tr>
-<tr>
-<td style="text-align:center">Office software</td>
-<td style="text-align:center">WPS Office</td>
-</tr>
-<tr>
-<td style="text-align:center">Proxy Manager tool</td>
-<td style="text-align:center">Clash</td>
-</tr>
-<tr>
-<td style="text-align:center">Text Editor</td>
-<td style="text-align:center">vim, vscode</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>操作系统</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ArchLinux</title>
-    <url>/2023/08/01/ArchLinux/</url>
-    <content><![CDATA[<p>以下是我自己在真机上安装过多次可行的方法。</p>
-<p>在真机安装和在虚拟机上安装还是有很大的区别，此文章简单说明了其中的一些必要的步骤。</p>
-<h2 id="准备安装介质">准备安装介质</h2>
-<p>从镜像网站上 <a class="link" href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 获取映像文件。</p>
-<p>用 <code>rufus</code> 等烧录文件将映像以<code>DD</code>形式烧录到U盘，<code>ISO</code> 不行，至少在我的电脑上存在这样的问题。</p>
-<h2 id="启动到Live环境">启动到Live环境</h2>
-<p>Live 环境中包含的 Archlinux 安装所需的工具。</p>
-<p>电脑重启后按 F2 进入 BIOS（不同厂商的电脑进入 BIOS 的按键可能不一样）。</p>
-<p>如果是双系统安装，需要在 BIOS 中将 Sevure Boot 设置为 Disable，装完后也可以重新启用。</p>
-<h3 id="联网">联网</h3>
-<p>利用 <code>iwctl</code> 进行联网</p>
-<p><code>device list</code> 查看已安装网卡</p>
-<p><code>station DEVICE scan</code> 扫描周边的 wifi</p>
-<p><code>station DEVICE get-networks</code> 显示扫描到的 wifi</p>
-<p><code>station --passphrase=PASSPHRASE station DEVICE connect SSID </code> 连接到所选的 wifi</p>
-<h3 id="启动方式的选择">启动方式的选择</h3>
-<p>查看启动发生BIOS or UEFI</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[ -d /sys/firmware/efi ] &amp;&amp; echo UEFI || echo BIOS</span><br></pre></td></tr></table></figure></div>
-<h3 id="磁盘分区">磁盘分区</h3>
-<p>创建磁盘分区：需要一个根分区和一个EFI系统分区（UEFI 启动方式需要这个分区），可以选择创建一个交换分区。</p>
-<p>如果是双系统， EFI 分区可以直接挂载 Windows 已经创建好的 EFI 分区。</p>
-<p>交换分区是一种虚拟内存的表现形式，系统为了应付需要用到大量内存的场景，将磁盘上的一部分空间当作内存使用。</p>
-<blockquote>
-<p><strong>swap文件创建规则</strong>（参照oracle官方文档设定的标准）:</p>
-<ul class="lvl-1">
-<li class="lvl-2">4G以内的物理内存，SWAP 设置为内存的2倍。</li>
-<li class="lvl-2">4-8G的物理内存，SWAP 等于内存大小。</li>
-<li class="lvl-2">8-64G 的物理内存，SWAP 设置为8G。</li>
-<li class="lvl-2">64-256G物理内存，SWAP 设置为16G。</li>
-</ul>
-</blockquote>
-<p>利用<code>fdisk -l</code>查看当前磁盘分区状况，找到所需要安装系统的磁盘，利用<code>cfdisk</code>进行分盘（这是一个图形化的分区修改界面）。</p>
-<p>如果是一块未分区的磁盘，会提示使用哪种分区表，按照官方文档的说法 BIOS 启动应采用 MAR 分区表，UEFI 启动应采用 GPT 分区表。</p>
-<blockquote>
-<p>具体详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/Arch_%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B#Boot_loader">wiki-引导加载程序 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-</blockquote>
-<p>虚拟机分区例子（传统引导）：</p>
-<p><img lazyload="" src="/images/loading.svg" data-src="/images/Archlinux/imgae.png" alt="1"></p>
-<h4 id="格式化分区">格式化分区</h4>
-<blockquote>
-<p>详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F">wiki-文件系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-</blockquote>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/root_partition（根分区）</span><br><span class="line">mkswap /dev/swap_partition（交换空间分区）</span><br><span class="line">mkfs.fat -F 32 /dev/efi_system_partition（EFI 分区）</span><br></pre></td></tr></table></figure></div>
-<h4 id="挂载分区">挂载分区</h4>
-<blockquote>
-<p>挂载：指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。</p>
-</blockquote>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
-<p>要注意挂载顺序，一定是先挂载根分区再挂载 EFI 分区。</p>
-<h3 id="安装">安装</h3>
-<ol>
-<li class="lvl-3">
-<p>选择镜像</p>
-</li>
-</ol>
-<p>官方所有的镜像源：<a class="link" href="https://archlinux.org/download/">https://archlinux.org/download/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华园镜像</span></span><br><span class="line">Server = https：//mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中科大镜像</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
-<p>文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像下载，优先级从上向下依次递减。</p>
-<ol start="2">
-<li class="lvl-3">
-<p>安装基本系统</p>
-</li>
-</ol>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware linux-headers</span><br></pre></td></tr></table></figure></div>
-<p>其中 <code>pacstryp</code> 是一个安装脚本。</p>
-<p>其中 base 和 base-devel 包含一系列的系统软件，必须安装。linux是内核，linux-firmware 是一些驱动，linux-headers 是内核头文件。</p>
-<p>当然，内核也可以选择不是原版的 Linux，比如 Linux-lts，可以在 wiki 上找到其他版本的内核 <a class="link" href="https://wiki.archlinuxcn.org/wiki/%E5%86%85%E6%A0%B8">wiki-内核 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</p>
-<h2 id="配置新系统">配置新系统</h2>
-<p><strong>创建Fstab文件</strong></p>
-<p>用以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure></div>
-<p><code>fastab</code> 该文件包含了当前分区挂载情况，生成之后建议检查里面的内容是否正确。</p>
-<p><strong>chroot 到新安装的系统：</strong></p>
-<p>从 Live 环境进入挂载点。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure></div>
-<p><strong>下载一些必要的软件</strong></p>
-<p>利用 <code>pacman</code> 进行安装。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">pacman -Syy # 更新软件包列表</span><br></pre></td></tr></table></figure></div>
-<hr>
-<p><code>networkmanager</code> 连接互联网</p>
-<p><code>net-tools</code> 包含 ifconfig 等命令</p>
-<p><code>vim</code> 文本编辑器</p>
-<p><code>dhcpcd</code> 分配 ip 地址</p>
-<p><code>cups</code> 打印机</p>
-<p><code>openssh</code> ssh 服务</p>
-<p><code>git</code></p>
-<p><code>grub</code> 用来引导系统</p>
-<p><code>os-prober</code> 双系统必装，可以选择进入那个系统</p>
-<p><code>efibootmgr</code> UEFI引导必装</p>
-<p><code>intel-ucode/amd-ucode</code> CPU 微码必装</p>
-<p><code>man</code> 查看软件包的文档</p>
-<p><code>ntfs-3g</code> 访问 ntfs 格式（Windows）的磁盘，双系统必装</p>
-<p><code>noto-fonts-cjk</code> 和 <code>noto-fonts-emoji</code> 谷歌设计的中文字体</p>
-<p><strong>设置中文字符</strong></p>
-<p>编辑 locale.gen 将中文（zh_CN_UTF-8）以及英文（en_US_UTF-8）前的注释去掉。</p>
-<p>输入<code>locale-gen</code>设置字符集。</p>
-<p>在文件 <code>/etc/locale.conf</code> 中写入 <code>LANG=en_US.UTF-8</code> 保存。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure></div>
-<p>这里需要设置成英文，在 TTY 状态下中文会乱码。</p>
-<blockquote>
-<p>TTY 没有安装图形界面时的状态。</p>
-</blockquote>
-<p><strong>设置时区(以上海为例)</strong></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></div>
-<p>生成<code>/etc/adjtime</code></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure></div>
-<p><strong>配置主机名</strong></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">echo YOURPC &gt; /etc/hostname</span><br></pre></td></tr></table></figure></div>
-<p>以及配置密码</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></div>
-<p><strong>自启动 NetworkManager， ssh，dhcpcd</strong></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl enable NetworkManager sshd dhcpcd</span><br></pre></td></tr></table></figure></div>
-<h3 id="安装引导程序">安装引导程序</h3>
-<p>GRUB 默认不支持 os-prober，需要做如下修改：</p>
-<p>编辑<code>/etc/default/grub</code>，将最后一行<code>#GRUB_DISABLE_OS_PROBER=false</code>取消注释</p>
-<p>对于UEFI</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
-<p>对于BIOS</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
-<p>退出重启</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">exit</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></div>
-<p>双系统重启后可能还是找不到 Windows 的启动引导，可以在进入系统后再执行一次<code>grub-mkconfig -o /boot/grub/grub.cfg</code>，也可以自己手动在grub里添加引导入口。</p>
-<h3 id="配置本地用户">配置本地用户</h3>
-<p>进入新系统后可以用 NetworkManager 联网</p>
-<p>显示 wifi 列表</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">nmcli dev wifi list</span><br></pre></td></tr></table></figure></div>
-<p>连接指定 wifi</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">nmcli dev wifi connect SSID password PASSWORD</span><br></pre></td></tr></table></figure></div>
-<p>创建普通用户</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel YOURNAME</span><br><span class="line">passwd YOURNAME</span><br></pre></td></tr></table></figure></div>
-<p>wheel 是 linux 本身包含的一个用户组。</p>
-<p>配置 sudo</p>
-<p>编辑<code>/etc/sudoers</code>，取消<code>#wheel ALL=(ALL:ALL) ALL</code>的注释。</p>
-<p><code>su YOURNAME</code> 进入本地用户，下文中的命令中若出现<code>$</code>则表示在本地用户执行的。</p>
-<h3 id="配置AUR">配置AUR</h3>
-<p>全称 Arch User Repository, 简称 AUR。</p>
-<p>修改<code>/etc/pacman.conf</code></p>
-<p>将<code>[multilib]</code> 的两行取消注释，这个仓库包含 Arch 官方软件仓库的 32 位软件和链接库。</p>
-<p>配置 Archlinuxcn</p>
-<p>添加两行</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure></div>
-<p>这个仓库是 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体\美化包等。</p>
-<p>安装<code>archlinuxcn-keyring</code>导入 GPG 密钥</p>
-<p><strong>安装paru 或者 yay</strong></p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S paru</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="安装驱动">安装驱动</h3>
-<h4 id="显卡驱动">显卡驱动</h4>
-<p>Arch-wiki 显卡驱动表格，按照自己的电脑显卡配置安装对应的驱动</p>
-<table class="wikitable" style="text-align:center">
-<tbody><tr>
-<th>厂商</th>
-<th>类型</th>
-<th>驱动</th>
-<th>OpenGL</th>
-<th>OpenGL (<a class="mw-redirect" href="https://wiki.archlinuxcn.org/wiki/Multilib" title="Multilib">multilib <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</th>
-<th>文档
-</th></tr>
-<tr>
-<th rowspan="2">AMD / ATI
-</th>
-<td rowspan="2">Open source</td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-amdgpu">xf86-video-amdgpu <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td rowspan="2"><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td rowspan="2"><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/AMDGPU" title="AMDGPU">AMDGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
-</td></tr>
-<tr>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-ati">xf86-video-ati <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/ATI" title="ATI">ATI <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
-</td></tr>
-<tr>
-<th>Intel
-</th>
-<td>Open source</td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-intel">xf86-video-intel <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><a class="mw-redirect" href="https://wiki.archlinuxcn.org/wiki/Intel_graphics" title="Intel graphics">Intel graphics <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
-</td></tr>
-<tr>
-<th rowspan="3">NVIDIA
-</th>
-<td>Open source</td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-nouveau">xf86-video-nouveau <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/Nouveau" title="Nouveau">Nouveau <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
-</td></tr>
-<tr>
-<td rowspan="2">Proprietary</td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=nvidia">nvidia <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=nvidia-utils">nvidia-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-nvidia-utils">lib32-nvidia-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
-<td rowspan="2"><a class="link" href="https://wiki.archlinuxcn.org/wiki/NVIDIA" title="NVIDIA">NVIDIA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
-</td></tr>
-<tr>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/nvidia-390xx-dkms/">nvidia-390xx-dkms <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/nvidia-390xx-utils/">nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span></td>
-<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/lib32-nvidia-390xx-utils/">lib32-nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span>
-</td></tr></tbody></table>
-<p>我的笔记本是 Amd 的核显和 Nvidia 的独显，装的内核是Linux-lts，这里举个例子。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-video-amdgpu mesa lib32-mesa</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S nvidia-lts nvidia-utils lib32-nvidia-utils</span></span><br></pre></td></tr></table></figure></div>
-<p>同时把 <code>kms</code> 从 <code>/etc/mkinitcpio.conf</code> 里的 HOOKS 数组中移除，并重新生成 initramfs。 这能防止 initramfs 包含 <code>nouveau</code> 模块，以确保内核在早启动阶段不会加载它。</p>
-<p>Nvidia 驱动的安装详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/NVIDIA">wiki-Nvidia <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h4 id="其他驱动">其他驱动</h4>
-<p>蓝牙驱动</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S bluez bluez-utils</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> bluetooth</span></span><br></pre></td></tr></table></figure></div>
-<p>触摸板驱动</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-input-libinput libinput</span></span><br></pre></td></tr></table></figure></div>
-<h3 id="安装桌面环境">安装桌面环境</h3>
-<p>这里简单介绍对 Gnome 的一些配置。</p>
-<blockquote>
-<p>在我的电脑上 Gnomo 账户注销再登陆就会直接卡住 QAQ，考虑找别的桌面替代。</p>
-</blockquote>
-<h4 id="安装-Gnome-桌面">安装 Gnome 桌面</h4>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome gnome-tweaks gnome-extra gdm</span></span><br></pre></td></tr></table></figure></div>
-<p>开机自启动</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> gdm</span></span><br></pre></td></tr></table></figure></div>
-<p>新安装好的Gnomo用起来有诸多不便，没有系统托盘，没有 Dock 栏，没有桌面图标等等，我们需要安装拓展插件来弥补这些功能的缺失。</p>
-<p>先安装支持库</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome-browser-connector</span></span><br></pre></td></tr></table></figure></div>
-<p>以下是我比较建议安装的几个插件:</p>
-<p>自定义主题</p>
-<p><a class="link" href="https://extensions.gnome.org/extension/19/user-themes/">User Themes <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>显示桌面图标</p>
-<p><a class="link" href="https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/">Desktop Icons NG (DING) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>显示暂时回到桌面图标</p>
-<p><a class="link" href="https://extensions.gnome.org/extension/1194/show-desktop-button/">Show Desktop Button <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>Dock栏</p>
-<p><a class="link" href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>系统托盘</p>
-<p><a class="link" href="https://extensions.gnome.org/extension/615/appindicator-support/">AppIndicator and KStatusNotifierItem Support <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h4 id="安装输入法">安装输入法</h4>
-<p>在 Gnomo 里输入法推荐使用 IBus</p>
-<p>安装所需要的包</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S ibus ibus-libpinyin</span></span><br></pre></td></tr></table></figure></div>
-<p>初次运行</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">ibus-setup</span><br></pre></td></tr></table></figure></div>
-<p>这个命令会启动后台程序，并给你这条消息</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">IBus has been started! If you cannot use IBus, please add below lines in $HOME/.bashrc, and relogin your desktop.</span><br><span class="line">（译：IBus 已启动！如果您还不能用 Ibus,请您先将以下的三行代码加到 $HOME/.bashrc，再重新登录。)</span><br><span class="line">  export GTK_IM_MODULE=ibus</span><br><span class="line">  export XMODIFIERS=@im=ibus</span><br><span class="line">  export QT_IM_MODULE=ibus</span><br></pre></td></tr></table></figure></div>
-<p>最后在设置的输入源中将中文输入法添加至其中。</p>
-<p><strong>其他环境一律 fctix5 来配</strong></p>
+    <url>/2024/01/28/Arch-Linux-%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%8F%8A%E5%85%B6%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h3 id="dwm">dwm</h3>
+<p>基于 X11 的一个 WM ，简单好用。</p>
+<p>官方仓库：<a class="link" href="https://git.suckless.org/dwm">https://git.suckless.org/dwm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>我修改后的：<a class="link" href="https://github.com/RyanTsi/dwm">https://github.com/RyanTsi/dwm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>主要基于自己习惯的快捷键进行了调整，安装了一些补丁。之后也决定自己修改部分代码上去。</p>
+<p>可以安装 <code>xdg-user-dirs</code> 来生成 Desktop、Music、Pictures 等文件夹，运行 <code>xdg-user-dirs-update</code>。</p>
+<h3 id="kitty">kitty</h3>
+<p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了kitty。</p>
+<p>官方wiki：<a class="link" href="https://sw.kovidgoyal.net/kitty/">https://sw.kovidgoyal.net/kitty/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="fcitx5">fcitx5</h3>
+<p>输入法。</p>
+<p><strong>安装:</strong></p>
+<p><code>fcitx5</code> 本体</p>
+<p><code>fcirx5-chinese-addon</code> 包含中文输入法</p>
+<p><code>fcitx5-pinyin-zhwiki</code> 中文词库</p>
+<p><code>fcitx5-configtool</code> 用于设置的 GUI</p>
+<p><strong>配置：</strong></p>
+<p>在 <code>/etc/environment</code> 写入如下变量使得 fcitx 在不同界面上能正常运行</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br><span class="line">INPUT_METHOD=fcitx</span><br><span class="line">GLFW_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure></div>
+<p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>fcitx5 -d &amp;</code>。</p>
+<p>在某些软件可能会遇到输入法不工作的情况，这大概率是跟那个软件的界面有关，可能是由 QT4 等编写的。</p>
+<h3 id="zsh">zsh</h3>
+<p>一个 shell 解释器，Tab 相对于 bash 好用太多，同时插件丰富。</p>
+<p>安装 oh-my-zsh 以及 autosuggestions、syntax-highlighting 这两个插件。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure></div>
+<p>在 <code>~/.zshrc</code> 的 Plugins 处添加上这两个插件。</p>
+<h3 id="ALSA">ALSA</h3>
+<p>全称 Advanced Linux Sound Architecture。需要安装一些程序来控制音频设置。</p>
+<p><code>alsa-utils</code> 包含alsamixer（GUI）、amixer（Shell）。</p>
+<p>设置默认声卡：</p>
+<p>在 <code>～/.asoundrc</code> 中写入</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">defaults.pcm.card 1</span><br><span class="line">defaults.ctl.card 1</span><br></pre></td></tr></table></figure></div>
+<p>可以通过amixer编写一些脚本同时绑定快捷键来方面地控制音量。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">amixer sset Master 5%-      # 音量减少 5%</span><br><span class="line">amixer sset Master 5%+      # 音量增加 5%</span><br><span class="line">amixer set Master toggle    # 静音解除/解除静音</span><br></pre></td></tr></table></figure></div>
+<h3 id="rofi">rofi</h3>
+<p>可以用来当作应用启动器、窗口选择器等。</p>
+<h3 id="picom">picom</h3>
+<p>X11 的合成器。</p>
+<p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>picom -b</code>。</p>
+<h3 id="字体">字体</h3>
+<p>ttf-hack-nerd</p>
+<p>noto-fonts-cjk</p>
+<p>noto-fonts-emoji</p>
+<p>ttf-wps-fonts</p>
+<p>wps-office-mui-zh-cn</p>
+<p>wyq-microhei</p>
 ]]></content>
       <categories>
         <category>操作系统</category>
@@ -2185,6 +1887,252 @@ DRAM：利用MOS电容存储电荷来保存信息，使用时需要给电容充�
       </categories>
       <tags>
         <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ArchLinux安装指南</title>
+    <url>/2023/08/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>以下是我自己在真机上安装过多次可行的方法。</p>
+<p>在真机安装和在虚拟机上安装还是有很大的区别，此文章简单说明了其中的一些必要的步骤。</p>
+<h2 id="准备安装介质">准备安装介质</h2>
+<p>从镜像网站上 <a class="link" href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 获取映像文件。</p>
+<p>用 <code>rufus</code> 等烧录文件将映像以 <code>DD</code> 形式烧录到U盘，<code>ISO</code> 不行，至少在我的电脑上存在这样的问题。</p>
+<h2 id="启动到Live环境">启动到Live环境</h2>
+<p>Live 环境中包含的 Archlinux 安装所需的工具。</p>
+<p>电脑重启后按 F2 进入 BIOS（不同厂商的电脑进入 BIOS 的按键可能不一样）。</p>
+<p>如果是双系统安装，需要在 BIOS 中将 Sevure Boot 设置为 Disable，装完后也可以重新启用。</p>
+<h3 id="联网">联网</h3>
+<p>利用 <code>iwctl</code> 进行联网</p>
+<p><code>device list</code> 查看已安装网卡</p>
+<p><code>station DEVICE scan</code> 扫描周边的 wifi</p>
+<p><code>station DEVICE get-networks</code> 显示扫描到的 wifi</p>
+<p><code>station --passphrase=PASSPHRASE station DEVICE connect SSID </code> 连接到所选的 wifi</p>
+<h3 id="启动方式的选择">启动方式的选择</h3>
+<p>查看启动发生BIOS or UEFI</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">[ -d /sys/firmware/efi ] &amp;&amp; echo UEFI || echo BIOS</span><br></pre></td></tr></table></figure></div>
+<h3 id="磁盘分区">磁盘分区</h3>
+<p>创建磁盘分区：需要一个根分区和一个EFI系统分区（UEFI 启动方式需要这个分区），可以选择创建一个交换分区。</p>
+<p>如果是双系统， EFI 分区可以直接挂载 Windows 已经创建好的 EFI 分区。</p>
+<p>交换分区是一种虚拟内存的表现形式，系统为了应付需要用到大量内存的场景，将磁盘上的一部分空间当作内存使用。</p>
+<blockquote>
+<p><strong>swap文件创建规则</strong>（参照oracle官方文档设定的标准）:</p>
+<ul class="lvl-1">
+<li class="lvl-2">4G以内的物理内存，SWAP 设置为内存的2倍。</li>
+<li class="lvl-2">4-8G的物理内存，SWAP 等于内存大小。</li>
+<li class="lvl-2">8-64G 的物理内存，SWAP 设置为8G。</li>
+<li class="lvl-2">64-256G物理内存，SWAP 设置为16G。</li>
+</ul>
+</blockquote>
+<p>利用<code>fdisk -l</code>查看当前磁盘分区状况，找到所需要安装系统的磁盘，利用<code>cfdisk</code>进行分盘（这是一个图形化的分区修改界面）。</p>
+<p>如果是一块未分区的磁盘，会提示使用哪种分区表，按照官方文档的说法 BIOS 启动应采用 MAR 分区表，UEFI 启动应采用 GPT 分区表。</p>
+<blockquote>
+<p>具体详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/Arch_%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B#Boot_loader">wiki-引导加载程序 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<p>虚拟机分区例子（传统引导）：</p>
+<p><img lazyload="" src="/images/loading.svg" data-src="/images/Archlinux/imgae.png" alt="1"></p>
+<h4 id="格式化分区">格式化分区</h4>
+<blockquote>
+<p>详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F#%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F">wiki-文件系统 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</blockquote>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/root_partition（根分区）</span><br><span class="line">mkswap /dev/swap_partition（交换空间分区）</span><br><span class="line">mkfs.fat -F 32 /dev/efi_system_partition（EFI 分区）</span><br></pre></td></tr></table></figure></div>
+<h4 id="挂载分区">挂载分区</h4>
+<blockquote>
+<p>挂载：指的就是将设备文件中的顶级目录连接到 Linux 根目录下的某一目录（最好是空目录），访问此目录就等同于访问设备文件。</p>
+</blockquote>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">mount /dev/root_partition（根分区） /mnt</span><br><span class="line">mount --mkdir /dev/efi_system_partition（EFI 系统分区） /mnt/boot</span><br><span class="line">swapon /dev/swap_partition（交换空间分区）</span><br></pre></td></tr></table></figure></div>
+<p>要注意挂载顺序，一定是先挂载根分区再挂载 EFI 分区。</p>
+<h3 id="安装">安装</h3>
+<ol>
+<li class="lvl-3">
+<p>选择镜像</p>
+</li>
+</ol>
+<p>官方所有的镜像源：<a class="link" href="https://archlinux.org/download/">https://archlinux.org/download/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">备份</span></span><br><span class="line">cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bk</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">选择在中国的最快镜像源</span></span><br><span class="line">reflector --verbose --country 'China' -l 200 -p https --sort rate --save /etc/pacman.d/mirrorlist</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清华园镜像</span></span><br><span class="line">Server = https：//mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">中科大镜像</span></span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os$arch</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">更新</span></span><br><span class="line">pacman -Sy</span><br></pre></td></tr></table></figure></div>
+<p>文件 /etc/pacman.d/mirrorlist 定义了软件包会从哪个镜像下载，优先级从上向下依次递减。</p>
+<ol start="2">
+<li class="lvl-3">
+<p>安装基本系统</p>
+</li>
+</ol>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware linux-headers</span><br></pre></td></tr></table></figure></div>
+<p>其中 <code>pacstryp</code> 是一个安装脚本。</p>
+<p>其中 base 和 base-devel 包含一系列的系统软件，必须安装。linux是内核，linux-firmware 是一些驱动，linux-headers 是内核头文件。</p>
+<p>当然，内核也可以选择不是原版的 Linux，比如 Linux-lts，可以在 wiki 上找到其他版本的内核 <a class="link" href="https://wiki.archlinuxcn.org/wiki/%E5%86%85%E6%A0%B8">wiki-内核 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>。</p>
+<h2 id="配置新系统">配置新系统</h2>
+<p><strong>创建Fstab文件</strong></p>
+<p>用以下命令生成 fstab 文件 (用 -U 或 -L 选项设置 UUID 或卷标)：</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure></div>
+<p><code>fastab</code> 该文件包含了当前分区挂载情况，生成之后建议检查里面的内容是否正确。</p>
+<p><strong>chroot 到新安装的系统：</strong></p>
+<p>从 Live 环境进入挂载点。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">arch-chroot /mnt</span><br></pre></td></tr></table></figure></div>
+<p><strong>下载一些必要的软件</strong></p>
+<p>利用 <code>pacman</code> 进行安装。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">pacman -Syy # 更新软件包列表</span><br></pre></td></tr></table></figure></div>
+<hr>
+<p><code>networkmanager</code> 连接互联网</p>
+<p><code>net-tools</code> 包含 ifconfig 等命令</p>
+<p><code>vim</code> 文本编辑器</p>
+<p><code>dhcpcd</code> 分配 ip 地址</p>
+<p><code>openssh</code> ssh 服务</p>
+<p><code>git</code></p>
+<p><code>grub</code> 用来引导系统</p>
+<p><code>os-prober</code> 双系统可选安装，可以选择进入那个系统</p>
+<p><code>efibootmgr</code> UEFI引导必装</p>
+<p><code>intel-ucode/amd-ucode</code> CPU 微码必装</p>
+<p><code>man</code> 查看软件包的文档</p>
+<p><code>ntfs-3g</code> 访问 ntfs 格式的磁盘，双系统必装</p>
+<p><code>noto-fonts-cjk</code> 和 <code>noto-fonts-emoji</code> 谷歌设计的中文字体</p>
+<p><strong>设置中文字符</strong></p>
+<p>编辑 locale.gen 将中文（zh_CN_UTF-8）以及英文（en_US_UTF-8）前的注释去掉。</p>
+<p>输入<code>locale-gen</code>设置字符集。</p>
+<p>在文件 <code>/etc/locale.conf</code> 中写入 <code>LANG=en_US.UTF-8</code> 保存。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure></div>
+<p>这里需要设置成英文，在 TTY 状态下中文会乱码。</p>
+<blockquote>
+<p>TTY 没有安装图形界面时的状态。</p>
+</blockquote>
+<p><strong>设置时区(以上海为例)</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure></div>
+<p>生成<code>/etc/adjtime</code></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure></div>
+<p><strong>配置主机名</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">echo YOURPC &gt; /etc/hostname</span><br></pre></td></tr></table></figure></div>
+<p>以及配置密码</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure></div>
+<p><strong>自启动 NetworkManager， ssh，dhcpcd</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl enable NetworkManager sshd dhcpcd</span><br></pre></td></tr></table></figure></div>
+<h3 id="安装引导程序">安装引导程序</h3>
+<p>GRUB 默认不支持 os-prober，需要做如下修改：</p>
+<p>编辑<code>/etc/default/grub</code>，将最后一行<code>#GRUB_DISABLE_OS_PROBER=false</code>取消注释</p>
+<p>对于UEFI</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
+<p>对于BIOS</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">grub-install --target=i386-pc /dev/sda</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></div>
+<p>退出重启</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">exit</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></div>
+<p>双系统重启后可能还是找不到 Windows 的启动引导，可以在进入系统后再执行一次<code>grub-mkconfig -o /boot/grub/grub.cfg</code>，也可以自己手动在grub里添加引导入口。</p>
+<h3 id="配置本地用户">配置本地用户</h3>
+<p>进入新系统后可以用 NetworkManager 联网</p>
+<p>显示 wifi 列表</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">nmcli dev wifi list</span><br></pre></td></tr></table></figure></div>
+<p>连接指定 wifi</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">nmcli dev wifi connect SSID password PASSWORD</span><br></pre></td></tr></table></figure></div>
+<p>创建普通用户</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">useradd -m -G wheel YOURNAME</span><br><span class="line">passwd YOURNAME</span><br></pre></td></tr></table></figure></div>
+<p>wheel 是 linux 本身包含的一个用户组。</p>
+<p>配置 sudo</p>
+<p>编辑<code>/etc/sudoers</code>，取消<code>#wheel ALL=(ALL:ALL) ALL</code>的注释。</p>
+<p><code>su YOURNAME</code> 进入本地用户，下文中的命令中若出现<code>$</code>则表示在本地用户执行的。</p>
+<h3 id="网络配置">网络配置</h3>
+<p>将下面内容写入到 <code>/etc/hosts</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   yourPCname.localdomain  yourPCname</span><br></pre></td></tr></table></figure></div>
+<h3 id="配置AUR">配置AUR</h3>
+<p>全称 Arch User Repository, 简称 AUR。</p>
+<p>修改<code>/etc/pacman.conf</code></p>
+<p>将<code>[multilib]</code> 的两行取消注释，这个仓库包含 Arch 官方软件仓库的 32 位软件和链接库。</p>
+<p>配置 Archlinuxcn</p>
+<p>添加两行</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure></div>
+<p>这个仓库是 Arch Linux 中文社区驱动的非官方用户仓库。包含中文用户常用软件、工具、字体\美化包等。</p>
+<p>安装<code>archlinuxcn-keyring</code>导入 GPG 密钥</p>
+<p><strong>安装paru 或者 yay</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S paru</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="安装驱动">安装驱动</h3>
+<h4 id="显卡驱动">显卡驱动</h4>
+<p>Arch-wiki 显卡驱动表格，按照自己的电脑显卡配置安装对应的驱动</p>
+<table class="wikitable" style="text-align:center">
+<tbody><tr>
+<th>厂商</th>
+<th>类型</th>
+<th>驱动</th>
+<th>OpenGL</th>
+<th>OpenGL (<a class="mw-redirect" href="https://wiki.archlinuxcn.org/wiki/Multilib" title="Multilib">multilib <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>)</th>
+<th>文档
+</th></tr>
+<tr>
+<th rowspan="2">AMD / ATI
+</th>
+<td rowspan="2">Open source</td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-amdgpu">xf86-video-amdgpu <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td rowspan="2"><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td rowspan="2"><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/AMDGPU" title="AMDGPU">AMDGPU <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-ati">xf86-video-ati <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/ATI" title="ATI">ATI <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+</td></tr>
+<tr>
+<th>Intel
+</th>
+<td>Open source</td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-intel">xf86-video-intel <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><a class="mw-redirect" href="https://wiki.archlinuxcn.org/wiki/Intel_graphics" title="Intel graphics">Intel graphics <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+</td></tr>
+<tr>
+<th rowspan="3">NVIDIA
+</th>
+<td>Open source</td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=xf86-video-nouveau">xf86-video-nouveau <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=mesa">mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-mesa">lib32-mesa <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><a class="link" href="https://wiki.archlinuxcn.org/wiki/Nouveau" title="Nouveau">Nouveau <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+</td></tr>
+<tr>
+<td rowspan="2">Proprietary</td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=nvidia">nvidia <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=nvidia-utils">nvidia-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://archlinux.org/packages/?name=lib32-nvidia-utils">lib32-nvidia-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>包</small></sup></span></td>
+<td rowspan="2"><a class="link" href="https://wiki.archlinuxcn.org/wiki/NVIDIA" title="NVIDIA">NVIDIA <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>
+</td></tr>
+<tr>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/nvidia-390xx-dkms/">nvidia-390xx-dkms <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/nvidia-390xx-utils/">nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span></td>
+<td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow" href="https://aur.archlinux.org/packages/lib32-nvidia-390xx-utils/">lib32-nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span>
+</td></tr></tbody></table>
+<p>我的笔记本是 Amd 的核显和 Nvidia 的独显，装的内核是Linux，这里举个例子。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-video-amdgpu mesa lib32-mesa</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils</span></span><br></pre></td></tr></table></figure></div>
+<p>同时把 <code>kms</code> 从 <code>/etc/mkinitcpio.conf</code> 里的 HOOKS 数组中移除，并重新生成 initramfs。 这能防止 initramfs 包含 <code>nouveau</code> 模块，以确保内核在早启动阶段不会加载它。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mkinitcpio -p linux</span></span><br></pre></td></tr></table></figure></div>
+<p>Nvidia 驱动的安装详见 <a class="link" href="https://wiki.archlinuxcn.org/wiki/NVIDIA">wiki-Nvidia <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h4 id="其他驱动">其他驱动</h4>
+<p>蓝牙驱动</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S bluez bluez-utils</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> bluetooth</span></span><br></pre></td></tr></table></figure></div>
+<p>触摸板驱动</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-input-libinput libinput</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="安装桌面环境">安装桌面环境</h3>
+<p>这里简单介绍对 Gnome 的一些配置。</p>
+<blockquote>
+<p>在我的电脑上 Gnomo 账户注销再登陆就会直接卡住 QAQ，考虑找别的桌面替代。</p>
+</blockquote>
+<h4 id="安装-Gnome-桌面">安装 Gnome 桌面</h4>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome gnome-tweaks gnome-extra gdm</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>开机自启动</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> gdm</span></span><br></pre></td></tr></table></figure></div>
+<p>新安装好的Gnomo用起来有诸多不便，没有系统托盘，没有 Dock 栏，没有桌面图标等等，我们需要安装拓展插件来弥补这些功能的缺失。</p>
+<p><strong>安装支持库</strong></p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome-browser-connector</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>以下是我比较建议安装的几个插件:</strong></p>
+<p>自定义主题</p>
+<p><a class="link" href="https://extensions.gnome.org/extension/19/user-themes/">User Themes <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>显示桌面图标</p>
+<p><a class="link" href="https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/">Desktop Icons NG (DING) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>显示暂时回到桌面图标</p>
+<p><a class="link" href="https://extensions.gnome.org/extension/1194/show-desktop-button/">Show Desktop Button <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>Dock栏</p>
+<p><a class="link" href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p>系统托盘</p>
+<p><a class="link" href="https://extensions.gnome.org/extension/615/appindicator-support/">AppIndicator and KStatusNotifierItem Support <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
 </search>

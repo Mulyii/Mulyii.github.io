@@ -17,21 +17,21 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://ryantsi.github.io/2023/08/01/archlinux/"/>
+    <link rel="canonical" href="http://ryantsi.github.io/2023/08/01/archlinux安装指南/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="ArchLinux入门安装教程">
+        <meta name="description" content="ArchLinux入指南，简述了一些步骤以及其中的一些概念。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ArchLinux">
-<meta property="og:url" content="http://ryantsi.github.io/2023/08/01/ArchLinux/index.html">
+<meta property="og:title" content="ArchLinux安装指南">
+<meta property="og:url" content="http://ryantsi.github.io/2023/08/01/ArchLinux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/index.html">
 <meta property="og:site_name" content="Ryan&#39;s blog">
-<meta property="og:description" content="ArchLinux入门安装教程">
+<meta property="og:description" content="ArchLinux入指南，简述了一些步骤以及其中的一些概念。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://ryantsi.github.io/images/Archlinux/imgae.png">
 <meta property="article:published_time" content="2023-08-01T07:33:49.000Z">
-<meta property="article:modified_time" content="2023-08-31T11:20:18.078Z">
+<meta property="article:modified_time" content="2024-01-28T04:28:34.589Z">
 <meta property="article:author" content="晓染">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
     
     <title>
         
-            ArchLinux -
+            ArchLinux安装指南 -
         
         Ryan&#39;s blog
     </title>
@@ -458,7 +458,7 @@ mjx-container[display="true"] + br {
             
             
                 <div class="article-title">
-                    <h1 class="article-title-regular">ArchLinux</h1>
+                    <h1 class="article-title-regular">ArchLinux安装指南</h1>
                 </div>
             
                 
@@ -487,8 +487,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-08-31 19:20:18</span>
-            <span class="mobile">2023-08-31 19:20</span>
+            <span class="desktop">2024-01-28 12:28:34</span>
+            <span class="mobile">2024-01-28 12:28</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -538,7 +538,7 @@ mjx-container[display="true"] + br {
 <p>在真机安装和在虚拟机上安装还是有很大的区别，此文章简单说明了其中的一些必要的步骤。</p>
 <h2 id="准备安装介质">准备安装介质</h2>
 <p>从镜像网站上 <a class="link" target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">https://mirrors.ustc.edu.cn/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 获取映像文件。</p>
-<p>用 <code>rufus</code> 等烧录文件将映像以<code>DD</code>形式烧录到U盘，<code>ISO</code> 不行，至少在我的电脑上存在这样的问题。</p>
+<p>用 <code>rufus</code> 等烧录文件将映像以 <code>DD</code> 形式烧录到U盘，<code>ISO</code> 不行，至少在我的电脑上存在这样的问题。</p>
 <h2 id="启动到Live环境">启动到Live环境</h2>
 <p>Live 环境中包含的 Archlinux 安装所需的工具。</p>
 <p>电脑重启后按 F2 进入 BIOS（不同厂商的电脑进入 BIOS 的按键可能不一样）。</p>
@@ -617,15 +617,14 @@ mjx-container[display="true"] + br {
 <p><code>net-tools</code> 包含 ifconfig 等命令</p>
 <p><code>vim</code> 文本编辑器</p>
 <p><code>dhcpcd</code> 分配 ip 地址</p>
-<p><code>cups</code> 打印机</p>
 <p><code>openssh</code> ssh 服务</p>
 <p><code>git</code></p>
 <p><code>grub</code> 用来引导系统</p>
-<p><code>os-prober</code> 双系统必装，可以选择进入那个系统</p>
+<p><code>os-prober</code> 双系统可选安装，可以选择进入那个系统</p>
 <p><code>efibootmgr</code> UEFI引导必装</p>
 <p><code>intel-ucode/amd-ucode</code> CPU 微码必装</p>
 <p><code>man</code> 查看软件包的文档</p>
-<p><code>ntfs-3g</code> 访问 ntfs 格式（Windows）的磁盘，双系统必装</p>
+<p><code>ntfs-3g</code> 访问 ntfs 格式的磁盘，双系统必装</p>
 <p><code>noto-fonts-cjk</code> 和 <code>noto-fonts-emoji</code> 谷歌设计的中文字体</p>
 <p><strong>设置中文字符</strong></p>
 <p>编辑 locale.gen 将中文（zh_CN_UTF-8）以及英文（en_US_UTF-8）前的注释去掉。</p>
@@ -668,6 +667,9 @@ mjx-container[display="true"] + br {
 <p>配置 sudo</p>
 <p>编辑<code>/etc/sudoers</code>，取消<code>#wheel ALL=(ALL:ALL) ALL</code>的注释。</p>
 <p><code>su YOURNAME</code> 进入本地用户，下文中的命令中若出现<code>$</code>则表示在本地用户执行的。</p>
+<h3 id="网络配置">网络配置</h3>
+<p>将下面内容写入到 <code>/etc/hosts</code></p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost</span><br><span class="line">::1         localhost</span><br><span class="line">127.0.1.1   yourPCname.localdomain  yourPCname</span><br></pre></td></tr></table></figure></div>
 <h3 id="配置AUR">配置AUR</h3>
 <p>全称 Arch User Repository, 简称 AUR。</p>
 <p>修改<code>/etc/pacman.conf</code></p>
@@ -734,9 +736,10 @@ mjx-container[display="true"] + br {
 <td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow noopener" target="_blank" href="https://aur.archlinux.org/packages/nvidia-390xx-utils/">nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span></td>
 <td><span class="nobreak"><span class="plainlinks archwiki-template-pkg"><a class="external text" rel="nofollow noopener" target="_blank" href="https://aur.archlinux.org/packages/lib32-nvidia-390xx-utils/">lib32-nvidia-390xx-utils <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></span><sup><small>AUR</small></sup></span>
 </td></tr></tbody></table>
-<p>我的笔记本是 Amd 的核显和 Nvidia 的独显，装的内核是Linux-lts，这里举个例子。</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-video-amdgpu mesa lib32-mesa</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S nvidia-lts nvidia-utils lib32-nvidia-utils</span></span><br></pre></td></tr></table></figure></div>
+<p>我的笔记本是 Amd 的核显和 Nvidia 的独显，装的内核是Linux，这里举个例子。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S xf86-video-amdgpu mesa lib32-mesa</span> </span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S nvidia nvidia-utils lib32-nvidia-utils</span></span><br></pre></td></tr></table></figure></div>
 <p>同时把 <code>kms</code> 从 <code>/etc/mkinitcpio.conf</code> 里的 HOOKS 数组中移除，并重新生成 initramfs。 这能防止 initramfs 包含 <code>nouveau</code> 模块，以确保内核在早启动阶段不会加载它。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">mkinitcpio -p linux</span></span><br></pre></td></tr></table></figure></div>
 <p>Nvidia 驱动的安装详见 <a class="link" target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/NVIDIA">wiki-Nvidia <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <h4 id="其他驱动">其他驱动</h4>
 <p>蓝牙驱动</p>
@@ -750,12 +753,12 @@ mjx-container[display="true"] + br {
 </blockquote>
 <h4 id="安装-Gnome-桌面">安装 Gnome 桌面</h4>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome gnome-tweaks gnome-extra gdm</span></span><br></pre></td></tr></table></figure></div>
-<p>开机自启动</p>
+<p><strong>开机自启动</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl <span class="built_in">enable</span> gdm</span></span><br></pre></td></tr></table></figure></div>
 <p>新安装好的Gnomo用起来有诸多不便，没有系统托盘，没有 Dock 栏，没有桌面图标等等，我们需要安装拓展插件来弥补这些功能的缺失。</p>
-<p>先安装支持库</p>
+<p><strong>安装支持库</strong></p>
 <div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S gnome-browser-connector</span></span><br></pre></td></tr></table></figure></div>
-<p>以下是我比较建议安装的几个插件:</p>
+<p><strong>以下是我比较建议安装的几个插件:</strong></p>
 <p>自定义主题</p>
 <p><a class="link" target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/19/user-themes/">User Themes <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>显示桌面图标</p>
@@ -766,16 +769,6 @@ mjx-container[display="true"] + br {
 <p><a class="link" target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>系统托盘</p>
 <p><a class="link" target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/615/appindicator-support/">AppIndicator and KStatusNotifierItem Support <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h4 id="安装输入法">安装输入法</h4>
-<p>在 Gnomo 里输入法推荐使用 IBus</p>
-<p>安装所需要的包</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo pacman -S ibus ibus-libpinyin</span></span><br></pre></td></tr></table></figure></div>
-<p>初次运行</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ibus-setup</span><br></pre></td></tr></table></figure></div>
-<p>这个命令会启动后台程序，并给你这条消息</p>
-<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IBus has been started! If you cannot use IBus, please add below lines in $HOME/.bashrc, and relogin your desktop.</span><br><span class="line">（译：IBus 已启动！如果您还不能用 Ibus,请您先将以下的三行代码加到 $HOME/.bashrc，再重新登录。)</span><br><span class="line">  export GTK_IM_MODULE=ibus</span><br><span class="line">  export XMODIFIERS=@im=ibus</span><br><span class="line">  export QT_IM_MODULE=ibus</span><br></pre></td></tr></table></figure></div>
-<p>最后在设置的输入源中将中文输入法添加至其中。</p>
-<p><strong>其他环境一律 fctix5 来配</strong></p>
 
             </div>
 
@@ -839,8 +832,8 @@ mjx-container[display="true"] + br {
                 <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
-        <div class="page-title">ArchLinux</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="nav-text">准备安装介质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%88%B0Live%E7%8E%AF%E5%A2%83"><span class="nav-text">启动到Live环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E7%BD%91"><span class="nav-text">联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">启动方式的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-text">配置新系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="nav-text">安装引导程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7"><span class="nav-text">配置本地用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEAUR"><span class="nav-text">配置AUR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8"><span class="nav-text">安装驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-text">安装桌面环境</span></a></li></ol></li></ol>
+        <div class="page-title">ArchLinux安装指南</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%AE%89%E8%A3%85%E4%BB%8B%E8%B4%A8"><span class="nav-text">准备安装介质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%88%B0Live%E7%8E%AF%E5%A2%83"><span class="nav-text">启动到Live环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%94%E7%BD%91"><span class="nav-text">联网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E7%9A%84%E9%80%89%E6%8B%A9"><span class="nav-text">启动方式的选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA"><span class="nav-text">磁盘分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-text">配置新系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%BC%95%E5%AF%BC%E7%A8%8B%E5%BA%8F"><span class="nav-text">安装引导程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0%E7%94%A8%E6%88%B7"><span class="nav-text">配置本地用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="nav-text">网络配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEAUR"><span class="nav-text">配置AUR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E9%A9%B1%E5%8A%A8"><span class="nav-text">安装驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-text">安装桌面环境</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -867,7 +860,7 @@ mjx-container[display="true"] + br {
               <span>2023</span>
               -
             
-            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">晓染</a>
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">晓染</a>
         </div>
         
             <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
