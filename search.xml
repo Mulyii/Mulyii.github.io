@@ -108,6 +108,7 @@
 <p>官方仓库：<a class="link" href="https://git.suckless.org/dwm">https://git.suckless.org/dwm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>我修改后的：<a class="link" href="https://github.com/RyanTsi/dwm">https://github.com/RyanTsi/dwm <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>主要基于自己习惯的快捷键进行了调整，安装了一些补丁。之后也决定自己修改部分代码上去。</p>
+<p>可以通过 <code>xrandr</code> 来进行多显示器的配置。</p>
 <p>可以安装 <code>xdg-user-dirs</code> 来生成 Desktop、Music、Pictures 等文件夹，运行 <code>xdg-user-dirs-update</code>。</p>
 <h3 id="kitty">kitty</h3>
 <p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了kitty。</p>
@@ -127,7 +128,7 @@
 <h3 id="zsh">zsh</h3>
 <p>一个 shell 解释器，Tab 相对于 bash 好用太多，同时插件丰富。</p>
 <p>安装 oh-my-zsh 以及 autosuggestions、syntax-highlighting 这两个插件。</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure></div>
 <p>在 <code>~/.zshrc</code> 的 Plugins 处添加上这两个插件。</p>
 <h3 id="ALSA">ALSA</h3>
 <p>全称 Advanced Linux Sound Architecture。需要安装一些程序来控制音频设置。</p>
@@ -136,11 +137,11 @@
 <p>在 <code>～/.asoundrc</code> 中写入</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">defaults.pcm.card 1</span><br><span class="line">defaults.ctl.card 1</span><br></pre></td></tr></table></figure></div>
 <p>可以通过amixer编写一些脚本同时绑定快捷键来方面地控制音量。</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">amixer sset Master 5%-      # 音量减少 5%</span><br><span class="line">amixer sset Master 5%+      # 音量增加 5%</span><br><span class="line">amixer set Master toggle    # 静音解除/解除静音</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="code"><pre><span class="line">amixer sset Master 5%-      # 音量减少 5%</span><br><span class="line">amixer sset Master 5%+      # 音量增加 5%</span><br><span class="line">amixer sset Master toggle   # 静音解除/解除静音</span><br></pre></td></tr></table></figure></div>
 <h3 id="rofi">rofi</h3>
 <p>可以用来当作应用启动器、窗口选择器等。</p>
 <h3 id="picom">picom</h3>
-<p>X11 的合成器。</p>
+<p>X11 合成器。</p>
 <p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>picom -b</code>。</p>
 <h3 id="字体">字体</h3>
 <p>ttf-hack-nerd</p>
@@ -149,6 +150,23 @@
 <p>ttf-wps-fonts</p>
 <p>wps-office-mui-zh-cn</p>
 <p>wyq-microhei</p>
+<h3 id="dunst">dunst</h3>
+<p>X11 的 notification daemon。</p>
+<p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>dunst</code>。</p>
+<p>可以用 <code>notify-send (String)</code> 发送一条通知。</p>
+<h3 id="feh、imv">feh、imv</h3>
+<p>图片查看工具。</p>
+<p>feh 还能对图面进行简单的编辑，一般用来当作显示桌面壁纸的工具。</p>
+<h3 id="mpv">mpv</h3>
+<p>视频播放器。</p>
+<p>可以在参数上添加 <code>--gpu-api=vulkan</code> 来选择用图形 API，<code>--hwdec=nvdec</code> 来选择硬件解码器。</p>
+<p>配置文件通常在 <code>～/.config/mpv/mpv.config</code>。</p>
+<h3 id="btop、nvtop">btop、nvtop</h3>
+<p>btop 资源管理窗口。</p>
+<p>nvtop GPU 资源管理窗口。</p>
+<h3 id="一些常用软件">一些常用软件</h3>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">obs-studio</span><br><span class="line">wps-office</span><br><span class="line">virtualbox</span><br><span class="line">yesplaymusic</span><br><span class="line">google-chrome</span><br><span class="line">visual-studio-code</span><br></pre></td></tr></table></figure></div>
+<h3 id="后续">后续</h3>
 ]]></content>
       <categories>
         <category>操作系统</category>
