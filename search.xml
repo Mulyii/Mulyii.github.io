@@ -124,7 +124,7 @@
 <p>在 <code>/etc/environment</code> 写入如下变量使得 fcitx 在不同界面上能正常运行</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">GTK_IM_MODULE=fcitx</span><br><span class="line">QT_IM_MODULE=fcitx</span><br><span class="line">XMODIFIERS=@im=fcitx</span><br><span class="line">SDL_IM_MODULE=fcitx</span><br><span class="line">INPUT_METHOD=fcitx</span><br><span class="line">GLFW_IM_MODULE=fcitx</span><br></pre></td></tr></table></figure></div>
 <p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>fcitx5 -d &amp;</code>。</p>
-<p>在某些软件可能会遇到输入法不工作的情况，这大概率是跟那个软件的界面有关，可能是由 QT4 等编写的。</p>
+<p>在某些软件可能会遇到输入法不工作的情况，这大概率是跟那个软件的界面有关。</p>
 <h3 id="zsh">zsh</h3>
 <p>一个 shell 解释器，Tab 相对于 bash 好用太多，同时插件丰富。</p>
 <p>安装 oh-my-zsh 以及 autosuggestions、syntax-highlighting 这两个插件。</p>
@@ -156,7 +156,7 @@
 <p>可以用 <code>notify-send (String)</code> 发送一条通知。</p>
 <h3 id="feh、imv">feh、imv</h3>
 <p>图片查看工具。</p>
-<p>feh 还能对图面进行简单的编辑，一般用来当作显示桌面壁纸的工具。</p>
+<p>feh 还能对图像进行简单的编辑，一般用来当作显示桌面壁纸的工具。</p>
 <h3 id="mpv">mpv</h3>
 <p>视频播放器。</p>
 <p>可以在参数上添加 <code>--gpu-api=vulkan</code> 来选择用图形 API，<code>--hwdec=nvdec</code> 来选择硬件解码器。</p>
