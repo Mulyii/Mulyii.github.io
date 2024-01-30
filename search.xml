@@ -161,7 +161,7 @@
 <p><code>~/.zshrc</code> 或 <code>~/.bashrc</code> 写入环境变量</p>
 <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">export http_proxy=127.0.0.1:7890</span><br><span class="line">export https_proxy=127.0.0.1:7890</span><br><span class="line">export socks_proxy=127.0.0.1:7891</span><br></pre></td></tr></table></figure></div>
 <p>单独配置 <code>ssh</code>，在 <code>~/.ssh/config</code> 中写入</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=7891</span><br></pre></td></tr></table></figure></div>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=7890</span><br></pre></td></tr></table></figure></div>
 <p><strong>配置 web 管理</strong></p>
 <p>web 管理面板代码：<a class="link" href="https://go.runba.cyou/ssr-download/clash-dashboard.tar.gz">https://go.runba.cyou/ssr-download/clash-dashboard.tar.gz <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 <p>在 <code>config.yaml</code> 中添加如下代码</p>
