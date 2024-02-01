@@ -30,7 +30,7 @@
 <meta property="og:description" content="介绍一些我在使用 linux 过程中使用的软件，做一个资料的整合，避免日后需要的时候重复去网上搜索。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-28T02:05:18.000Z">
-<meta property="article:modified_time" content="2024-01-30T09:26:27.083Z">
+<meta property="article:modified_time" content="2024-02-01T07:49:01.309Z">
 <meta property="article:author" content="晓染">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -485,8 +485,8 @@ mjx-container[display="true"] + br {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-01-30 17:26:27</span>
-            <span class="mobile">2024-01-30 17:26</span>
+            <span class="desktop">2024-02-01 15:49:01</span>
+            <span class="mobile">2024-02-01 15:49</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -540,9 +540,11 @@ mjx-container[display="true"] + br {
 <p>主要基于自己习惯的快捷键进行了调整，安装了一些补丁。之后也决定自己修改部分代码上去。</p>
 <p>可以通过 <code>xrandr</code> 来进行多显示器的配置。</p>
 <p>可以安装 <code>xdg-user-dirs</code> 来生成 Desktop、Music、Pictures 等文件夹，运行 <code>xdg-user-dirs-update</code>。</p>
-<h3 id="kitty">kitty</h3>
-<p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了kitty。</p>
-<p>官方wiki：<a class="link" target="_blank" rel="noopener" href="https://sw.kovidgoyal.net/kitty/">https://sw.kovidgoyal.net/kitty/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="alacritty">alacritty</h3>
+<p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了 alacritty。</p>
+<p>官方wiki：<a class="link" target="_blank" rel="noopener" href="https://alacritty.org/config-alacritty.html">https://alacritty.org/config-alacritty.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="ranger">ranger</h3>
+<p>文件管理器。</p>
 <h3 id="fcitx5">fcitx5</h3>
 <p>输入法。</p>
 <p><strong>安装:</strong></p>
@@ -575,6 +577,7 @@ mjx-container[display="true"] + br {
 <p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>picom -b</code>。</p>
 <h3 id="字体">字体</h3>
 <p>ttf-hack-nerd</p>
+<p>ttf-dejavu</p>
 <p>noto-fonts-cjk</p>
 <p>noto-fonts-emoji</p>
 <p>ttf-wps-fonts</p>
@@ -661,7 +664,7 @@ mjx-container[display="true"] + br {
     <div class="post-toc">
         <div class="toc-title">此页目录</div>
         <div class="page-title">Linux 常用软件安装及其配置</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dwm"><span class="nav-text">dwm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kitty"><span class="nav-text">kitty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fcitx5"><span class="nav-text">fcitx5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALSA"><span class="nav-text">ALSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rofi"><span class="nav-text">rofi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#picom"><span class="nav-text">picom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dunst"><span class="nav-text">dunst</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feh%E3%80%81imv"><span class="nav-text">feh、imv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mpv"><span class="nav-text">mpv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#btop%E3%80%81nvtop"><span class="nav-text">btop、nvtop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clash"><span class="nav-text">Clash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-text">一些常用软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dotfiles"><span class="nav-text">dotfiles</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dwm"><span class="nav-text">dwm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alacritty"><span class="nav-text">alacritty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ranger"><span class="nav-text">ranger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fcitx5"><span class="nav-text">fcitx5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh"><span class="nav-text">zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALSA"><span class="nav-text">ALSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rofi"><span class="nav-text">rofi</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#picom"><span class="nav-text">picom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%BD%93"><span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dunst"><span class="nav-text">dunst</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#feh%E3%80%81imv"><span class="nav-text">feh、imv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mpv"><span class="nav-text">mpv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#btop%E3%80%81nvtop"><span class="nav-text">btop、nvtop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Clash"><span class="nav-text">Clash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-text">一些常用软件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dotfiles"><span class="nav-text">dotfiles</span></a></li></ol>
 
     </div>
 </div>

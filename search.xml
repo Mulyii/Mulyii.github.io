@@ -98,9 +98,11 @@
 <p>主要基于自己习惯的快捷键进行了调整，安装了一些补丁。之后也决定自己修改部分代码上去。</p>
 <p>可以通过 <code>xrandr</code> 来进行多显示器的配置。</p>
 <p>可以安装 <code>xdg-user-dirs</code> 来生成 Desktop、Music、Pictures 等文件夹，运行 <code>xdg-user-dirs-update</code>。</p>
-<h3 id="kitty">kitty</h3>
-<p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了kitty。</p>
-<p>官方wiki：<a class="link" href="https://sw.kovidgoyal.net/kitty/">https://sw.kovidgoyal.net/kitty/ <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="alacritty">alacritty</h3>
+<p>一个利用 GPU 进行渲染 Terminal 。当时记得用 suckless 的 st 有一些显示问题就换称了 alacritty。</p>
+<p>官方wiki：<a class="link" href="https://alacritty.org/config-alacritty.html">https://alacritty.org/config-alacritty.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="ranger">ranger</h3>
+<p>文件管理器。</p>
 <h3 id="fcitx5">fcitx5</h3>
 <p>输入法。</p>
 <p><strong>安装:</strong></p>
@@ -133,6 +135,7 @@
 <p>随桌面环境自动启动：在 <code>.xinitrc</code> 中添加一行 <code>picom -b</code>。</p>
 <h3 id="字体">字体</h3>
 <p>ttf-hack-nerd</p>
+<p>ttf-dejavu</p>
 <p>noto-fonts-cjk</p>
 <p>noto-fonts-emoji</p>
 <p>ttf-wps-fonts</p>
